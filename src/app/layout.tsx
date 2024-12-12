@@ -3,7 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
-import { Theme, ThemeProvider } from '@/context/ThemeContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 import { cookies } from 'next/headers';
 
 const geistSans = localFont({
@@ -34,13 +34,13 @@ export default async function RootLayout({
 }>) {
   const cookieStore = cookies();
   const themeCookie = (await cookieStore).get('theme');
-  const initialTheme = themeCookie ? themeCookie.value : 'light';
+  const isDarkTheme = themeCookie ? themeCookie.value === 'dark' : false;
   return (
-    <html lang="en">
+    <html lang="en" className={isDarkTheme ? 'dark' : ''}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rokkittSerif.variable} ${initialTheme} font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} ${rokkittSerif.variable}} font-sans`}
       >
-        <ThemeProvider initialTheme={initialTheme as Theme}>
+        <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
           <Header />
           <main>{children}</main>
           <Footer />

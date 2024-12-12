@@ -1,3 +1,4 @@
+// context/ThemeContext.tsx
 'use client';
 
 import {
@@ -9,7 +10,7 @@ import {
 } from 'react';
 import Cookies from 'js-cookie';
 
-export type Theme = 'light' | 'dark';
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
   theme: Theme;
@@ -28,13 +29,13 @@ export const ThemeProvider = ({
   const [theme, setTheme] = useState<Theme>(initialTheme);
 
   useEffect(() => {
-    document.documentElement.className = theme;
+    document.documentElement.className = theme === 'dark' ? 'dark' : '';
+    Cookies.set('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
     const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    Cookies.set('theme', newTheme);
   };
 
   return (
