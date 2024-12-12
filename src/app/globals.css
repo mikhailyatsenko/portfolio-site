@@ -24,10 +24,7 @@ body {
     width: 100%;
       position: sticky;
       top: 0;
-      /*
-        Very opaque, for unsupported browsers.
-        Overwritten in the feature queries below.
-      */
+  
       background: hsl(0deg 0% 100% / 0.95);  
 
 
