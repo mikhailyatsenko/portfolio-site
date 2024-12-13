@@ -38,11 +38,11 @@ export default async function RootLayout({
   return (
     <html lang="en" className={isDarkTheme ? 'dark' : ''}>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rokkittSerif.variable}} font-sans`}
+        className={`${geistSans.variable} ${geistMono.variable} ${rokkittSerif.variable} font-sans`}
       >
         <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
           <Header />
-          <main>{children}</main>
+          <main className="mt-[70px]">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

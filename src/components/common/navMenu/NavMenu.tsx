@@ -16,8 +16,10 @@ export const NavMenu = () => {
   ];
 
   return (
-    <div>
-      <nav className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''}`}>
+    <div className="ml-auto">
+      <nav
+        className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''} flex items-center gap-4`}
+      >
         {navItems.map((link) => {
           const isActive = pathname === link.href;
 
@@ -25,7 +27,7 @@ export const NavMenu = () => {
             <Link
               key={link.label}
               href={link.href}
-              className={isActive ? 'border-b border-purple-800' : ''}
+              className={`${isActive ? 'border-b border-[var(--foreground)]' : ''} text-6xl md:text-lg`}
             >
               {link.label}
             </Link>

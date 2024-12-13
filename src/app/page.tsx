@@ -3,7 +3,7 @@ import { Skills } from '@/components/landing/skills/Skills';
 
 export default function Home() {
   return (
-    <div className="">
+    <div>
       <Hero />
       <Skills />
     </div>
