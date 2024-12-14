@@ -14,18 +14,20 @@
 }
 .menuItems {
   display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 @media (max-width: 767px) {
   .menuItems {
     position: fixed;
-    top: 70px;
+    top: 74px;
     right: -100%;
     height: calc(100vh - 70px);
     width: 100%;
     flex-direction: column;
     justify-content: center;
-    gap: 48px;
+    gap: 3rem;
     background: var(--background);
     transition: right 0.2s ease-in-out;
     z-index: 4;
@@ -49,23 +51,6 @@
   .burgerMenu.active .bar:nth-child(3) {
     transform: rotate(-45deg) translateY(-11.5px);
   }
-  .menuOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-  }
-
-
-  .navItem {
-    color: #1e1e1e;
-    padding: 28px 0;
-    &:hover,
-    &:active {
-      transform: scale(0.97);
-      color: #919191;
-    }
-  }
 }
+
+

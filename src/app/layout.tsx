@@ -42,7 +42,7 @@ export default async function RootLayout({
       >
         <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
           <Header />
-          <main className="mt-[70px]">{children}</main>
+          <main className="mt-[74px]">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

@@ -17,17 +17,18 @@ export const NavMenu = () => {
 
   return (
     <div className="ml-auto">
-      <nav
-        className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''} flex items-center gap-4`}
-      >
+      <nav className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''}`}>
         {navItems.map((link) => {
-          const isActive = pathname === link.href;
+          const isLinkActive = pathname === link.href;
 
           return (
             <Link
               key={link.label}
               href={link.href}
-              className={`${isActive ? 'border-b border-[var(--foreground)]' : ''} text-6xl md:text-lg`}
+              className={`${isLinkActive ? 'border-b border-[var(--foreground)]' : ''} text-6xl md:text-lg`}
+              onClick={() => {
+                setIsBurgerActive(false);
+              }}
             >
               {link.label}
             </Link>
