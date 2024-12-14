@@ -26,6 +26,9 @@ export default {
         h5: ['1.25rem', { lineHeight: '1.6' }],
         h6: ['1rem', { lineHeight: '1.7' }],
       },
+      height: {
+        'screen-minus-nav': 'calc(100vh - 74px)',
+      },
     },
   },
   plugins: [],
