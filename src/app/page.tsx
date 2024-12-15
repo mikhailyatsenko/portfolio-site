@@ -3,7 +3,7 @@ import { Skills } from '@/components/landing/skills/Skills';
 
 export default function Home() {
   return (
-    <div>
+    <div className="h-screen snap-y snap-mandatory overflow-y-scroll">
       <Hero />
       <Skills />
     </div>

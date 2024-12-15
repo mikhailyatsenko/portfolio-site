@@ -43,17 +43,8 @@ body {
     .backdrop {
       position: absolute;
       inset: 0;
-      /*
-          These prefixed properties are usually
-          added automatically by tooling:
-        */
       -webkit-backdrop-filter: blur(16px);
       backdrop-filter: blur(16px);
-      /* background: linear-gradient(
-          to bottom,
-          hsl(0deg 0% 95%),
-          transparent 90%
-        ); */
       pointer-events: none;
     }
 

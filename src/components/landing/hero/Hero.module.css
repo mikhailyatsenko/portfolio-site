@@ -1,85 +1,263 @@
-/* Typewriter effect 1 */
+/* Typewriter effect */
 @keyframes typing {
-    /* Набор текста "Frontend Developer" */
-    0%, 54% { content: ""; }
-    1%, 53% { content: "F"; }
-    2%, 52% { content: "Fr"; }
-    3%, 51% { content: "Fro"; }
-    4%, 50% { content: "Fron"; }
-    5%, 49% { content: "Front"; }
-    6%, 48% { content: "Fronte"; }
-    7%, 47% { content: "Fronten"; }
-    8%, 46% { content: "Frontend"; }
-    9%, 45% { content: "Frontend D"; }
-    10%, 44% { content: "Frontend De"; }
-    11%, 43% { content: "Frontend Dev"; }
-    12%, 42% { content: "Frontend Deve"; }
-    13%, 41% { content: "Frontend Devel"; }
-    14%, 40% { content: "Frontend Develo"; }
-    15%, 39% { content: "Frontend Develop"; }
-    15%, 38% { content: "Frontend Develope"; }
-    16%, 37% { content: "Frontend Developer"; }
-  
-    /* Пауза перед удалением */
-    55%, 99% { content: ""; }
-  
-    56%, 98% { content: "M"; }
-    57%, 97% { content: "My"; }
-    58%, 96% { content: "Myk"; }
-    59%, 95% { content: "Mykh"; }
-    60%, 94% { content: "Mykha"; }
-    61%, 93% { content: "Mykhai"; }
-    62%, 92% { content: "Mykhail"; }
-    63%, 91% { content: "Mykhailo"; }
+  0%,
+  54% {
+    content: '';
   }
-  
-  
-  @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+  1%,
+  53% {
+    content: 'F';
   }
-  
-  .typewriter {
-    --caret: currentcolor;
+  2%,
+  52% {
+    content: 'Fr';
   }
-  
-  .typewriter::before {
-    content: "";
-    animation: typing 13.5s infinite;
+  3%,
+  51% {
+    content: 'Fro';
   }
-  
+  4%,
+  50% {
+    content: 'Fron';
+  }
+  5%,
+  49% {
+    content: 'Front';
+  }
+  6%,
+  48% {
+    content: 'Fronte';
+  }
+  7%,
+  47% {
+    content: 'Fronten';
+  }
+  8%,
+  46% {
+    content: 'Frontend';
+  }
+  9%,
+  45% {
+    content: 'Frontend D';
+  }
+  10%,
+  44% {
+    content: 'Frontend De';
+  }
+  11%,
+  43% {
+    content: 'Frontend Dev';
+  }
+  12%,
+  42% {
+    content: 'Frontend Deve';
+  }
+  13%,
+  41% {
+    content: 'Frontend Devel';
+  }
+  14%,
+  40% {
+    content: 'Frontend Develo';
+  }
+  15%,
+  39% {
+    content: 'Frontend Develop';
+  }
+  15%,
+  38% {
+    content: 'Frontend Develope';
+  }
+  16%,
+  37% {
+    content: 'Frontend Developer';
+  }
+
+  55%,
+  99% {
+    content: '';
+  }
+
+  56%,
+  98% {
+    content: 'M';
+  }
+  57%,
+  97% {
+    content: 'My';
+  }
+  58%,
+  96% {
+    content: 'Myk';
+  }
+  59%,
+  95% {
+    content: 'Mykh';
+  }
+  60%,
+  94% {
+    content: 'Mykha';
+  }
+  61%,
+  93% {
+    content: 'Mykhai';
+  }
+  62%,
+  92% {
+    content: 'Mykhail';
+  }
+  63%,
+  91% {
+    content: 'Mykhailo';
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter {
+  --caret: currentcolor;
+}
+
+.typewriter::before {
+  content: '';
+  animation: typing 13.5s infinite 1.5s;
+}
+
+.typewriter::after {
+  content: '';
+  border-right: 1px solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+.typewriter.thick::after {
+  border-right: 1ch solid var(--caret);
+}
+
+.typewriter.nocaret::after {
+  border-right: 0;
+}
+
+@media (prefers-reduced-motion) {
   .typewriter::after {
-    content: "";
-    border-right: 1px solid var(--caret);
-    animation: blink 0.5s linear infinite;
+    animation: none;
   }
-  
-  .typewriter.thick::after {
-    border-right: 1ch solid var(--caret);
-  }
-  
-  .typewriter.nocaret::after {
-    border-right: 0;
-  }
-  
-  
-  @media (prefers-reduced-motion) {
-    .typewriter::after {
-      animation: none;
+
+  @keyframes sequencePopup {
+    0%,
+    100% {
+      content: 'developer';
     }
-    
-    @keyframes sequencePopup {
-      0%, 100% { content: "developer"; }
-      25% { content: "writer"; }
-      50% { content: "reader"; }
-      75% { content: "human"; }
+    25% {
+      content: 'writer';
     }
-  
-    .typewriter::before {
-      content: "developer";
-      animation: sequencePopup 12s linear infinite;
+    50% {
+      content: 'reader';
+    }
+    75% {
+      content: 'human';
     }
   }
-  
-  /**/
-  
+
+  .typewriter::before {
+    content: 'developer';
+    animation: sequencePopup 12s linear infinite;
+  }
+}
+
+/*Animated Title effect */
+
+.heroTitle {
+  background: linear-gradient(to right, #5e72eb, #ff9190, #fec195, #5e72eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  background-size: 300%;
+  background-position: -100%;
+
+  animation: animatedTitle 13s infinite alternate-reverse;
+}
+
+:global(.dark) .heroTitle {
+  background: linear-gradient(to right, #56f294, #f9c469, #4d9be9, #a9f2bd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 300%;
+  background-position: -100%;
+}
+
+@keyframes animatedTitle {
+  to {
+    background-position: 100%;
+  }
+}
+
+/*Split Title effect */
+
+.split-text-container {
+  display: flex;
+  overflow: hidden;
+}
+
+.text-part {
+  display: inline-block;
+  position: relative;
+  transform: translateX(0);
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.text-part.left {
+  transform: translateX(-200%);
+  animation-name: slide-in-left;
+}
+
+.text-part.right {
+  transform: translateX(200%);
+  animation-name: slide-in-right;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-200%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  90% {
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
