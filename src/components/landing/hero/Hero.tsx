@@ -1,56 +1,26 @@
 import cls from './Hero.module.css';
+import ScrollDownIcon from '@/assets/icons/scroll-down-icon.svg';
 
 export const Hero = () => {
   return (
-    <section className="h-screen-minus-nav mx-auto mt-[74px] snap-end snap-always bg-gradient-to-br from-[#E3FDF5] to-[#FFE6FA] p-5 dark:from-[#1f1636] dark:to-[#090610]">
-      {/* <svg
-        width="100%"
-        height="100%"
-        style={{ position: 'absolute', height: 'calc(100vh - 74px)' }}
-      >
-        <defs>
-          <pattern
-            id="polka-dots"
-            x="0"
-            y="0"
-            width="100"
-            height="100"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle fill="#be9ddf" cx="25" cy="25" r="3"></circle>
-          </pattern>
-        </defs>
-
-        <rect
-          x="0"
-          y="0"
-          width="100%"
-          height="100%"
-          fill="url(#polka-dots)"
-        ></rect>
-      </svg> */}
+    <section className="mx-auto mt-[74px] h-screen-minus-nav animate-fadeIn snap-end snap-always bg-gradient-to-br from-[#E3FDF5] to-[#FFE6FA] p-5 dark:from-[#1f1636] dark:to-[#090610]">
       <div className="wrapper relative flex h-full max-w-fit flex-col justify-center">
         <h4
-          className="mb:1 ml-1.5 text-left font-mono text-base sm:ml-2 sm:text-lg"
+          className="mb:1 ml-1.5 animate-[fadeIn_500ms_linear_2000ms_forwards] text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
           aria-label="Hi! I'm fontend developer"
         >
           Hi👋! I&apos;m&nbsp;<span className={cls.typewriter}></span>
         </h4>
 
         <div className={cls['split-text-container']}>
-          <h2
-            className={`text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl ${cls.heroTitle}`}
-          >
-            <span className={`${cls['text-part']} ${cls.left}`}>
-              Bringing Ideas&nbsp;
-            </span>
-            <span className={`${cls['text-part']} ${cls.right}`}>to Life</span>
+          <h2 className="animate-[fadeIn_2000ms_linear_500ms_forwards] text-left text-5xl opacity-0 delay-[1000ms] duration-[1000ms] ease-linear sm:text-7xl lg:text-center xl:text-8xl">
+            Bringing Ideas to Life
           </h2>
         </div>
 
-        <p className="absolute bottom-5 mt-auto h-6 w-6 animate-bounce text-center">
-          вниз
-        </p>
+        <div className="absolute bottom-5 left-0 mt-auto w-full animate-[fadeIn_3000ms_linear_500ms_forwards] text-center opacity-0">
+          <ScrollDownIcon className="mx-auto block animate-bounce" />
+        </div>
       </div>
     </section>
   );

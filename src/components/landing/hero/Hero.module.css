@@ -128,7 +128,7 @@
 
 .typewriter::before {
   content: '';
-  animation: typing 13.5s infinite 1.5s;
+  animation: typing 13.5s infinite 2.5s;
 }
 
 .typewriter::after {
@@ -143,33 +143,6 @@
 
 .typewriter.nocaret::after {
   border-right: 0;
-}
-
-@media (prefers-reduced-motion) {
-  .typewriter::after {
-    animation: none;
-  }
-
-  @keyframes sequencePopup {
-    0%,
-    100% {
-      content: 'developer';
-    }
-    25% {
-      content: 'writer';
-    }
-    50% {
-      content: 'reader';
-    }
-    75% {
-      content: 'human';
-    }
-  }
-
-  .typewriter::before {
-    content: 'developer';
-    animation: sequencePopup 12s linear infinite;
-  }
 }
 
 /*Animated Title effect */
@@ -197,67 +170,5 @@
 @keyframes animatedTitle {
   to {
     background-position: 100%;
-  }
-}
-
-/*Split Title effect */
-
-.split-text-container {
-  display: flex;
-  overflow: hidden;
-}
-
-.text-part {
-  display: inline-block;
-  position: relative;
-  transform: translateX(0);
-  animation-duration: 2s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-.text-part.left {
-  transform: translateX(-200%);
-  animation-name: slide-in-left;
-}
-
-.text-part.right {
-  transform: translateX(200%);
-  animation-name: slide-in-right;
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-200%);
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0.2;
-  }
-
-  90% {
-    transform: translateX(0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-right {
-  0% {
-    opacity: 0;
-    transform: translateX(200%);
-  }
-
-  50% {
-    opacity: 0.2;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
   }
 }

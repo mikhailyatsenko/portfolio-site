@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import { keyframes } from './src/lib/keyframes';
 
 export default {
   darkMode: 'class',
@@ -9,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadeIn: keyframes.fadeIn,
+      },
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
@@ -28,6 +32,9 @@ export default {
       },
       height: {
         'screen-minus-nav': 'calc(100vh - 74px)',
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-in-out',
       },
     },
   },
