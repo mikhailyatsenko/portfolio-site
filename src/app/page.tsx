@@ -1,11 +1,13 @@
 import { Hero } from '@/components/landing/hero/Hero';
-import { Skills } from '@/components/landing/skills/Skills';
+import { Profile } from '@/components/landing/profile/Profile';
+import { Projects } from '@/components/landing/projects/Projects';
 
 export default function Home() {
   return (
-    <div className="h-screen snap-y snap-mandatory overflow-y-scroll">
+    <div>
       <Hero />
-      <Skills />
+      <Profile />
+      <Projects />
     </div>
   );
 }
