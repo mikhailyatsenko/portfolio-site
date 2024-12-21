@@ -27,12 +27,12 @@ export const StackCards: React.FC<StackCardsProps> = ({ items }) => {
       const containerTop = container.getBoundingClientRect().top;
 
       cards.forEach((card, index) => {
-        const offset = index * 20; // Накладываем каждую карточку на предыдущую
+        const offset = index * (cardHeight / 2); // Накладываем каждую карточку на предыдущую
         const scrolling = containerTop + cardHeight * index;
 
         if (scrolling > 0) {
           const scale = Math.max(
-            0.8,
+            0.9,
             (cardHeight - scrolling * 0.05) / cardHeight,
           );
           card.style.transform = `translateY(${offset}px) scale(${scale})`;
@@ -65,12 +65,9 @@ export const StackCards: React.FC<StackCardsProps> = ({ items }) => {
   }, []);
 
   return (
-    <ul ref={containerRef} className="relative space-y-4">
+    <ul ref={containerRef} className="relative space-y-0">
       {items.map((content, index) => (
-        <li
-          key={index}
-          className={`${cls.stackCard} rounded border-2 border-solid border-red-800 bg-gray-200 p-4 shadow-md`}
-        >
+        <li key={index} className={`${cls.stackCard} `}>
           {content}
         </li>
       ))}
