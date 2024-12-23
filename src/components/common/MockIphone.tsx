@@ -1,19 +1,22 @@
-import Image from 'next/image';
-import slide from '../../assets/projectsSlides/project-1-slide-1.webp';
+import { ReactNode } from 'react';
 
-export const MockIphone = () => {
+interface MockIphoneProps {
+  screenContent: ReactNode;
+}
+
+export const MockIphone = ({ screenContent }: MockIphoneProps) => {
   return (
-    <div className="relative ml-1 h-[600px] w-72 rounded-[45px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)]">
+    <div className="z-1 sm576:z-auto sm576:relative absolute h-[500px] w-60 shrink-0 rounded-[45px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)] lg:h-[600px] lg:w-72">
       {/* Dynamic Island --> */}
 
-      <div className="absolute left-1/2 top-2 z-20 h-[22px] w-[90px] -translate-x-1/2 transform rounded-full bg-zinc-900"></div>
+      <div className="absolute left-1/2 top-2 z-20 h-[18px] w-[75px] -translate-x-1/2 transform rounded-full bg-zinc-900 lg:h-[22px] lg:w-[90px]"></div>
 
       <div className="pointer-events-none absolute -inset-[1px] rounded-[37px] border-[3px] border-zinc-700 border-opacity-40"></div>
 
       {/* Screen Content --> */}
 
       <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-[37px] bg-zinc-900/10">
-        <Image src={slide} alt="Project 3. Welle slide" />
+        {screenContent}
       </div>
 
       {/* Left Side Buttons --> */}

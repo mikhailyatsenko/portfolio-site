@@ -65,9 +65,9 @@ export const StackCards: React.FC<StackCardsProps> = ({ items }) => {
   }, []);
 
   return (
-    <ul ref={containerRef} className="relative space-y-0">
+    <ul ref={containerRef} className="relative">
       {items.map((content, index) => (
-        <li key={index} className={`${cls.stackCard} `}>
+        <li key={index} className={`${cls.stackCard}`}>
           {content}
         </li>
       ))}

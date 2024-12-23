@@ -10,6 +10,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        sm576: '576px',
+      },
       keyframes: {
         fadeIn: keyframes.fadeIn,
       },
