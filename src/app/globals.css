@@ -70,12 +70,14 @@ body {
         black 0% 50%,
         transparent 50% 100%
       );
+
       mask-image: linear-gradient(
         to bottom,
         black 0% 50%,
         transparent 50% 100%
       );
     }
+
     .backdrop-edge {
       height: 100%;
       inset: 0;

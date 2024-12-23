@@ -2,6 +2,7 @@
   position: sticky;
   top: 134px; /* расстояние от верхнего края */
   transform-origin: center top;
+
   z-index: auto;
   transition: transform 0.2s ease-out;
 }

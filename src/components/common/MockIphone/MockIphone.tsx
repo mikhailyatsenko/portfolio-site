@@ -1,12 +1,17 @@
 import { ReactNode } from 'react';
 
+import cls from './MockIphone.module.css';
+
 interface MockIphoneProps {
   screenContent: ReactNode;
+  cardNr: 1 | 2 | 3 | 4;
 }
 
-export const MockIphone = ({ screenContent }: MockIphoneProps) => {
+export const MockIphone = ({ screenContent, cardNr }: MockIphoneProps) => {
   return (
-    <div className="z-1 sm576:z-auto sm576:relative absolute h-[500px] w-60 shrink-0 rounded-[45px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)] lg:h-[600px] lg:w-72">
+    <div
+      className={`${cls[`MockIphone-${cardNr}`]} z-1 absolute h-[500px] w-60 shrink-0 rounded-[45px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)] sm576:relative sm576:z-auto lg:h-[600px] lg:w-72`}
+    >
       {/* Dynamic Island --> */}
 
       <div className="absolute left-1/2 top-2 z-20 h-[18px] w-[75px] -translate-x-1/2 transform rounded-full bg-zinc-900 lg:h-[22px] lg:w-[90px]"></div>

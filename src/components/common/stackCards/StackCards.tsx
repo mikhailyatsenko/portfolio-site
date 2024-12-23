@@ -31,9 +31,10 @@ export const StackCards: React.FC<StackCardsProps> = ({ items }) => {
         const scrolling = containerTop + cardHeight * index;
 
         if (scrolling > 0) {
+          console.log(index, offset);
           const scale = Math.max(
-            0.9,
-            (cardHeight - scrolling * 0.05) / cardHeight,
+            0.8,
+            (cardHeight - scrolling * 0.2) / cardHeight,
           );
           card.style.transform = `translateY(${offset}px) scale(${scale})`;
           card.style.zIndex = `${cards.length + index}`; // Обеспечивает наложение

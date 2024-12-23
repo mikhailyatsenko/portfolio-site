@@ -1,36 +1,53 @@
 import { StackCards } from '@/components/common/stackCards/StackCards';
-import { Project3WelleCard } from './project-cards/Project3WelleCard';
+import { ProjectCard } from './projectCard/ProjectCard';
 
 export const Projects = () => {
   const cardContents = [
-    <div key={'1'}>
+    <div key="some projects">
       <h2 className="text-h2">Some projects</h2>
     </div>,
-    <Project3WelleCard key={'Project3WelleCard'} />,
-    <div
-      className="h-screen-minus-nav rounded border-2 border-solid border-red-800 bg-slate-200 p-4 shadow-md"
-      key={'3'}
-    >
-      Card 3 Content
-    </div>,
-    <div
-      className="h-screen-minus-nav rounded border-2 border-solid border-red-800 bg-slate-200 p-4 shadow-md"
-      key={'4'}
-    >
-      Card 4 Content
-    </div>,
-    <div
-      className="h-screen-minus-nav rounded border-2 border-solid border-red-800 bg-slate-200 p-4 shadow-md"
-      key={'4'}
-    >
-      Card 4 Content
-    </div>,
-    <div
-      className="h-screen-minus-nav rounded border-2 border-solid border-red-800 bg-slate-200 p-4 shadow-md"
-      key={'4'}
-    >
-      Card 4 Content
-    </div>,
+
+    <ProjectCard
+      key={'1'}
+      cardNr={1}
+      title='"3. Welle" - Berlin Coffee Shop Finder'
+      description="Fullstack application designed to help Berlin residents and visitors
+          discover the best specialty coffee shops in the city. Users can
+          explore a map of coffee shops, read and leave reviews, and find
+          essential information about each location."
+      link="https://3welle.com"
+      linkText="3welle.com"
+      featuresList={[
+        'Map Integration: View coffee shops on an interactive map.',
+        'Interactive page: Detailed page with reviews and ratings for each coffee shop.',
+        'User Reviews: Read and submit reviews for each coffee shop.',
+        'Rating System: Rate your favorite coffee shops.',
+        'Authentication: Google and E-mail authentication.',
+        'Responsive Design: Optimized for both desktop and mobile devices.',
+      ]}
+      detailsLink=""
+    />,
+
+    <ProjectCard
+      key="2"
+      cardNr={2}
+      title='"3. Welle" - Berlin Coffee Shop Finder'
+      description=" Fullstack application designed to help Berlin residents and visitors
+        discover the best specialty coffee shops in the city. Users can
+        explore a map of coffee shops, read and leave reviews, and find
+        essential information about each location."
+      link="https://3welle.com"
+      linkText="3welle.com"
+      featuresList={[
+        'Map Integration: View coffee shops on an interactive map.',
+        'Interactive page: Detailed page with reviews and ratings for each coffee shop.',
+        'User Reviews: Read and submit reviews for each coffee shop.',
+        'Rating System: Rate your favorite coffee shops.',
+        'Authentication: Google and E-mail authentication.',
+        'Responsive Design: Optimized for both desktop and mobile devices.',
+      ]}
+      detailsLink=""
+    />,
   ];
   return (
     <section className="px-8 py-6 md:px-14 md:py-16">

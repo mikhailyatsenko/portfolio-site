@@ -25,6 +25,7 @@
   opacity: calc(var(--scroll-progress-profile));
   transition: transform 0.2s linear;
 }
+
 .colorDiv {
   position: absolute;
   top: 10px;
