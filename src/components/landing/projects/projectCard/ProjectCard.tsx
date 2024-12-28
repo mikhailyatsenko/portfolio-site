@@ -31,10 +31,10 @@ export const ProjectCard = ({
         className="relative flex gap-5 overflow-hidden rounded-xl bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] px-6 py-9 shadow-md dark:from-[#1f1636] dark:to-[#090610] sm:px-10 md:gap-10 lg:px-20 lg:py-10"
         key={'2'}
       >
-        <MockIphone
+        {/* <MockIphone
           cardNr={cardNr}
           screenContent={<Image src={slide} alt="Project 3.Welle card" />}
-        />
+        /> */}
 
         <div
           className={`${cls[`projectCardInfo-${cardNr}`]} z-[2] grow-0 overflow-y-auto sm576:z-auto`}

@@ -1,77 +1,88 @@
 'use client';
 
-import cls from './StackCards.module.css';
-
-import { useRef, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface StackCardsProps {
-  items: React.ReactNode[];
+  children: React.ReactNode[];
 }
 
-export const StackCards: React.FC<StackCardsProps> = ({ items }) => {
-  const containerRef = useRef<HTMLUListElement | null>(null);
+const StackCards: React.FC<StackCardsProps> = ({ children }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const cards = container.querySelectorAll(
-      `.${cls.stackCard}`,
-    ) as NodeListOf<HTMLLIElement>;
-    if (!cards.length) return; // Если карточек нет, просто выходим
-
-    const cardHeight = cards[0].offsetHeight || 0;
-    // const marginY = parseFloat(getComputedStyle(cards[0]).marginBottom || '0');
-
-    const handleScroll = () => {
-      const containerTop = container.getBoundingClientRect().top;
-
-      cards.forEach((card, index) => {
-        const offset = index * (cardHeight / 2); // Накладываем каждую карточку на предыдущую
-        const scrolling = containerTop + cardHeight * index;
-
-        if (scrolling > 0) {
-          console.log(index, offset);
-          const scale = Math.max(
-            0.8,
-            (cardHeight - scrolling * 0.2) / cardHeight,
-          );
-          card.style.transform = `translateY(${offset}px) scale(${scale})`;
-          card.style.zIndex = `${cards.length + index}`; // Обеспечивает наложение
-        } else {
-          card.style.transform = `translateY(${offset}px) scale(1)`;
-          card.style.zIndex = `${cards.length + index}`;
-        }
-      });
-    };
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          window.addEventListener('scroll', handleScroll);
-          handleScroll(); // вызов для начальной установки
-        } else {
-          window.removeEventListener('scroll', handleScroll);
-        }
-      },
-      { threshold: 0.1 },
-    );
+    const items = container.getElementsByClassName(
+      'card',
+    ) as HTMLCollectionOf<HTMLDivElement>;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        window.addEventListener('scroll', handleScroll);
+      } else {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    });
 
     observer.observe(container);
+
+    const handleScroll = () => {
+      if (scrolling) return;
+      setScrolling(true);
+
+      window.requestAnimationFrame(() => {
+        const top = container.getBoundingClientRect().top;
+        const offsetTop = 100; // отступ от верха
+        // const cardHeight = 700;
+        const marginY = 15; // промежуток между карточками
+
+        // Обработка каждой карточки
+
+        let acucumulateHeihgt = 0;
+        Array.from(items).forEach((item, index) => {
+          const cardHeight = item.getBoundingClientRect().height;
+          if (index !== 0) {
+            acucumulateHeihgt += cardHeight + marginY;
+          }
+          const scrolling = offsetTop - top - acucumulateHeihgt;
+
+          // Если карточка уже вышла за пределы области видимости — фиксируем её
+          if (scrolling > cardHeight / 2) {
+            const scale = Math.max(
+              0.8,
+              (cardHeight - scrolling * 0.05) / cardHeight,
+            ); // не уменьшаем меньше 80%
+            const translateY = marginY * index;
+
+            item.style.transform = `translateY(${translateY}px) rotate(${index % 2 === 0 ? -scale : scale}deg)`;
+          } else {
+            item.style.transform = `translateY(${marginY * index}px) rotate(0deg)`;
+          }
+        });
+
+        setScrolling(false);
+      });
+    };
 
     return () => {
       observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [scrolling]);
 
   return (
-    <ul ref={containerRef} className="relative">
-      {items.map((content, index) => (
-        <li key={index} className={`${cls.stackCard}`}>
-          {content}
-        </li>
+    <div ref={containerRef} className="card-deck-js space-y-4">
+      {children.map((child, index) => (
+        <div
+          key={index}
+          className="card sticky top-20 transform rounded-lg border border-gray-200 bg-white p-4 shadow-lg transition-transform duration-200"
+        >
+          {child}
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
+
+export { StackCards };
