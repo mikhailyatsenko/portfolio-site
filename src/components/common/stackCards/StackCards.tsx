@@ -34,7 +34,6 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       window.requestAnimationFrame(() => {
         const top = container.getBoundingClientRect().top;
         const offsetTop = 100; // отступ от верха
-        // const cardHeight = 700;
         const marginY = 15; // промежуток между карточками
 
         // Обработка каждой карточки
@@ -46,18 +45,16 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
             acucumulateHeihgt += cardHeight + marginY;
           }
           const scrolling = offsetTop - top - acucumulateHeihgt;
-
+          if (index === 1) console.log(index, scrolling);
           // Если карточка уже вышла за пределы области видимости — фиксируем её
-          if (scrolling > cardHeight / 2) {
-            const scale = Math.max(
-              0.8,
-              (cardHeight - scrolling * 0.05) / cardHeight,
-            ); // не уменьшаем меньше 80%
+          if (scrolling > 0) {
+            const scale = Math.min(Math.max(1 - scrolling / 2000, 0.95), 1);
+            if (index === 1) console.log('scale', scale);
             const translateY = marginY * index;
 
-            item.style.transform = `translateY(${translateY}px) rotate(${index % 2 === 0 ? -scale : scale}deg)`;
+            item.style.transform = `translateY(${translateY}px) scale(${scale})`;
           } else {
-            item.style.transform = `translateY(${marginY * index}px) rotate(0deg)`;
+            item.style.transform = `translateY(${marginY * index}px) scale(1)`;
           }
         });
 
@@ -76,7 +73,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       {children.map((child, index) => (
         <div
           key={index}
-          className="card sticky top-20 transform rounded-lg border border-gray-200 bg-white p-4 shadow-lg transition-transform duration-200"
+          className="card sticky top-20 transform rounded-lg border border-gray-200 bg-white p-4 shadow-lg transition-transform duration-100"
         >
           {child}
         </div>

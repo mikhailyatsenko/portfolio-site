@@ -4,5 +4,5 @@
   transform-origin: center top;
 
   z-index: auto;
-  transition: transform 0.2s ease-out;
+  transition: transform 0.5s ease-out;
 }

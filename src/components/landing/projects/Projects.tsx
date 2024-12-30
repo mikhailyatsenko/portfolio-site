@@ -25,7 +25,7 @@ export const Projects = () => {
     <ProjectCard
       key={'1'}
       cardNr={1}
-      title='"3. Welle" - Berlin Coffee Shop Finder'
+      title=""
       description="Fullstack application designed to help Berlin residents and visitors
           discover the best specialty coffee shops in the city. Users can
           explore a map of coffee shops, read and leave reviews, and find
@@ -46,7 +46,7 @@ export const Projects = () => {
     <ProjectCard
       key="2"
       cardNr={2}
-      title='"3. Welle" - Berlin Coffee Shop Finder'
+      title=""
       description=" Fullstack application designed to help Berlin residents and visitors
         discover the best specialty coffee shops in the city. Users can
         explore a map of coffee shops, read and leave reviews, and find
@@ -67,7 +67,7 @@ export const Projects = () => {
     <ProjectCard
       key="2"
       cardNr={2}
-      title='"3. Welle" - Berlin Coffee Shop Finder'
+      title=""
       description=" Fullstack application designed to help Berlin residents and visitors
         discover the best specialty coffee shops in the city. Users can
         explore a map of coffee shops, read and leave reviews, and find
@@ -87,7 +87,7 @@ export const Projects = () => {
     <ProjectCard
       key="2"
       cardNr={2}
-      title='"3. Welle" - Berlin Coffee Shop Finder'
+      title=""
       description=" Fullstack application designed to help Berlin residents and visitors
         discover the best specialty coffee shops in the city. Users can
         explore a map of coffee shops, read and leave reviews, and find
