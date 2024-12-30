@@ -1,19 +1,18 @@
 import { MockIphone } from '@/components/common/MockIphone/MockIphone';
-import Image from 'next/image';
-import slide from '@/assets/projectsSlides/project-1-slide-1.webp';
-import cls from './ProjectCard.module.css';
+import Image, { StaticImageData } from 'next/image';
+// import cls from './ProjectCard.module.css';
 import { ButtonWithArrow } from '@/components/common/Buttons/ButtonWithArrow';
 import Link from 'next/link';
-import { ScrollTrackBlock } from '@/components/common/ScrollTrackBlock';
+import { AnimateInView } from '@/components/common/AnimateInView';
 
 interface ProjectCardProps {
-  cardNr: 1 | 2 | 3 | 4;
   title: string;
   description: string;
   featuresList: string[];
   link: string;
   linkText: string;
   detailsLink: string;
+  slide: StaticImageData;
 }
 
 export const ProjectCard = ({
@@ -23,21 +22,19 @@ export const ProjectCard = ({
   link,
   linkText,
   detailsLink,
-  cardNr,
+  slide,
 }: ProjectCardProps) => {
   return (
-    <ScrollTrackBlock id={`projectCard-${cardNr}`}>
-      <div
-        className="relative flex gap-5 overflow-hidden rounded-xl bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] px-6 py-9 shadow-md dark:from-[#1f1636] dark:to-[#090610] sm:px-10 md:gap-10 lg:px-20 lg:py-10"
-        key={'2'}
-      >
-        {/* <MockIphone
-          cardNr={cardNr}
-          screenContent={<Image src={slide} alt="Project 3.Welle card" />}
-        /> */}
+    <div className="flex">
+      <MockIphone screenContent={<Image src={slide} alt={title} />} />
 
+      <AnimateInView
+        resetOnExit={true}
+        threshold={0.5}
+        activeClass="!opacity-100 z-[2]"
+      >
         <div
-          className={`${cls[`projectCardInfo-${cardNr}`]} z-[2] grow-0 overflow-y-auto sm576:z-auto`}
+          className={`z-[2] grow-0 overflow-y-auto bg-background bg-opacity-85`}
         >
           <h3 className="mb-3 text-balance text-xl font-bold md:text-h3">
             {title}
@@ -64,7 +61,7 @@ export const ProjectCard = ({
             <ButtonWithArrow className="my-5">More details</ButtonWithArrow>
           </Link>
         </div>
-      </div>
-    </ScrollTrackBlock>
+      </AnimateInView>
+    </div>
   );
 };

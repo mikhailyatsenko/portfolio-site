@@ -51,7 +51,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
 
         // Анимация только с transform для оптимизации производительности
         if (scrolling > 0) {
-          const scale = Math.min(Math.max(1 - scrolling / 2000, 0.95), 1);
+          const scale = Math.min(Math.max(1 - scrolling / 1000, 0.95), 1);
           const translateY = marginY * index;
           item.style.transform = `translateY(${translateY}px) scale(${scale})`;
         } else {
@@ -86,11 +86,15 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
   }, [handleScroll]);
 
   return (
-    <div ref={containerRef} className="card-deck-js space-y-4">
+    <div ref={containerRef}>
       {children.map((child, index) => (
         <div
           key={index}
-          className="card sticky top-20 transform rounded-lg border border-gray-200 bg-white p-4 shadow-lg transition-transform duration-100"
+          className={`card sticky top-20 transform overflow-hidden rounded-xl shadow-[0px_0px_3px_0px_rgba(0,_0,_0,_0.1)] transition-transform duration-100 sm:px-10 md:gap-10 lg:px-20 lg:py-10 ${
+            index % 2 === 0
+              ? 'bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] dark:from-[#1f1636] dark:to-[#090610]'
+              : 'bg-gradient-to-br from-[#ffe6fa] to-[#e3fdf5] dark:from-[#090610] dark:to-[#1f1636]'
+          }`}
         >
           {child}
         </div>
