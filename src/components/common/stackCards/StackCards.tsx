@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 interface StackCardsProps {
   children: React.ReactNode[];
@@ -10,63 +10,80 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolling, setScrolling] = useState(false);
 
+  // Дебаунсинг функции скролла
+  const debounce = (
+    func: (...args: unknown[]) => void,
+    delay: number,
+  ): ((...args: unknown[]) => void) => {
+    let timer: NodeJS.Timeout;
+    return (...args: unknown[]) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => func(...args), delay);
+    };
+  };
+
+  const handleScroll = useCallback(() => {
+    if (scrolling) return;
+    setScrolling(true);
+
+    window.requestAnimationFrame(() => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const items = container.getElementsByClassName(
+        'card',
+      ) as HTMLCollectionOf<HTMLDivElement>;
+
+      const top = container.getBoundingClientRect().top;
+      const offsetTop = 100; // отступ от верха
+      const marginY = 15; // промежуток между карточками
+
+      let accumulatedHeight = 0;
+
+      Array.from(items).forEach((item, index) => {
+        const cardHeight = item.getBoundingClientRect().height;
+
+        if (index !== 0) {
+          accumulatedHeight += cardHeight + marginY;
+        }
+
+        const scrolling = offsetTop - top - accumulatedHeight;
+
+        // Анимация только с transform для оптимизации производительности
+        if (scrolling > 0) {
+          const scale = Math.min(Math.max(1 - scrolling / 2000, 0.95), 1);
+          const translateY = marginY * index;
+          item.style.transform = `translateY(${translateY}px) scale(${scale})`;
+        } else {
+          item.style.transform = `translateY(${marginY * index}px) scale(1)`;
+        }
+      });
+
+      setScrolling(false);
+    });
+  }, [scrolling]);
+
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const items = container.getElementsByClassName(
-      'card',
-    ) as HTMLCollectionOf<HTMLDivElement>;
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', debouncedScroll);
       } else {
-        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('scroll', debouncedScroll);
       }
     });
 
     observer.observe(container);
 
-    const handleScroll = () => {
-      if (scrolling) return;
-      setScrolling(true);
-
-      window.requestAnimationFrame(() => {
-        const top = container.getBoundingClientRect().top;
-        const offsetTop = 100; // отступ от верха
-        const marginY = 15; // промежуток между карточками
-
-        // Обработка каждой карточки
-
-        let acucumulateHeihgt = 0;
-        Array.from(items).forEach((item, index) => {
-          const cardHeight = item.getBoundingClientRect().height;
-          if (index !== 0) {
-            acucumulateHeihgt += cardHeight + marginY;
-          }
-          const scrolling = offsetTop - top - acucumulateHeihgt;
-          if (index === 1) console.log(index, scrolling);
-          // Если карточка уже вышла за пределы области видимости — фиксируем её
-          if (scrolling > 0) {
-            const scale = Math.min(Math.max(1 - scrolling / 2000, 0.95), 1);
-            if (index === 1) console.log('scale', scale);
-            const translateY = marginY * index;
-
-            item.style.transform = `translateY(${translateY}px) scale(${scale})`;
-          } else {
-            item.style.transform = `translateY(${marginY * index}px) scale(1)`;
-          }
-        });
-
-        setScrolling(false);
-      });
-    };
+    const debouncedScroll = debounce(handleScroll, 10); // Дебаунсинг вызова
 
     return () => {
       observer.disconnect();
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', debouncedScroll);
     };
-  }, [scrolling]);
+  }, [handleScroll]);
 
   return (
     <div ref={containerRef} className="card-deck-js space-y-4">
