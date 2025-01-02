@@ -22,6 +22,25 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
     };
   };
 
+  useEffect(() => {
+    const normalizwItemsHeight = () => {
+      const container = containerRef.current;
+      if (!container) return;
+
+      const items = container.getElementsByClassName(
+        'card',
+      ) as HTMLCollectionOf<HTMLDivElement>;
+
+      Array.from(items).forEach((item, index) => {
+        if (index !== 0 && items[index - 1].clientHeight > item.clientHeight) {
+          item.style.height = `${items[index - 1].clientHeight}px`;
+        }
+      });
+    };
+
+    normalizwItemsHeight();
+  }, []);
+
   const handleScroll = useCallback(() => {
     if (scrolling) return;
     setScrolling(true);
@@ -41,14 +60,15 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       let accumulatedHeight = 0;
 
       Array.from(items).forEach((item, index) => {
-        const cardHeight = item.getBoundingClientRect().height;
+        // const cardHeight = item.getBoundingClientRect().height;
 
         if (index !== 0) {
-          accumulatedHeight += cardHeight + marginY;
+          accumulatedHeight +=
+            items[index - 1].getBoundingClientRect().height + marginY;
         }
 
         const scrolling = offsetTop - top - accumulatedHeight;
-
+        console.log(index, scrolling);
         // Анимация только с transform для оптимизации производительности
         if (scrolling > 0) {
           const scale = Math.min(Math.max(1 - scrolling / 1000, 0.95), 1);

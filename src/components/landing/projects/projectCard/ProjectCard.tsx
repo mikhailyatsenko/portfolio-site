@@ -34,7 +34,7 @@ export const ProjectCard = ({
         activeClass="!opacity-100 z-[2]"
       >
         <div
-          className={`z-[2] grow-0 overflow-y-auto bg-background bg-opacity-85`}
+          className={`z-[2] grow-0 overflow-y-auto bg-background px-6 py-9 sm576:bg-transparent`}
         >
           <h3 className="mb-3 text-balance text-xl font-bold md:text-h3">
             {title}
