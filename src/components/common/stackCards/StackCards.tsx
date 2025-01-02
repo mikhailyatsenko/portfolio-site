@@ -114,7 +114,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       {children.map((child, index) => (
         <div
           key={index}
-          className={`card sticky top-20 transform overflow-hidden rounded-xl shadow-[0px_0px_3px_0px_rgba(0,_0,_0,_0.1)] transition-transform duration-100 sm:px-10 md:gap-10 lg:px-20 lg:py-10 ${
+          className={`card sticky top-20 transform overflow-hidden rounded-xl shadow-[0px_0px_3px_0px_rgba(0,_0,_0,_0.1)] transition-transform duration-100 sm576:px-10 sm576:py-6 md:gap-10 lg:px-20 lg:py-10 ${
             index % 2 === 0
               ? 'bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] dark:from-[#1f1636] dark:to-[#090610]'
               : 'bg-gradient-to-br from-[#ffe6fa] to-[#e3fdf5] dark:from-[#090610] dark:to-[#1f1636]'

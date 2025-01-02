@@ -1,6 +1,5 @@
 import { MockIphone } from '@/components/common/MockIphone/MockIphone';
 import Image, { StaticImageData } from 'next/image';
-// import cls from './ProjectCard.module.css';
 import { ButtonWithArrow } from '@/components/common/Buttons/ButtonWithArrow';
 import Link from 'next/link';
 import { AnimateInView } from '@/components/common/AnimateInView';
@@ -25,14 +24,14 @@ export const ProjectCard = ({
   slide,
 }: ProjectCardProps) => {
   return (
-    <div className="flex h-full">
+    <div className="flex max-h-screen justify-center sm576:justify-start">
       <MockIphone screenContent={<Image src={slide} alt={title} />} />
 
       <AnimateInView
         resetOnExit={true}
         threshold={0.5}
         activeClass="!opacity-100 z-[2] transition-opacity duration-1000 ease-in-out"
-        className="z-[2] grow-0 overflow-y-auto bg-background px-6 py-9 opacity-0 transition-opacity duration-1000 ease-in-out sm576:bg-transparent"
+        className="bg-opacity-variable z-[2] h-full min-h-[540] w-full grow-0 overflow-y-auto bg-opacity-80 px-6 py-9 opacity-0 transition-opacity duration-1000 ease-in-out sm576:bg-transparent"
       >
         <h3 className="mb-3 text-balance text-xl font-bold md:text-h3">
           {title}
@@ -45,19 +44,21 @@ export const ProjectCard = ({
         >
           {`🔗 ${linkText}`}
         </a>
-        <div className="mt-6 hidden lg:block">{description}</div>
+        <div className="mt-6">{description}</div>
 
-        <div className="mt-4">
-          <h4 className="text-xl md:text-h4">Features </h4>
+        <div className="mt-4 hidden lg:block">
+          <h4 className="text-xl md:text-h4">Features</h4>
           <ul className="ml-4 list-disc md:ml-6">
             {featuresList.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
         </div>
-        <Link href={detailsLink}>
-          <ButtonWithArrow className="my-5">More details</ButtonWithArrow>
-        </Link>
+        <div className="flex justify-center sm576:justify-start">
+          <Link href={detailsLink}>
+            <ButtonWithArrow className="my-5">More details</ButtonWithArrow>
+          </Link>
+        </div>
       </AnimateInView>
     </div>
   );

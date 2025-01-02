@@ -9,7 +9,7 @@ interface MockIphoneProps {
 export const MockIphone = ({ screenContent }: MockIphoneProps) => {
   return (
     <div
-      className={`z-1 absolute left-2/4 h-[500px] w-60 shrink-0 -translate-x-2/4 rounded-[45px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)] sm576:relative sm576:left-0 sm576:translate-x-0 lg:h-[600px] lg:w-72`}
+      className={`z-1 absolute left-2/4 my-5 h-[500px] w-60 shrink-0 -translate-x-2/4 rounded-[45px] border-8 border-zinc-900 shadow-[0_0_2px_2px_rgba(255,255,255,0.1)] sm576:relative sm576:left-0 sm576:my-0 sm576:translate-x-0 lg:h-[600px] lg:w-72`}
     >
       {/* Dynamic Island --> */}
 

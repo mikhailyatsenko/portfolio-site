@@ -24,9 +24,6 @@ export const Projects = () => {
         'Rating System: Rate your favorite coffee shops.',
         'Authentication: Google and E-mail authentication.',
         'Responsive Design: Optimized for both desktop and mobile devices.',
-        'Rating System: Rate your favorite coffee shops.',
-        'Authentication: Google and E-mail authentication.',
-        'Responsive Design: Optimized for both desktop and mobile devices.',
       ]}
       detailsLink=""
     />,
@@ -36,8 +33,8 @@ export const Projects = () => {
       slide={slideBvg}
       title='"BVG App" - Berlin Public Transport App'
       description="Application designed to help Berlin residents and visitors"
-      link="https://3welle.com"
-      linkText="3welle.com"
+      link="https://mikhailyatsenko.github.io/bvg-app-ts"
+      linkText="mikhailyatsenko.github.io/bvg-app-ts"
       featuresList={[
         'Map Integration: View coffee shops on an interactive map.',
         'Interactive page: Detailed page with reviews and ratings for each coffee shop.',
@@ -53,9 +50,9 @@ export const Projects = () => {
       key="3"
       slide={slideEncrypt}
       title='"Encrypt notes" - Short message encryption service'
-      description="Application designed to help Berlin residents and visitors"
-      link="https://3welle.com"
-      linkText="3welle.com"
+      description="This is a fullstack application designed for encrypting short notes."
+      link="https://mikhailyatsenko.github.io/encryptnotes"
+      linkText="mikhailyatsenko.github.io/encryptnotes"
       featuresList={[
         'Map Integration: View coffee shops on an interactive map.',
         'Interactive page: Detailed page with reviews and ratings for each coffee shop.',

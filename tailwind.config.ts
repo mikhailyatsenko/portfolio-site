@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import { keyframes } from './src/lib/keyframes';
+import plugin from 'tailwindcss/plugin';
 
 export default {
   darkMode: 'class',
@@ -17,8 +18,8 @@ export default {
         fadeIn: keyframes.fadeIn,
       },
       colors: {
-        background: 'var(--background)',
-        foreground: 'var(--foreground)',
+        background: 'rgb(var(--background))',
+        foreground: 'rgb(var(--foreground))',
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'Arial', 'Helvetica', 'sans-serif'],
@@ -41,5 +42,13 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        '.bg-opacity-variable': {
+          backgroundColor: 'rgba(var(--background), var(--tw-bg-opacity, 1))',
+        },
+      });
+    }),
+  ],
 } satisfies Config;
