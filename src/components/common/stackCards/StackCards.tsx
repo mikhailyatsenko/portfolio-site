@@ -39,6 +39,10 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
     };
 
     normalizwItemsHeight();
+    window.addEventListener('resize', normalizwItemsHeight);
+    return () => {
+      window.removeEventListener('resize', normalizwItemsHeight);
+    };
   }, []);
 
   const handleScroll = useCallback(() => {
