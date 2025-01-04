@@ -1,9 +1,10 @@
 import { HeroProject } from '@/components/project/HeroProject';
+import { ProjectIds } from '@/lib/projectsData';
 
 export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ projectId: string }>;
+  params: Promise<{ projectId: ProjectIds }>;
 }) {
   const { projectId } = await params;
   return (

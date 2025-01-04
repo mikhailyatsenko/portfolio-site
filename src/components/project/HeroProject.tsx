@@ -1,14 +1,17 @@
 import Image from 'next/image';
-import encryptDeskImg from '@/assets/projectsSlides/encrypnt-desktop.webp';
+
+import { ProjectIds, projectsData } from '@/lib/projectsData';
 
 export interface HeroProjectProps {
-  projectId: string;
+  projectId: ProjectIds;
 }
 
 const HeroProject = ({ projectId }: HeroProjectProps) => {
   if (projectId === null) {
     return null; // or a loading spinner
   }
+  const { title, description, sourceLink, liveLink, img } =
+    projectsData[projectId];
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] pt-20 dark:from-[#1f1636] dark:to-[#090610] md:pt-[130px] lg:pt-[160px]">
       <div className="container mx-auto">
@@ -16,16 +19,15 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
           <div className="w-full px-4">
             <div className="hero-content mx-auto max-w-[780px] text-center">
               <h1 className="mb-6 text-3xl font-bold leading-snug text-foreground sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
-                Open-Source Web Template for SaaS, Startup, Apps, and More
+                {title}
               </h1>
               <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-foreground sm:text-lg sm:leading-[1.44]">
-                Multidisciplinary Web Template Built with Your Favourite
-                Technology - HTML Bootstrap, Tailwind and React NextJS.
+                {description}
               </p>
               <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                 <li>
                   <a
-                    href="https://mikhailyatsenko.github.io/encryptnotes/"
+                    href={liveLink}
                     className="shadow-1 inline-flex items-center justify-center rounded-md bg-foreground px-7 py-[14px] text-center text-base font-medium text-background transition duration-300 ease-in-out hover:text-gray-500"
                   >
                     Live preview
@@ -33,7 +35,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
                 </li>
                 <li>
                   <a
-                    href="https://github.com/mikhailyatsenko/encryptnotes"
+                    href={sourceLink}
                     target="_blank"
                     className="fg-opacity-variable flex items-center gap-4 rounded-md bg-opacity-15 px-6 py-[14px] text-base font-medium text-foreground transition duration-300 ease-in-out hover:bg-foreground hover:text-background"
                   >
@@ -206,7 +208,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
             <div className="relative z-10 mx-auto max-w-[845px]">
               <div className="mt-16">
                 <Image
-                  src={encryptDeskImg}
+                  src={img}
                   className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                   alt={projectId}
                 />
