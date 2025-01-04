@@ -55,7 +55,7 @@ export const ProjectCard = ({
           </ul>
         </div>
         <div className="flex justify-center sm576:justify-start">
-          <Link href={detailsLink}>
+          <Link href={`projects/${detailsLink}`}>
             <ButtonWithArrow className="my-5">More details</ButtonWithArrow>
           </Link>
         </div>

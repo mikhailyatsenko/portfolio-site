@@ -3,7 +3,7 @@ import { NavMenu } from './navMenu/NavMenu';
 
 export const Header = () => {
   return (
-    <header className="flex h-[70px] px-5 md:px-10">
+    <header className="z-20 flex h-[70px] px-5 md:px-10">
       <div className="backdrop"></div>
       <div className="backdrop-edge"></div>
       <div className="relative z-10 flex w-full items-center">

@@ -61,7 +61,7 @@ export const Projects = () => {
         'Authentication: Google and E-mail authentication.',
         'Responsive Design: Optimized for both desktop and mobile devices.',
       ]}
-      detailsLink=""
+      detailsLink="encriptnotes"
     />,
   ];
 

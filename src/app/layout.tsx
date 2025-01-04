@@ -29,8 +29,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal?: React.ReactNode;
 }>) {
   const cookieStore = cookies();
   const themeCookie = (await cookieStore).get('theme');
@@ -42,7 +44,10 @@ export default async function RootLayout({
       >
         <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
           <Header />
-          <main>{children}</main>
+          <main>
+            {children}
+            {modal && modal}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

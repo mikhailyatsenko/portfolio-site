@@ -48,6 +48,9 @@ export default {
         '.bg-opacity-variable': {
           backgroundColor: 'rgba(var(--background), var(--tw-bg-opacity, 1))',
         },
+        '.fg-opacity-variable': {
+          backgroundColor: 'rgba(var(--foreground), var(--tw-bg-opacity, 1))',
+        },
       });
     }),
   ],
