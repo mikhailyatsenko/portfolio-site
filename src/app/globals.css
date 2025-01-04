@@ -31,7 +31,6 @@ body {
     /*
        нужно доделать для темной версии фон как выше
       */
-    z-index: 2;
   }
 
   @supports (backdrop-filter: blur(16px)) or

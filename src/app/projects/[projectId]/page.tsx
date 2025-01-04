@@ -1,15 +1,14 @@
 import { HeroProject } from '@/components/project/HeroProject';
-import ProjectModal from './ProjectModal';
 
-export default async function ProjectPageForModal({
+export default async function ProjectPage({
   params,
 }: {
   params: Promise<{ projectId: string }>;
 }) {
   const { projectId } = await params;
   return (
-    <ProjectModal>
+    <div className="mt-[74px] w-full bg-background">
       <HeroProject projectId={projectId} />
-    </ProjectModal>
+    </div>
   );
 }
