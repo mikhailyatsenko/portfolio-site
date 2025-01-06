@@ -11,12 +11,13 @@ export const NavMenu = () => {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'Projects', href: '/projects' },
+    { label: 'Profile', href: '/#profile' },
+    { label: 'Projects', href: '/#projects' },
     { label: 'Contacts', href: '/contacts' },
   ];
 
   return (
-    <div className="ml-auto">
+    <div className="ml-5">
       <nav className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''}`}>
         {navItems.map((link) => {
           const isLinkActive = pathname === link.href;

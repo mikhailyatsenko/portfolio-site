@@ -24,14 +24,14 @@ export const ProjectCard = ({
   slide,
 }: ProjectCardProps) => {
   return (
-    <div className="flex max-h-screen justify-center sm576:justify-start">
+    <div className="flex h-full max-h-screen justify-center sm576:justify-start">
       <MockIphone screenContent={<Image src={slide} alt={title} />} />
 
       <AnimateInView
         resetOnExit={true}
         threshold={0.5}
         activeClass="!opacity-100 z-[2] transition-opacity duration-1000 ease-in-out"
-        className="bg-opacity-variable z-[2] h-full min-h-[540] w-full grow-0 overflow-y-auto bg-opacity-80 px-6 py-9 opacity-0 transition-opacity duration-1000 ease-in-out sm576:bg-transparent"
+        className="z-[2] h-full w-full grow-0 overflow-y-auto bg-opacity-80 px-6 py-9 opacity-0 transition-opacity duration-1000 ease-in-out bg-opacity-variable sm576:bg-transparent md:px-10"
       >
         <h3 className="mb-3 text-balance text-xl font-bold md:text-h3">
           {title}

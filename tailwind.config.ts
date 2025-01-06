@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { keyframes } from './src/lib/keyframes';
 import plugin from 'tailwindcss/plugin';
 
 export default {
@@ -14,12 +13,15 @@ export default {
       screens: {
         sm576: '576px',
       },
-      keyframes: {
-        fadeIn: keyframes.fadeIn,
-      },
       colors: {
         background: 'rgb(var(--background))',
         foreground: 'rgb(var(--foreground))',
+      },
+      backgroundImage: {
+        'stripes-rainbow': `
+          repeating-linear-gradient(100deg, var(--stripe-color) 0%, var(--stripe-color) 7%, transparent 10%, transparent 12%, var(--stripe-color) 16%),
+          repeating-linear-gradient(100deg, #60a5fa 10%, #e879f9 15%, #60a5fa 20%, #5eead4 25%, #60a5fa 30%)
+        `,
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'Arial', 'Helvetica', 'sans-serif'],
@@ -38,7 +40,18 @@ export default {
         'screen-minus-nav': 'calc(100vh - 74px)',
       },
       animation: {
-        fadeIn: 'fadeIn 1s ease-in-out',
+        smoothBg: 'smoothBg 60s linear infinite',
+        blink: 'blink-animation 2s ease-in-out infinite',
+      },
+      keyframes: {
+        smoothBg: {
+          '0%': { backgroundPosition: '50% 50%, 50% 50%' },
+          '100%': { backgroundPosition: '350% 50%, 350% 50%' },
+        },
+        blink: {
+          '0%, 100%': { opacity: 'var(--blink-opacity, 1)' },
+          '50%': { opacity: '0' },
+        },
       },
     },
   },
@@ -50,6 +63,9 @@ export default {
         },
         '.fg-opacity-variable': {
           backgroundColor: 'rgba(var(--foreground), var(--tw-bg-opacity, 1))',
+        },
+        '.filter-opacity-saturate': {
+          filter: 'blur(10px) opacity(50%) saturate(200%)',
         },
       });
     }),

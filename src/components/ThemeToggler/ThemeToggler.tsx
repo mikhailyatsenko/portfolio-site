@@ -8,7 +8,7 @@ export function ThemeToggler() {
   return (
     <button
       onClick={() => toggleTheme()}
-      className={`${cls['theme-toggle']} ${theme === 'dark' ? cls['theme-toggle--toggled'] : ''} text-2xl hover:text-yellow-500`}
+      className={`${cls['theme-toggle']} ${theme === 'dark' ? cls['theme-toggle--toggled'] : ''} ml-auto text-4xl text-yellow-400 hover:text-yellow-300`}
       title="Toggle theme"
       aria-label="Toggle theme"
     >

@@ -7,11 +7,12 @@ export interface HeroProjectProps {
 }
 
 const HeroProject = ({ projectId }: HeroProjectProps) => {
-  if (projectId === null) {
+  const project = projectsData[projectId];
+  if (!project) {
     return null; // or a loading spinner
   }
-  const { title, description, sourceLink, liveLink, img } =
-    projectsData[projectId];
+  const { title, description, sourceLink, liveLink, mainImg } = project;
+
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] pt-20 dark:from-[#1f1636] dark:to-[#090610] md:pt-[130px] lg:pt-[160px]">
       <div className="container mx-auto">
@@ -37,7 +38,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
                   <a
                     href={sourceLink}
                     target="_blank"
-                    className="fg-opacity-variable flex items-center gap-4 rounded-md bg-opacity-15 px-6 py-[14px] text-base font-medium text-foreground transition duration-300 ease-in-out hover:bg-foreground hover:text-background"
+                    className="flex items-center gap-4 rounded-md bg-opacity-15 px-6 py-[14px] text-base font-medium text-foreground transition duration-300 ease-in-out fg-opacity-variable hover:bg-foreground hover:text-background"
                   >
                     <svg
                       className="fill-current"
@@ -208,7 +209,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
             <div className="relative z-10 mx-auto max-w-[845px]">
               <div className="mt-16">
                 <Image
-                  src={img}
+                  src={mainImg}
                   className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                   alt={projectId}
                 />

@@ -4,6 +4,8 @@ import { ProjectCard } from './projectCard/ProjectCard';
 import slide3Welle from '@/assets/projectsSlides/project-1-slide-1.webp';
 import slideBvg from '@/assets/projectsSlides/project-2-slide-1.webp';
 import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
+import { AnimateInView } from '@/components/common/AnimateInView';
+// import { ScrollTrackBlock } from '@/components/common/ScrollTrackBlock';
 
 export const Projects = () => {
   const cardContent = [
@@ -25,7 +27,7 @@ export const Projects = () => {
         'Authentication: Google and E-mail authentication.',
         'Responsive Design: Optimized for both desktop and mobile devices.',
       ]}
-      detailsLink=""
+      detailsLink="welle"
     />,
 
     <ProjectCard
@@ -43,7 +45,7 @@ export const Projects = () => {
         'Authentication: Google and E-mail authentication.',
         'Responsive Design: Optimized for both desktop and mobile devices.',
       ]}
-      detailsLink=""
+      detailsLink="bvg"
     />,
 
     <ProjectCard
@@ -61,13 +63,20 @@ export const Projects = () => {
         'Authentication: Google and E-mail authentication.',
         'Responsive Design: Optimized for both desktop and mobile devices.',
       ]}
-      detailsLink="encriptnotes"
+      detailsLink="encryptnotes"
     />,
   ];
 
   return (
-    <section className="px-8 py-6 md:px-14 md:py-16">
+    // <ScrollTrackBlock id="proj">
+    <section id="projects" className="relative px-8 py-7 md:px-14 md:py-16">
+      <AnimateInView>
+        <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
+          Some projects
+        </h2>
+      </AnimateInView>
       <StackCards>{cardContent}</StackCards>
     </section>
+    // </ScrollTrackBlock>
   );
 };

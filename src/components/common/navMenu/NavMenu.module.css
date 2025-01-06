@@ -10,7 +10,7 @@
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.2s ease-in-out;
-  background: var(--foreground);
+  background: rgb(var(--foreground));
 }
 .menuItems {
   display: flex;
@@ -28,7 +28,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 3rem;
-    background: var(--background);
+    background: rgb(var(--background));
     transition: right 0.2s ease-in-out;
     z-index: 4;
   }

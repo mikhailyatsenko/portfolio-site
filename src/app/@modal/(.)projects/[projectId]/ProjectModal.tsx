@@ -14,11 +14,11 @@ export default function ProjectModal({ children }: PropsWithChildren) {
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black bg-opacity-25"
+      className="fixed inset-0 z-[19] overflow-y-auto bg-black bg-opacity-25"
       onClick={onDismiss}
     >
       <div
-        className="mx-auto mt-[74px] w-11/12 overflow-hidden rounded-md"
+        className="mx-auto mt-[74px] w-11/12 overflow-hidden rounded-md bg-background"
         onClick={(e) => e.stopPropagation()}
       >
         {children}

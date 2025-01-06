@@ -25,12 +25,12 @@
   opacity: calc(var(--scroll-progress-profile));
   transition: transform 0.2s linear;
 }
-
+/* 
 .colorDiv {
   position: absolute;
-  top: 10px;
+  bottom: -64px;
   left: 10px;
   height: 1px;
   background-color: brown;
-  width: calc(((min(var(--scroll-progress-profile), 1)) / 1) * 100%);
-}
+  width: calc(((min(var(--scroll-progress-proj), 1)) / 1) * 100%);
+} */

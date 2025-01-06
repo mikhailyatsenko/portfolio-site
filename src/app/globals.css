@@ -5,15 +5,21 @@
 :root {
   --background: 255, 255, 255; /* Убедитесь, что переменная содержит только RGB */
   --foreground: 23, 23, 23;
+  --stripe-color: #fff;
 }
 
 .dark {
   --background: 10, 10, 10;
   --foreground: 237, 237, 237;
+  --stripe-color: #000;
 }
 
 body {
   @apply bg-background text-foreground antialiased;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 @layer components {
@@ -97,7 +103,7 @@ body {
 }
 
 @layer components {
-  .wrapper {
+  .contentWrapper {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
 }
