@@ -46,17 +46,19 @@ export const Hero = () => {
       </div>
 
       {/* Content Section */}
-      <div className="gap-4.5 absolute inset-0 flex flex-col items-center justify-center text-center mix-blend-difference invert dark:filter-none">
-        <h4
-          className="mb-1 ml-1.5 animate-[fadeIn_500ms_linear_2000ms_forwards] text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
-          aria-label="Hi! I'm fontend developer"
-        >
-          Hi👋! I&apos;m&nbsp;<span className={cls.typewriter}></span>
-        </h4>
+      <div className="contentWrapper gap-4.5 absolute inset-0 flex flex-col items-center justify-center text-center mix-blend-difference invert dark:filter-none">
+        <div>
+          <h4
+            className="mb-1 ml-1.5 animate-[fadeIn_500ms_linear_2000ms_forwards] place-self-start text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
+            aria-label="Hi! I'm fontend developer"
+          >
+            Hi👋! I&apos;m&nbsp;<span className={cls.typewriter}></span>
+          </h4>
 
-        <h1 className="text-5xlsm:text-7xl text-left lg:text-center xl:text-8xl">
-          Bringing Ideas to Life
-        </h1>
+          <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
+            Bringing Ideas to Life
+          </h1>
+        </div>
         <div className="absolute bottom-5 left-0 mt-auto w-full animate-[fadeIn_3000ms_linear_500ms_forwards] text-center opacity-0">
           <a href="#profile">
             <Image
