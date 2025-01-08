@@ -1,14 +1,13 @@
 import { Hero } from '@/components/landing/hero/Hero';
 import { Profile } from '@/components/landing/profile/Profile';
-import { Projects } from '@/components/landing/projects/Projects';
+import { ProjectCards } from '@/components/landing/projectCards/ProjectCards';
 
 export default function Home() {
   return (
     <div>
       <Hero />
       <Profile />
-
-      <Projects />
+      <ProjectCards />
     </div>
   );
 }

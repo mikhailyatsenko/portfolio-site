@@ -1,15 +1,6 @@
 // import ExpressIcon from './icons/express.svg';
 // import GithubIcon from './icons/github.svg';
-import GraphqlIcon from '@/assets/icons/stackIcons/graphql.svg';
-import JavascriptIcon from '@/assets/icons/stackIcons/javascript.svg';
-import NextIcon from '@/assets/icons/stackIcons/next.svg';
-import NodeIcon from '@/assets/icons/stackIcons/node.svg';
-import ReactIcon from '@/assets/icons/stackIcons/react.svg';
-import ReduxIcon from '@/assets/icons/stackIcons/redux.svg';
-import TailwindIcon from '@/assets/icons/stackIcons/tailwind.svg';
-import TypescriptIcon from '@/assets/icons/stackIcons/typescript.svg';
-import ViteIcon from '@/assets/icons/stackIcons/vite.svg';
-import WebpackIcon from '@/assets/icons/stackIcons/webpack.svg';
+import { techStackIconsData } from '@/lib/techStackIconsData';
 import mishaPhoto from '@/assets/icons/me.webp';
 import Image from 'next/image';
 import cls from './Profile.module.css';
@@ -55,84 +46,44 @@ export const Profile = () => {
             </h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={JavascriptIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Javascript Icon"
-            />
-            <h4>Javascript</h4>
+            <techStackIconsData.javascript.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.javascript.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={TypescriptIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Typescript Icon"
-            />
-            <h4>Typescript</h4>
+            <techStackIconsData.typescript.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.typescript.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={ReactIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="React Icon"
-            />
-            <h4>React</h4>
+            <techStackIconsData.react.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.react.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={ReduxIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Redux Icon"
-            />
-            <h4>Redux</h4>
+            <techStackIconsData.redux.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.redux.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={NextIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Next Icon"
-            />
-            <h4>Next.js</h4>
+            <techStackIconsData.next.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.next.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={GraphqlIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Graphql Icon"
-            />
-            <h4>GraphQL</h4>
+            <techStackIconsData.graphql.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.graphql.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={NodeIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Node Icon"
-            />
-            <h4>Node.js</h4>
+            <techStackIconsData.node.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.node.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={ViteIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Vite Icon"
-            />
-            <h4>Vite</h4>
+            <techStackIconsData.vite.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.vite.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={WebpackIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Webpack Icon"
-            />
-            <h4>Webpack</h4>
+            <techStackIconsData.webpack.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.webpack.name}</h4>
           </div>
           <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <Image
-              src={TailwindIcon}
-              className="h-[40px] w-[40px] dark:invert-[90%]"
-              alt="Tailwind Icon"
-            />
-            <h4>Tailwind CSS</h4>
+            <techStackIconsData.tailwind.icon className="h-[40px] w-[40px] fill-foreground" />
+            <h4>{techStackIconsData.tailwind.name}</h4>
           </div>
         </div>
       </ScrollTrackBlock>

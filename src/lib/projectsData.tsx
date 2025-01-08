@@ -1,12 +1,33 @@
 import encryptMainImg from '@/assets/projectFeatures/encrypnt-desktop.webp';
 import welleMainImg from '@/assets/projectFeatures/3welle-main.webp';
 import responsiveImg from '@/assets/projectFeatures/enrypt-sm.webp';
-import fullstackAppImg from '@/assets/projectFeatures/fullstack-app.svg';
-import speedImg from '@/assets/projectFeatures/speed.svg';
-import mapIcon from '@/assets/projectFeatures/map-icon.svg';
+import fullstackAppImg from '@/assets/projectFeatures/fullstack-app.svg?url';
+import speedImg from '@/assets/projectFeatures/speed.svg?url';
+import mapIcon from '@/assets/projectFeatures/map-icon.svg?url';
 import bvgMainImg from '@/assets/projectFeatures/bvg-main.webp';
+import { TechStackIconKey } from './techStackIconsData';
+import { StaticImageData } from 'next/image';
 
-export const projectsData = {
+export interface ProjectData {
+  id: string;
+  title: string;
+  description: string;
+  liveLink: string;
+  sourceLink: string;
+  mainImg: StaticImageData;
+  techStack: TechStackIconKey[];
+  features: {
+    title: string;
+    description: JSX.Element;
+    img: StaticImageData;
+  }[][];
+}
+
+export type ProjectIds = 'encryptnotes' | 'welle' | 'bvg';
+
+export type ProjectsData = Record<ProjectIds, ProjectData>;
+
+export const projectsData: ProjectsData = {
   encryptnotes: {
     id: 'encriptnotes',
     title: 'Encrypt Notes App',
@@ -15,6 +36,7 @@ export const projectsData = {
     liveLink: 'https://mikhailyatsenko.github.io/encryptnotes',
     sourceLink: 'https://github.com/mikhailyatsenko/encryptnotes',
     mainImg: encryptMainImg,
+    techStack: ['react', 'typescript', 'vite', 'node'],
     features: [
       [
         {
@@ -72,6 +94,7 @@ export const projectsData = {
     liveLink: 'https://3welle.com',
     sourceLink: 'https://github.com/mikhailyatsenko/coffemapberlin',
     mainImg: welleMainImg,
+    techStack: ['typescript', 'react', 'vite', 'graphql', 'node', 'mongodb'],
     features: [
       [
         {
@@ -119,6 +142,7 @@ export const projectsData = {
     liveLink: 'https://mikhailyatsenko.github.io/bvg-app-ts',
     sourceLink: 'https://github.com/mikhailyatsenko/bvg-app-ts',
     mainImg: bvgMainImg,
+    techStack: ['typescript', 'react', 'vite'],
     features: [
       [
         {
@@ -159,5 +183,3 @@ export const projectsData = {
     ],
   },
 };
-
-export type ProjectIds = keyof typeof projectsData;
