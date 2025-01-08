@@ -14,7 +14,7 @@ interface AnimateInViewProps {
 export const AnimateInView: React.FC<AnimateInViewProps> = ({
   children,
   className = 'opacity-0 transition-opacity duration-1000 ease-in-out',
-  activeClass = '!opacity-100',
+  activeClass = '!opacity-100 transition-opacity duration-1000 ease-in-out',
   tag = 'div',
   threshold = 0.1,
   resetOnExit = false,

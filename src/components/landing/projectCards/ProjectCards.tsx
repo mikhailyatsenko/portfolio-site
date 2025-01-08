@@ -7,7 +7,7 @@ import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
 import { AnimateInView } from '@/components/common/AnimateInView';
 // import { ScrollTrackBlock } from '@/components/common/ScrollTrackBlock';
 
-export const Projects = () => {
+export const ProjectCards = () => {
   const cardContent = [
     <ProjectCard
       key={'1'}

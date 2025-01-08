@@ -1,5 +1,5 @@
 import cls from './Hero.module.css';
-import ScrollDownIcon from '@/assets/icons/scroll-down-icon.svg';
+import ScrollDownIcon from '@/assets/icons/scroll-down-icon.svg?url';
 import Image from 'next/image';
 
 export const Hero = () => {
@@ -35,14 +35,14 @@ export const Hero = () => {
     <section className="relative h-auto w-full">
       {/* Hero Section */}
       <div
-        className="bg-stripes-rainbow mask-image-[radial-gradient(ellipse_at_100%_0%,black_40%,transparent_70%)] dark:filter-opacity-saturate relative flex min-h-screen w-full items-center justify-center bg-[length:200%_100%] bg-center blur-[10px] invert-[100%]"
+        className="mask-image-[radial-gradient(ellipse_at_100%_0%,black_40%,transparent_70%)] relative flex min-h-screen w-full items-center justify-center bg-stripes-rainbow bg-[length:200%_100%] bg-center blur-[10px] invert-[100%] dark:filter-opacity-saturate"
         style={{
           maskImage:
             'radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%)',
         }}
       >
         {/* Animated Overlay */}
-        <div className="bg-stripes-rainbow animate-smoothBg absolute inset-0 bg-[length:200%_100%] mix-blend-difference" />
+        <div className="absolute inset-0 animate-smoothBg bg-stripes-rainbow bg-[length:200%_100%] mix-blend-difference" />
       </div>
 
       {/* Content Section */}
