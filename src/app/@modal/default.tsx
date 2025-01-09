@@ -1,4 +1,3 @@
-// app/@modal/default.tsx
-export default function Default() {
+export default function Loading() {
   return null;
 }

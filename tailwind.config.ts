@@ -42,6 +42,7 @@ export default {
       animation: {
         smoothBg: 'smoothBg 60s linear infinite',
         blink: 'blink-animation 2s ease-in-out infinite',
+        rotate: 'rotateAnimation 1s linear infinite',
       },
       keyframes: {
         smoothBg: {
@@ -51,6 +52,15 @@ export default {
         blink: {
           '0%, 100%': { opacity: 'var(--blink-opacity, 1)' },
           '50%': { opacity: '0' },
+        },
+        rotateAnimation: {
+          '0%': { transform: 'rotate(0deg)', width: '64px', height: '64px' },
+          '50%': { transform: 'rotate(180deg)', width: '30px', height: '30px' },
+          '100%': {
+            transform: 'rotate(360deg)',
+            width: '64px',
+            height: '64px',
+          },
         },
       },
     },

@@ -74,14 +74,17 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
                 <p className="mb-4 text-center text-base font-medium text-foreground">
                   Built with latest technology
                 </p>
-                <AnimateInView className="flex items-center justify-center gap-4 text-center opacity-0">
+                <AnimateInView className="flex shrink-0 flex-wrap items-center justify-center gap-5 text-center opacity-0">
                   {techStack.map((tech) => {
                     const IconComponent = techStackIconsData[tech].icon;
                     return (
-                      <IconComponent
-                        className="h-[40px] w-[40px]"
+                      <div
                         key={techStackIconsData[tech].name}
-                      />
+                        className="flex w-fit flex-col items-center justify-center gap-1 transition duration-200 hover:scale-110"
+                      >
+                        <IconComponent className="h-[40px] w-[40px] fill-foreground" />
+                        <h4>{techStackIconsData[tech].name}</h4>
+                      </div>
                     );
                   })}
                 </AnimateInView>
