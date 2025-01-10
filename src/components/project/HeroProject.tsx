@@ -24,7 +24,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
         <div className="flex-wrap items-center">
           <div className="w-full px-4">
             <div className="hero-content mx-auto max-w-[780px] text-center">
-              <h1 className="mb-6 text-3xl font-bold leading-snug text-foreground sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
+              <h1 className="mb-6 text-balance text-3xl font-bold leading-snug text-foreground sm:text-4xl sm:leading-snug lg:text-5xl lg:leading-[1.2]">
                 {title}
               </h1>
               <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-foreground sm:text-lg sm:leading-[1.44]">
@@ -95,11 +95,17 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
           <div className="w-full px-4">
             <div className="relative z-10 mx-auto max-w-[845px]">
               <div className="mt-16">
-                <Image
-                  src={mainImg}
-                  className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
-                  alt={projectId.toString()}
-                />
+                <AnimateInView
+                  threshold={0.7}
+                  className="relative -bottom-full opacity-0 duration-300 ease-in-out"
+                  activeClass="!opacity-100 !bottom-0"
+                >
+                  <Image
+                    src={mainImg}
+                    className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
+                    alt={projectId.toString()}
+                  />
+                </AnimateInView>
               </div>
               <div className="absolute -left-9 bottom-0 z-[-1]">
                 <svg

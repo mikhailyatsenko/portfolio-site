@@ -24,7 +24,7 @@ export const ProjectCard = ({
   slide,
 }: ProjectCardProps) => {
   return (
-    <div className="flex h-full max-h-screen justify-center sm576:justify-start">
+    <div className="scr flex h-full max-h-screen justify-center sm576:justify-start">
       <MockIphone screenContent={<Image src={slide} alt={title} />} />
 
       <AnimateInView

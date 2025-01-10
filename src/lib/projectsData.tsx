@@ -7,6 +7,8 @@ import bvgMainImg from '@/assets/projectFeatures/bvg-main.webp';
 import reviewImg from '@/assets/projectFeatures/review.svg?url';
 import responsiveImg from '@/assets/projectFeatures/responsive.svg?url';
 import accountImg from '@/assets/projectFeatures/account.svg?url';
+import scheduleImg from '@/assets/projectFeatures/schedule.svg?url';
+import architectureImg from '@/assets/projectFeatures/architecture.svg?url';
 import { TechStackIconKey } from './techStackIconsData';
 import { StaticImageData } from 'next/image';
 
@@ -149,22 +151,12 @@ export const projectsData: ProjectsData = {
       ],
       [
         {
-          title: 'User Authentication and Profile Management',
-          description: (
-            <p>
-              The project supports Google and email authentication, providing
-              users with a personal account. Within their account, users can
-              edit personal details and upload a profile avatar.
-            </p>
-          ),
-          img: accountImg,
-        },
-        {
           title: 'Architecture',
           description: (
             <p>
-              The application on frontend follows the "Feature-Sliced Design"
-              methodology. For more information on Feature-Sliced Design, visit{' '}
+              The application on frontend follows the &quot;Feature-Sliced
+              Design&quot; methodology. For more information on Feature-Sliced
+              Design, visit{' '}
               <a
                 href="https://feature-sliced.design"
                 className="font-bold"
@@ -176,7 +168,18 @@ export const projectsData: ProjectsData = {
             </p>
           ),
 
-          img: fullstackAppImg,
+          img: architectureImg,
+        },
+        {
+          title: 'User Authentication and Profile Management',
+          description: (
+            <p>
+              The project supports Google and email authentication, providing
+              users with a personal account. Within their account, users can
+              edit personal details and upload a profile avatar.
+            </p>
+          ),
+          img: accountImg,
         },
       ],
     ],
@@ -202,7 +205,7 @@ export const projectsData: ProjectsData = {
               real-time information in a convenient format.
             </p>
           ),
-          img: fullstackAppImg,
+          img: scheduleImg,
         },
         {
           title: 'Advanced Filtering and Favorite Stops',
@@ -218,15 +221,33 @@ export const projectsData: ProjectsData = {
       ],
       [
         {
-          title: 'User Reviews',
-          description: <p>Read and submit reviews for each coffee shop.</p>,
-          img: speedImg,
+          title: 'Architecture',
+          description: (
+            <p>
+              The application follows the &quot;Feature-Sliced Design&quot;
+              methodology. For more information on Feature-Sliced Design, visit{' '}
+              <a
+                href="https://feature-sliced.design"
+                className="font-bold"
+                target="_blank"
+              >
+                feature-sliced.design
+              </a>
+              .
+            </p>
+          ),
+          img: architectureImg,
         },
         {
-          title: 'Rating System',
-          description: <p>Rate your favorite coffee shops.</p>,
-
-          img: fullstackAppImg,
+          title: 'Responsive Design',
+          description: (
+            <p>
+              The application features a fully responsive design, ensuring
+              optimal functionality and user experience across various screen
+              sizes and devices.
+            </p>
+          ),
+          img: responsiveImg,
         },
       ],
     ],

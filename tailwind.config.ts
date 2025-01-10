@@ -39,6 +39,12 @@ export default {
       height: {
         'screen-minus-nav': 'calc(100vh - 74px)',
       },
+      maxHeight: {
+        'screen-minus-nav': 'calc(100vh - 74px)',
+      },
+      minHeight: {
+        'screen-minus-nav': 'calc(100vh - 74px)',
+      },
       animation: {
         smoothBg: 'smoothBg 60s linear infinite',
         blink: 'blink-animation 2s ease-in-out infinite',

@@ -72,7 +72,6 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
         }
 
         const scrolling = offsetTop - top - accumulatedHeight;
-        console.log(index, scrolling);
         // Анимация только с transform для оптимизации производительности
         if (scrolling > 0) {
           const scale = Math.min(Math.max(1 - scrolling / 1000, 0.95), 1);

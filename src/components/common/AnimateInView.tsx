@@ -16,7 +16,7 @@ export const AnimateInView: React.FC<AnimateInViewProps> = ({
   className = 'opacity-0 transition-opacity duration-1000 ease-in-out',
   activeClass = '!opacity-100 transition-opacity duration-1000 ease-in-out',
   tag = 'div',
-  threshold = 0.1,
+  threshold = 0.15,
   resetOnExit = false,
   ...props
 }) => {

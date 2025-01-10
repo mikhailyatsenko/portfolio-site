@@ -16,7 +16,7 @@ export const ProjectFeatures = ({ projectId }: ProjectFeaturesProps) => {
       <h2 className="mb-10 text-center text-5xl">Project features</h2>
       {features.map((featureRow, index) => (
         <ProjectTwoFeaturesRow
-          indexNum={index}
+          indexChildRow={index}
           key={index}
           featuresRow={featureRow}
         />
