@@ -1,7 +1,5 @@
 import { ReactNode } from 'react';
 
-// import cls from './MockIphone.module.css';
-
 interface MockIphoneProps {
   screenContent: ReactNode;
 }

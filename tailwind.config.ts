@@ -1,5 +1,6 @@
 import type { Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
+import { screens } from 'tailwindcss/defaultTheme';
 
 export default {
   darkMode: 'class',
@@ -9,10 +10,13 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      sm576: '576px',
+      'h-sm': { raw: '(min-height: 480px)' },
+      'h-md': { raw: '(min-height: 640px)' },
+      ...screens,
+    },
     extend: {
-      screens: {
-        sm576: '576px',
-      },
       colors: {
         background: 'rgb(var(--background))',
         foreground: 'rgb(var(--foreground))',

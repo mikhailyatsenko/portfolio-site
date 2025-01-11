@@ -3,39 +3,51 @@ import Image, { StaticImageData } from 'next/image';
 import { ButtonWithArrow } from '@/components/common/Buttons/ButtonWithArrow';
 import Link from 'next/link';
 import { AnimateInView } from '@/components/common/AnimateInView';
+import { Badge } from '@/components/common/Badges';
+import { BadgeProps } from '@/components/common/Badges';
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  featuresList: string[];
   link: string;
   linkText: string;
   detailsLink: string;
   slide: StaticImageData;
+  badges: BadgeProps['type'][];
 }
 
 export const ProjectCard = ({
   title,
   description,
-  featuresList,
   link,
   linkText,
   detailsLink,
   slide,
+  badges,
 }: ProjectCardProps) => {
   return (
-    <div className="scr flex h-full max-h-screen justify-center sm576:justify-start">
-      <MockIphone screenContent={<Image src={slide} alt={title} />} />
+    <div className="sm576:justify-star flex h-full max-h-screen justify-center overflow-hidden sm576:px-10 sm576:py-6 md:py-10 lg:gap-10 lg:px-20">
+      <AnimateInView
+        className="opacity-0 transition-opacity duration-500 ease-in-out"
+        activeClass="!opacity-100"
+      >
+        <MockIphone screenContent={<Image src={slide} alt={title} />} />
+      </AnimateInView>
 
       <AnimateInView
         resetOnExit={true}
-        threshold={0.5}
+        threshold={0.7}
         activeClass="!opacity-100 z-[2] transition-opacity duration-1000 ease-in-out"
-        className="z-[2] h-full w-full grow-0 overflow-y-auto bg-opacity-80 px-6 py-9 opacity-0 transition-opacity duration-1000 ease-in-out bg-opacity-variable sm576:bg-transparent md:px-10"
+        className="z-[2] h-full w-full grow-0 overflow-y-auto bg-opacity-80 px-6 pt-6 opacity-0 transition-opacity duration-1000 ease-in-out bg-opacity-variable sm576:bg-transparent sm576:pt-2 sm576:opacity-100 md:px-10"
       >
-        <h3 className="mb-3 text-balance text-xl font-bold md:text-h3">
+        <h3 className="mb-0.5 text-balance text-xl font-bold md:text-h3">
           {title}
         </h3>
+        <div className="mb-2 flex flex-wrap gap-y-1.5">
+          {badges.map((item) => (
+            <Badge key={item} type={item} />
+          ))}
+        </div>
         <a
           className="font-bold"
           href={link}
@@ -44,16 +56,8 @@ export const ProjectCard = ({
         >
           {`🔗 ${linkText}`}
         </a>
-        <div className="mt-6">{description}</div>
+        <div className="h-md:block mt-6 hidden">{description}</div>
 
-        <div className="mt-4 hidden lg:block">
-          <h4 className="text-xl md:text-h4">Features</h4>
-          <ul className="ml-4 list-disc md:ml-6">
-            {featuresList.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </div>
         <div className="flex justify-center sm576:justify-start">
           <Link href={`projects/${detailsLink}`}>
             <ButtonWithArrow className="my-5">More details</ButtonWithArrow>

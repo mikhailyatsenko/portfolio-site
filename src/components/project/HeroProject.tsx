@@ -66,7 +66,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
                         </clipPath>
                       </defs>
                     </svg>
-                    Watch on Github
+                    Source on Github
                   </a>
                 </li>
               </ul>

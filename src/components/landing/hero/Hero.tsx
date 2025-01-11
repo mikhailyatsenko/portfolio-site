@@ -1,5 +1,6 @@
 import cls from './Hero.module.css';
 import ScrollDownIcon from '@/assets/icons/scroll-down-icon.svg?url';
+import { AnimateInView } from '@/components/common/AnimateInView';
 import Image from 'next/image';
 
 export const Hero = () => {
@@ -47,7 +48,7 @@ export const Hero = () => {
 
       {/* Content Section */}
       <div className="contentWrapper gap-4.5 absolute inset-0 flex flex-col items-center justify-center text-center mix-blend-difference invert dark:filter-none">
-        <div>
+        <AnimateInView resetOnExit>
           <h4
             className="mb-1 ml-1.5 animate-[fadeIn_500ms_linear_2000ms_forwards] place-self-start text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
             aria-label="Hi! I'm fontend developer"
@@ -58,7 +59,7 @@ export const Hero = () => {
           <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
             Bringing Ideas to Life
           </h1>
-        </div>
+        </AnimateInView>
         <div className="absolute bottom-5 left-0 mt-auto w-full animate-[fadeIn_3000ms_linear_500ms_forwards] text-center opacity-0">
           <a href="#profile">
             <Image
