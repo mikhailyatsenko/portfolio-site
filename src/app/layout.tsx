@@ -32,7 +32,7 @@ export default async function RootLayout({
   modal,
 }: Readonly<{
   children: React.ReactNode;
-  modal?: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   const cookieStore = cookies();
   const themeCookie = (await cookieStore).get('theme');
@@ -46,7 +46,7 @@ export default async function RootLayout({
           <Header />
           <main>
             {children}
-            {modal && modal}
+            {modal}
           </main>
           <Footer />
         </ThemeProvider>

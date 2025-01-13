@@ -19,8 +19,7 @@ export const Profile = () => {
             Profile
           </h2>
         </AnimateInView>
-        {/* <div className={cls.colorDiv}></div> */}
-        <div className="mx-auto mt-5 flex shrink-0 items-center gap-5 md:w-2/4">
+        <div className="mx-auto mt-5 flex shrink-0 flex-col items-center gap-5 sm576:flex-row lg:w-3/4">
           <Image
             src={mishaPhoto}
             width={100}

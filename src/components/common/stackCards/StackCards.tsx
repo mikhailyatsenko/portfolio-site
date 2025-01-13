@@ -77,14 +77,13 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
           const scale = Math.min(Math.max(1 - scrolling / 1000, 0.95), 1);
 
           const rotateDirection = index % 2 === 0 ? -1 : 1;
-          const rotateCard = rotateDirection * Math.min(Math.max(scrolling / 50, 0), 0.6); 
+          const rotateCard =
+            rotateDirection * Math.min(Math.max(scrolling / 50, 0), 0.6);
 
           const translateY = marginY * index;
           item.style.transform = `translateY(${translateY}px) scale(${scale}) rotate(${rotateCard}deg)`;
-     
         } else {
           item.style.transform = `translateY(${marginY * index}px) scale(1) `;
-        
         }
       });
 
@@ -93,7 +92,6 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
   }, [scrolling]);
 
   useEffect(() => {
-   
     const container = containerRef.current;
     if (!container) return;
 
@@ -122,7 +120,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       {children.map((child, index) => (
         <div
           key={index}
-          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-md transition-transform duration-100`}
+          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-lg transition-transform duration-100`}
         >
           {child}
         </div>

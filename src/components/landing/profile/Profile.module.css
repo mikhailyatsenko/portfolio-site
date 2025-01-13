@@ -1,36 +1,25 @@
 .aboutMeScrollTransform {
   transform: translate(
-    calc((1 - (min(var(--scroll-progress-profile), 0.8)) / 0.8) * 100%),
-    calc((1 - (min(var(--scroll-progress-profile), 0.8)) / 0.8) * -200%)
+    calc((1 - (min(var(--scroll-progress-profile), 0.4)) / 0.4) * 100%),
+    calc((1 - (min(var(--scroll-progress-profile), 0.4)) / 0.4) * -200%)
   );
-  opacity: calc(var(--scroll-progress-profile));
+  opacity: calc((min(var(--scroll-progress-profile), 0.4)) / 0.4);
   transition: transform 0.2s linear;
 }
 
 .photoScrollTransform {
   transform: translate(
-    calc((1 - (min(var(--scroll-progress-profile), 0.8)) / 0.8) * -200%),
-    calc((1 - (min(var(--scroll-progress-profile), 0.8)) / 0.8) * -400%)
+    calc((1 - (min(var(--scroll-progress-profile), 0.4)) / 0.4) * -200%),
+    calc((1 - (min(var(--scroll-progress-profile), 0.4)) / 0.4) * -400%)
   );
-  opacity: calc(var(--scroll-progress-profile));
+  opacity: calc((min(var(--scroll-progress-profile), 0.4)) / 0.4);
   transition: transform 0.2s linear;
 }
 
 .skillsScrollTransform {
   transform: translateY(
-    calc(
-      (1 - (max((var(--scroll-progress-profile)), 0.95) - 0.95) / 0.05) * 100%
-    )
+    calc((1 - (max((var(--scroll-progress-profile)), 0.8) - 0.8) / 0.2) * 100%)
   );
   opacity: calc(var(--scroll-progress-profile));
   transition: transform 0.2s linear;
 }
-/* 
-.colorDiv {
-  position: absolute;
-  bottom: -64px;
-  left: 10px;
-  height: 1px;
-  background-color: brown;
-  width: calc(((min(var(--scroll-progress-proj), 1)) / 1) * 100%);
-} */
