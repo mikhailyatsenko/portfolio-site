@@ -59,7 +59,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
 
       const top = container.getBoundingClientRect().top;
       const offsetTop = 100; // отступ от верха
-      const marginY = 15; // промежуток между карточками
+      const marginY = 5; // промежуток между карточками
 
       let accumulatedHeight = 0;
 
@@ -75,10 +75,16 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
         // Анимация только с transform для оптимизации производительности
         if (scrolling > 0) {
           const scale = Math.min(Math.max(1 - scrolling / 1000, 0.95), 1);
+
+          const rotateDirection = index % 2 === 0 ? -1 : 1;
+          const rotateCard = rotateDirection * Math.min(Math.max(scrolling / 50, 0), 0.6); 
+
           const translateY = marginY * index;
-          item.style.transform = `translateY(${translateY}px) scale(${scale})`;
+          item.style.transform = `translateY(${translateY}px) scale(${scale}) rotate(${rotateCard}deg)`;
+     
         } else {
-          item.style.transform = `translateY(${marginY * index}px) scale(1)`;
+          item.style.transform = `translateY(${marginY * index}px) scale(1) `;
+        
         }
       });
 
@@ -116,7 +122,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       {children.map((child, index) => (
         <div
           key={index}
-          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-xl bg-background transition-transform duration-100  h-full w-full bg-gray-800 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 `}
+          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-md transition-transform duration-100`}
         >
           {child}
         </div>
