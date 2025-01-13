@@ -26,6 +26,7 @@ export default {
           repeating-linear-gradient(100deg, var(--stripe-color) 0%, var(--stripe-color) 7%, transparent 10%, transparent 12%, var(--stripe-color) 16%),
           repeating-linear-gradient(100deg, #60a5fa 10%, #e879f9 15%, #60a5fa 20%, #5eead4 25%, #60a5fa 30%)
         `,
+        
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'Arial', 'Helvetica', 'sans-serif'],

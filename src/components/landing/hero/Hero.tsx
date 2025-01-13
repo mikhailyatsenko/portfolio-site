@@ -48,9 +48,13 @@ export const Hero = () => {
 
       {/* Content Section */}
       <div className="contentWrapper gap-4.5 absolute inset-0 flex flex-col items-center justify-center text-center mix-blend-difference invert dark:filter-none">
-        <AnimateInView resetOnExit>
+        <AnimateInView
+          className="scale-105 opacity-0 transition duration-1000 ease-in-out"
+          activeClass="!opacity-100 !scale-100 transition duration-1000 ease-in-out"
+          resetOnExit
+        >
           <h4
-            className="mb-1 ml-1.5 animate-[fadeIn_500ms_linear_2000ms_forwards] place-self-start text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
+            className="mb-1 ml-1.5 animate-[fadeIn_500ms_linear_1000ms_forwards] place-self-start text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
             aria-label="Hi! I'm fontend developer"
           >
             Hi👋! I&apos;m&nbsp;<span className={cls.typewriter}></span>

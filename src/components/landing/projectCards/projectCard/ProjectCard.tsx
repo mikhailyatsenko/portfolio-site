@@ -38,7 +38,7 @@ export const ProjectCard = ({
         resetOnExit={true}
         threshold={0.7}
         activeClass="!opacity-100 z-[2] transition-opacity duration-1000 ease-in-out"
-        className="z-[2] h-full w-full grow-0 overflow-y-auto bg-opacity-80 px-6 pt-6 opacity-0 transition-opacity duration-1000 ease-in-out bg-opacity-variable sm576:bg-transparent sm576:pt-2 sm576:opacity-100 md:px-10"
+        className="z-[2] h-full w-full grow-0 overflow-y-auto bg-opacity-80 px-6 pt-6 opacity-0 transition-opacity duration-1000 ease-in-out bg-opacity-variable sm576:bg-transparent sm576:pt-2 sm576:text-white sm576:opacity-100 md:px-10"
       >
         <h3 className="mb-0.5 text-balance text-xl font-bold md:text-h3">
           {title}

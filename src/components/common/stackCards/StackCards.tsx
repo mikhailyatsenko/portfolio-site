@@ -87,13 +87,16 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
   }, [scrolling]);
 
   useEffect(() => {
+   
     const container = containerRef.current;
     if (!container) return;
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
+        document.body.classList.add('new-bg');
         window.addEventListener('scroll', debouncedScroll);
       } else {
+        document.body.classList.remove('new-bg');
         window.removeEventListener('scroll', debouncedScroll);
       }
     });
@@ -113,11 +116,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
       {children.map((child, index) => (
         <div
           key={index}
-          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-xl shadow-[0px_0px_3px_0px_rgba(0,_0,_0,_0.1)] transition-transform duration-100 ${
-            index % 2 === 0
-              ? 'bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] dark:from-[#1f1636] dark:to-[#090610]'
-              : 'bg-gradient-to-br from-[#ffe6fa] to-[#e3fdf5] dark:from-[#090610] dark:to-[#1f1636]'
-          }`}
+          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-xl bg-background transition-transform duration-100  h-full w-full bg-gray-800 bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-30 `}
         >
           {child}
         </div>

@@ -5,6 +5,7 @@ import slide3Welle from '@/assets/projectsSlides/project-1-slide-1.webp';
 import slideBvg from '@/assets/projectsSlides/project-2-slide-1.webp';
 import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
 import { AnimateInView } from '@/components/common/AnimateInView';
+import { ScrollTrackBlock } from '@/components/common/ScrollTrackBlock';
 
 export const ProjectCards = () => {
   const cardContent = [
@@ -46,15 +47,15 @@ export const ProjectCards = () => {
   ];
 
   return (
-    // <ScrollTrackBlock id="proj">
-    <section id="projects" className="relative px-8 py-7 md:px-14 md:py-16">
-      <AnimateInView>
-        <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
-          Some projects
-        </h2>
-      </AnimateInView>
-      <StackCards>{cardContent}</StackCards>
-    </section>
-    // </ScrollTrackBlock>
+    <ScrollTrackBlock id="proj">
+      <section id="projects" className="relative px-8 py-7 md:px-14 md:py-16">
+        <AnimateInView>
+          <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
+            Some projects
+          </h2>
+        </AnimateInView>
+        <StackCards>{cardContent}</StackCards>
+      </section>
+    </ScrollTrackBlock>
   );
 };

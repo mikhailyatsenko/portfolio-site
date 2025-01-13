@@ -29,15 +29,35 @@ export const Profile = () => {
             className={`${cls.photoScrollTransform} h-[100px] w-[100px] rotate-2 transition-transform duration-150 ease-in-out hover:rotate-0`}
           />
           <div
-            className={`${cls.aboutMeScrollTransform} border-2 border-[var(--foreground)] bg-background p-5`}
+            className={`${cls.aboutMeScrollTransform} relative cursor-pointer dark:text-white`}
+          >
+            <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
+            <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
+              <div className="flex items-center">
+                {/* <span className="text-xl">😎</span> */}
+                <h3 className="my-2 ml-3 font-mono text-lg font-bold text-gray-800 dark:text-white">
+                  Hello world!
+                </h3>
+              </div>
+              <p className="font-mono text-gray-600 dark:text-gray-300">
+                I build modern, fast, and responsive web applications with a
+                focus on user experience and functionality. My goal is to create
+                digital products that are both visually appealing and highly
+                effective.
+              </p>
+            </div>
+          </div>
+
+          {/* <div
+            className={`${cls.aboutMeScrollTransform} relative border-2 border-[var(--foreground)] bg-background p-5`}
           >
             I build modern, fast, and responsive web applications with a focus
             on user experience and functionality. My goal is to create digital
             products that are both visually appealing and highly effective.
-          </div>
+          </div> */}
         </div>
 
-        <div
+        {/* <div
           className={`${cls.skillsScrollTransform} mx-auto mt-6 flex w-fit flex-wrap justify-center border-2 border-[var(--foreground)] bg-background p-4`}
         >
           <div className="w-full">
@@ -45,45 +65,39 @@ export const Profile = () => {
               Tech Stack
             </h4>
           </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.javascript.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.javascript.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.typescript.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.typescript.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.react.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.react.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.redux.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.redux.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.next.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.next.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.graphql.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.graphql.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.node.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.node.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.vite.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.vite.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.webpack.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.webpack.name}</h4>
-          </div>
-          <div className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5">
-            <techStackIconsData.tailwind.icon className="h-[40px] w-[40px] fill-foreground" />
-            <h4>{techStackIconsData.tailwind.name}</h4>
+          {Object.entries(techStackIconsData).map(([key, tech]) => (
+            <div
+              key={key}
+              className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5"
+            >
+              <tech.icon className="h-[40px] w-[40px] fill-foreground" />
+              <h4>{tech.name}</h4>
+            </div>
+          ))}
+        </div> */}
+
+        <div
+          className={`${cls.skillsScrollTransform} relative mx-auto mt-6 w-fit dark:text-white`}
+        >
+          <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
+          <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
+            <div className="mb-4 flex items-center justify-center">
+              {/* <span className="text-xl">😎</span> */}
+              <h3 className="text-center text-lg font-bold text-gray-800 dark:text-white">
+                My Tech Stack
+              </h3>
+            </div>
+            <div className="flex w-fit flex-wrap justify-center">
+              {Object.entries(techStackIconsData).map(([key, tech]) => (
+                <div
+                  key={key}
+                  className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5"
+                >
+                  <tech.icon className="h-[40px] w-[40px] fill-foreground" />
+                  <h4>{tech.name}</h4>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </ScrollTrackBlock>
