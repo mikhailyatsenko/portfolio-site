@@ -53,8 +53,13 @@ export default {
         smoothBg: 'smoothBg 60s linear infinite',
         blink: 'blink-animation 2s ease-in-out infinite',
         rotate: 'rotateAnimation 1s linear infinite',
+        fadeIn: 'fadeIn 1s linear 0.2s forwards',
       },
       keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
         smoothBg: {
           '0%': { backgroundPosition: '50% 50%, 50% 50%' },
           '100%': { backgroundPosition: '350% 50%, 350% 50%' },

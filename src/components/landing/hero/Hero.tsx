@@ -26,7 +26,7 @@ export const Hero = () => {
           resetOnExit
         >
           <h4
-            className="mb-1 ml-1.5 animate-[fadeIn_500ms_linear_1000ms_forwards] place-self-start text-left font-mono text-base opacity-0 sm:ml-2 sm:text-lg"
+            className="animate-fadeIn mb-1 ml-1.5 place-self-start text-left font-mono text-base opacity-0 [animation-delay:_1.5s] sm:ml-2 sm:text-lg"
             aria-label="Hi! I'm fontend developer"
           >
             Hi👋! I&apos;m&nbsp;<span className={cls.typewriter}></span>
@@ -36,7 +36,7 @@ export const Hero = () => {
             Bringing Ideas to Life
           </h1>
         </AnimateInView>
-        <div className="absolute bottom-5 left-0 mt-auto w-full animate-[fadeIn_3000ms_linear_500ms_forwards] text-center opacity-0">
+        <div className="animate-fadeIn absolute bottom-5 left-0 mt-auto w-full text-center opacity-0 [animation-delay:_1.5s]">
           <a href="#profile">
             <Image
               src={ScrollDownIcon}

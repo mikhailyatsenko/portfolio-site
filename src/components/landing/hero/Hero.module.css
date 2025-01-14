@@ -144,31 +144,3 @@
 .typewriter.nocaret::after {
   border-right: 0;
 }
-
-/*Animated Title effect */
-
-.heroTitle {
-  background: linear-gradient(to right, #5e72eb, #ff9190, #fec195, #5e72eb);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-
-  background-size: 300%;
-  background-position: -100%;
-
-  animation: animatedTitle 13s infinite alternate-reverse;
-}
-
-:global(.dark) .heroTitle {
-  background: linear-gradient(to right, #56f294, #f9c469, #4d9be9, #a9f2bd);
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-size: 300%;
-  background-position: -100%;
-}
-
-@keyframes animatedTitle {
-  to {
-    background-position: 100%;
-  }
-}
