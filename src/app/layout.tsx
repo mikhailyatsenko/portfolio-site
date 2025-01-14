@@ -48,7 +48,7 @@ export default async function RootLayout({
             {children}
             {modal}
           </main>
-          <Footer />
+          {/* <Footer /> */}
         </ThemeProvider>
       </body>
     </html>

@@ -59,7 +59,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
 
       const top = container.getBoundingClientRect().top;
       const offsetTop = 100; // отступ от верха
-      const marginY = 5; // промежуток между карточками
+      const marginY = 8; // промежуток между карточками
 
       let accumulatedHeight = 0;
 
@@ -97,10 +97,11 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        document.body.classList.add('new-bg');
+        document.getElementById('main-content')?.classList.add('new-bg');
+
         window.addEventListener('scroll', debouncedScroll);
       } else {
-        document.body.classList.remove('new-bg');
+        document.getElementById('main-content')?.classList.remove('new-bg');
         window.removeEventListener('scroll', debouncedScroll);
       }
     });

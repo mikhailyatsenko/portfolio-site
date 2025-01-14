@@ -16,14 +16,17 @@
 
 body {
   @apply bg-background text-foreground antialiased;
+}
+
+#main-content {
   transition: background 1s ease;
 }
 
-body.new-bg {
+#main-content.new-bg {
   background: #dbdbff;
 }
 
-.dark body.new-bg {
+.dark #main-content.new-bg {
   background: #000035;
 }
 
