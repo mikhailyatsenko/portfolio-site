@@ -48,7 +48,10 @@ export const ProjectCards = () => {
 
   return (
     <ScrollTrackBlock id="proj">
-      <section id="projects" className="relative px-8 py-7 md:px-14 md:py-16">
+      <section
+        id="projects"
+        className="relative px-8 py-7 md:px-14 md:pb-28 md:pt-16"
+      >
         <AnimateInView>
           <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
             Some projects
