@@ -3,10 +3,10 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 
 interface StackCardsProps {
-  children: React.ReactNode[];
+  cardsArray: React.ReactNode[];
 }
 
-const StackCards: React.FC<StackCardsProps> = ({ children }) => {
+const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolling, setScrolling] = useState(false);
 
@@ -108,7 +108,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
 
     observer.observe(container);
 
-    const debouncedScroll = debounce(handleScroll, 10); // Дебаунсинг вызова
+    const debouncedScroll = debounce(handleScroll, 10);
 
     return () => {
       observer.disconnect();
@@ -118,7 +118,7 @@ const StackCards: React.FC<StackCardsProps> = ({ children }) => {
 
   return (
     <div ref={containerRef}>
-      {children.map((child, index) => (
+      {cardsArray.map((child, index) => (
         <div
           key={index}
           className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-lg transition-transform duration-100`}

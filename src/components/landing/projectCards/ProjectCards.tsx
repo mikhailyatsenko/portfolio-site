@@ -50,15 +50,16 @@ export const ProjectCards = () => {
     <ScrollTrackBlock id="proj">
       <section
         id="projects"
-        className="relative px-8 py-7 md:px-14 md:pb-28 md:pt-16"
+        className="relative px-8 py-7 pb-28 md:px-14 md:pt-16"
       >
         <AnimateInView>
           <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
             Some projects
           </h2>
         </AnimateInView>
-        <StackCards>{cardContent}</StackCards>
+        <StackCards cardsArray={cardContent} />
       </section>
+      <div className="h-0 w-0 opacity-0" id="contacts"></div>
     </ScrollTrackBlock>
   );
 };
