@@ -26,7 +26,7 @@ export const ProjectCard = ({
   badges,
 }: ProjectCardProps) => {
   return (
-    <div className="flex h-full max-h-screen w-full justify-center overflow-hidden bg-background sm576:justify-start sm576:bg-gray-800 sm576:bg-opacity-30 sm576:bg-clip-padding sm576:px-10 sm576:py-6 sm576:backdrop-blur-md sm576:backdrop-filter md:py-10 lg:gap-10 lg:px-20">
+    <div className="flex h-full max-h-screen w-full justify-center overflow-hidden bg-background sm576:justify-start sm576:bg-gray-800 sm576:bg-opacity-30 sm576:bg-clip-padding sm576:px-10 sm576:py-6 sm576:backdrop-blur-md sm576:backdrop-filter sm576:dark:bg-gray-600 sm576:dark:bg-opacity-30 md:py-10 lg:gap-10 lg:px-20">
       <AnimateInView
         className="min-h-96 opacity-0 transition-opacity duration-500 ease-in-out"
         activeClass="!opacity-100"

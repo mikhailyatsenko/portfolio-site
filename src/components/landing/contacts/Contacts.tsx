@@ -24,7 +24,7 @@ export const Contacts = () => {
         </div>
         <div id="get-in-touch-content" className="h-fit w-full">
           <div className="mt-6 flex w-full justify-center gap-20 h-sm:gap-40">
-            <div className="flex w-[calc(50%-2.5rem)] shrink-0 flex-col justify-end text-sm h-sm:w-[calc(50%-5rem)] md:flex-row">
+            <div className="flex w-[calc(50%-2.5rem)] shrink-0 flex-col justify-start text-sm h-sm:w-[calc(50%-5rem)] md:flex-row md:justify-end">
               <div className="1/2 px-6">
                 <p className="mb-2 text-gray-400">Email</p>
                 <a
@@ -57,7 +57,7 @@ export const Contacts = () => {
               </div>
             </div>
             <div className="w-[calc(50%-2.5rem)] shrink-0 h-sm:w-[calc(50%-5rem)]">
-              <p className="text-md max-w-full break-words indent-8 text-gray-400">
+              <p className="max-w-full break-words indent-8 text-lg text-gray-400">
                 I&apos;m based in Berlin but open to remote work opportunities
                 worldwide. If you&apos;re working on something exciting or want
                 to explore potential collaboration, don&apos;t hesitate to get
