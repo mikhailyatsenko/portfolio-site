@@ -70,7 +70,7 @@ export const Contacts = () => {
 
         <Footer />
       </div>
-      <FernsehturmIcon className="fixed bottom-0 left-1/2 z-[1] h-[calc(100dvh-80px)] h-sm:h-[28rem] -translate-x-1/2 transform sm576:h-sm:h-[22rem]" />
+      <FernsehturmIcon className="fixed bottom-0 left-1/2 z-[1] h-[calc(100dvh-80px)] -translate-x-1/2 transform h-sm:h-[28rem] sm576:h-sm:h-[22rem]" />
     </section>
   );
 };
