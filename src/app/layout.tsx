@@ -16,11 +16,6 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900',
 });
-const rokkittSerif = localFont({
-  src: './fonts/Rokkitt-Bold.woff2',
-  variable: '--font-rokkitt-serif',
-  weight: '700',
-});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -39,9 +34,7 @@ export default async function RootLayout({
   const isDarkTheme = themeCookie ? themeCookie.value === 'dark' : false;
   return (
     <html lang="en" className={isDarkTheme ? 'dark' : ''}>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rokkittSerif.variable} font-sans`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
           <Header />
           <main>

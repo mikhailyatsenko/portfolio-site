@@ -29,7 +29,6 @@ export default {
       },
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'Arial', 'Helvetica', 'sans-serif'],
-        serif: ['var(--font-rokkitt-serif)', 'serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
       },
       fontSize: {

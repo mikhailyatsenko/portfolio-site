@@ -13,7 +13,7 @@ export const Contacts = () => {
       <div className={cls.twinkling}></div>
       <div className="relative z-[2] mx-auto flex h-full w-full flex-col justify-between">
         <div className="flex w-full justify-center gap-6 h-sm:gap-12">
-          <div className="w-1/2 max-w-3xl text-gray-500">
+          <div className="w-1/2 text-gray-500">
             <h2 className="text-right text-sm">Let&apos;s stay in touch</h2>
           </div>
           <div className="w-1/2 text-sm text-gray-500">
@@ -23,9 +23,9 @@ export const Contacts = () => {
           </div>
         </div>
         <div id="get-in-touch-content" className="h-fit w-full">
-          <div className="mt-6 flex w-full justify-center gap-20 h-sm:gap-40">
-            <div className="flex w-[calc(50%-2.5rem)] shrink-0 flex-col justify-start text-sm h-sm:w-[calc(50%-5rem)] md:flex-row md:justify-end">
-              <div className="1/2 px-6">
+          <div className="mt-6 flex w-full flex-col-reverse flex-wrap justify-center gap-4 md:flex-row md:gap-20 h-sm:md:gap-40">
+            <div className="flex w-full shrink-0 flex-row justify-center gap-12 text-sm md:w-[calc(50%-2.5rem)] md:justify-end h-sm:md:w-[calc(50%-5rem)]">
+              <div>
                 <p className="mb-2 text-gray-400">Email</p>
                 <a
                   href="mailto: yatsenkomike@gmail.com"
@@ -36,7 +36,7 @@ export const Contacts = () => {
                   yatsenkomike@gmail.com
                 </a>
               </div>
-              <div className="1/2 pl-6">
+              <div>
                 <p className="mb-2 text-gray-400">Social</p>
                 <a
                   className="block leading-6 text-gray-100 transition-colors hover:text-gray-400"
@@ -56,7 +56,7 @@ export const Contacts = () => {
                 </a>
               </div>
             </div>
-            <div className="w-[calc(50%-2.5rem)] shrink-0 h-sm:w-[calc(50%-5rem)]">
+            <div className="w-full shrink-0 md:w-[calc(50%-2.5rem)] h-sm:md:w-[calc(50%-5rem)]">
               <p className="max-w-full break-words indent-8 text-lg text-gray-400">
                 I&apos;m based in Berlin but open to remote work opportunities
                 worldwide. If you&apos;re working on something exciting or want
@@ -70,7 +70,7 @@ export const Contacts = () => {
 
         <Footer />
       </div>
-      <FernsehturmIcon className="fixed bottom-0 left-1/2 z-[1] h-[58vh] -translate-x-1/2 transform" />
+      <FernsehturmIcon className="fixed bottom-0 left-1/2 z-[1] h-[calc(100dvh-80px)] h-sm:h-[28rem] -translate-x-1/2 transform sm576:h-sm:h-[22rem]" />
     </section>
   );
 };

@@ -8,14 +8,14 @@ export default function Home() {
   return (
     <div className="relative">
       <div
-        className="relative z-10 z-[2] mb-[60vh] bg-background shadow-sm"
+        className="relative z-[2] h-sm:mb-[30rem] bg-background shadow-sm sm576:h-sm:mb-96"
         id="main-content"
       >
         <Hero />
         <Profile />
         <ProjectCards />
       </div>
-      <div className="fixed bottom-0 z-[1] h-[60vh] w-full">
+      <div className="h-sm:fixed relative h-fit bottom-0 z-[1] h-sm:h-[30rem] w-full sm576:h-sm:h-96">
         <Contacts />
         {/* <Footer /> */}
       </div>
