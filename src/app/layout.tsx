@@ -5,6 +5,7 @@ import { Header } from '@/components/common/Header';
 
 import { ThemeProvider } from '@/context/ThemeContext';
 import { cookies } from 'next/headers';
+import { ContactsWithFooter } from '@/components/landing/contacts/ContactsWithFooter';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -37,11 +38,13 @@ export default async function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
           <Header />
-          <main>
+          <main className="relative z-[2] bg-background shadow-sm h-sm:mb-[30rem] sm576:h-sm:mb-96">
             {children}
             {modal}
           </main>
-          {/* <Footer /> */}
+          <div className="relative bottom-0 z-[1] h-fit w-full h-sm:fixed h-sm:h-[30rem] sm576:h-sm:h-96">
+            <ContactsWithFooter />
+          </div>
         </ThemeProvider>
       </body>
     </html>

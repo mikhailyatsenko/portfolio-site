@@ -3,7 +3,7 @@ import cls from './Contacts.module.css';
 import { Footer } from './Footer';
 import LocationTime from './lib/LocationTime';
 
-export const Contacts = () => {
+export const ContactsWithFooter = () => {
   return (
     <section
       id="contact"
