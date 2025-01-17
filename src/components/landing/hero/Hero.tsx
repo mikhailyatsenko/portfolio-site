@@ -2,6 +2,8 @@ import cls from './Hero.module.css';
 import ScrollDownIcon from '@/assets/icons/scroll-down-icon.svg?url';
 import { AnimateInView } from '@/components/common/AnimateInView';
 import Image from 'next/image';
+import LinkedInIcon from '@/assets/icons/linkedin-icon.svg';
+import GithubIcon from '@/assets/icons/github-icon.svg';
 
 export const Hero = () => {
   return (
@@ -19,7 +21,7 @@ export const Hero = () => {
       </div>
 
       {/* Content Section */}
-      <div className="contentWrapper gap-4.5 absolute inset-0 flex flex-col items-center justify-center text-center mix-blend-difference invert dark:filter-none">
+      <div className="gap-4.5 absolute inset-0 mx-auto flex max-w-7xl flex-col items-center justify-center px-4 text-center mix-blend-difference invert dark:filter-none sm:px-6 lg:px-8">
         <AnimateInView
           className="scale-105 opacity-0 transition duration-1000 ease-in-out"
           activeClass="!opacity-100 !scale-100 transition duration-1000 ease-in-out"
@@ -36,7 +38,18 @@ export const Hero = () => {
             Bringing Ideas to Life
           </h1>
         </AnimateInView>
-        <div className="absolute bottom-5 left-0 mt-auto w-full animate-fadeIn text-center opacity-0 [animation-delay:_1.5s]">
+        <div className="absolute bottom-5 left-0 mt-auto flex w-full animate-fadeIn flex-col items-center gap-7 text-center opacity-0 [animation-delay:_1.5s] h-sm:gap-14">
+          <div className="flex justify-center gap-4">
+            <a
+              href="https://www.linkedin.com/in/mikhailyatsenko"
+              rel="noopener"
+            >
+              <LinkedInIcon className="h-6 w-6 fill-foreground transition-colors hover:fill-slate-500" />
+            </a>
+            <a href="https://github.com/mikhailyatsenko/" rel="noopener">
+              <GithubIcon className="h-6 w-6 fill-foreground transition-colors hover:fill-slate-500" />
+            </a>
+          </div>
           <a href="#profile">
             <Image
               src={ScrollDownIcon}

@@ -46,34 +46,7 @@ export const Profile = () => {
               </p>
             </div>
           </div>
-
-          {/* <div
-            className={`${cls.aboutMeScrollTransform} relative border-2 border-[var(--foreground)] bg-background p-5`}
-          >
-            I build modern, fast, and responsive web applications with a focus
-            on user experience and functionality. My goal is to create digital
-            products that are both visually appealing and highly effective.
-          </div> */}
         </div>
-
-        {/* <div
-          className={`${cls.skillsScrollTransform} mx-auto mt-6 flex w-fit flex-wrap justify-center border-2 border-[var(--foreground)] bg-background p-4`}
-        >
-          <div className="w-full">
-            <h4 className="mb-4 text-center font-mono text-xl font-medium">
-              Tech Stack
-            </h4>
-          </div>
-          {Object.entries(techStackIconsData).map(([key, tech]) => (
-            <div
-              key={key}
-              className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5"
-            >
-              <tech.icon className="h-[40px] w-[40px] fill-foreground" />
-              <h4>{tech.name}</h4>
-            </div>
-          ))}
-        </div> */}
 
         <div
           className={`${cls.skillsScrollTransform} relative mx-auto mt-6 w-fit dark:text-white`}

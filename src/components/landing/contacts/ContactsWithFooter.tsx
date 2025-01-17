@@ -54,6 +54,14 @@ export const ContactsWithFooter = () => {
                 >
                   Github
                 </a>
+                <a
+                  className="block leading-6 text-gray-100 transition-colors hover:text-gray-400"
+                  href="https:// https://t.me/mikhailyatsenko"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Telegram
+                </a>
               </div>
             </div>
             <div className="w-full shrink-0 md:w-[calc(50%-2.5rem)] h-sm:md:w-[calc(50%-5rem)]">

@@ -23,9 +23,9 @@ export const NavMenu = () => {
 
   const navItems = [
     { label: 'Home', href: '/' },
-    { label: 'Profile', href: '#profile' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Contacts', href: '#contacts' },
+    { label: 'Profile', href: '/#profile' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Contacts', href: '/#contacts' },
   ];
 
   return (
