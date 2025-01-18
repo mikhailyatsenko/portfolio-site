@@ -5,10 +5,18 @@ import Image from 'next/image';
 import LinkedInIcon from '@/assets/icons/linkedin-icon.svg';
 import GithubIcon from '@/assets/icons/github-icon.svg';
 
-export const Hero = () => {
+import initTranslations from '@/app/i18n';
+import LanguageChanger from '@/app/clientComponents/LanguageChanger';
+
+interface HeroProps {
+  locale: string;
+}
+
+export const Hero = async ({ locale }: HeroProps) => {
+  const { t } = await initTranslations(locale, ['common']);
+
   return (
     <section className="relative h-auto w-full">
-      {/* Hero Section */}
       <div
         className="mask-image-[radial-gradient(ellipse_at_100%_0%,black_40%,transparent_70%)] relative flex min-h-screen w-full items-center justify-center bg-stripes-rainbow bg-[length:200%_100%] bg-center blur-[10px] invert-[100%] dark:filter-opacity-saturate"
         style={{
@@ -16,11 +24,9 @@ export const Hero = () => {
             'radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%)',
         }}
       >
-        {/* Animated Overlay */}
         <div className="absolute inset-0 animate-smoothBg bg-stripes-rainbow bg-[length:200%_100%] mix-blend-difference" />
       </div>
 
-      {/* Content Section */}
       <div className="gap-4.5 absolute inset-0 mx-auto flex max-w-7xl flex-col items-center justify-center px-4 text-center mix-blend-difference invert dark:filter-none sm:px-6 lg:px-8">
         <AnimateInView
           className="scale-105 opacity-0 transition duration-1000 ease-in-out"
@@ -40,6 +46,8 @@ export const Hero = () => {
         </AnimateInView>
         <div className="absolute bottom-5 left-0 mt-auto flex w-full animate-fadeIn flex-col items-center gap-7 text-center opacity-0 [animation-delay:_1.5s] h-sm:gap-14">
           <div className="flex justify-center gap-4">
+            <p>{t('welcome')}</p>
+            <LanguageChanger />
             <a
               href="https://www.linkedin.com/in/mikhailyatsenko"
               rel="noopener"

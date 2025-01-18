@@ -1,4 +1,4 @@
-import { StackCards } from '@/clientComponents/StackCards';
+import { StackCards } from '@/app/clientComponents/StackCards';
 import { ProjectCard } from './projectCard/ProjectCard';
 
 import slide3Welle from '@/assets/projectsSlides/project-1-slide-1.webp';

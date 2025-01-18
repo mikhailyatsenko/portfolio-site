@@ -1,6 +1,6 @@
-import { ThemeToggler } from '@/clientComponents/ThemeToggler/ThemeToggler';
+import { ThemeToggler } from '@/app/clientComponents/ThemeToggler/ThemeToggler';
 import { AnimateInView } from '@/lib/AnimateInView';
-import { NavMenu } from '@/clientComponents/navMenu/NavMenu';
+import { NavMenu } from '@/app/clientComponents/navMenu/NavMenu';
 
 export const Header = () => {
   return (

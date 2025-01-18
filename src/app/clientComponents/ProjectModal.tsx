@@ -2,7 +2,7 @@
 
 import { PropsWithChildren } from 'react';
 import { useRouter } from 'next/navigation';
-import { useScrollLock } from '../lib/useScrollLock';
+import { useScrollLock } from '@/lib/useScrollLock';
 
 export default function ProjectModal({ children }: PropsWithChildren) {
   const router = useRouter();

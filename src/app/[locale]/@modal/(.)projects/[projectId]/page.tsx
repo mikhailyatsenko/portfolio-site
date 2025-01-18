@@ -1,5 +1,5 @@
 import { HeroProject } from '@/app/[locale]/components/project/HeroProject';
-import ProjectModal from '@/clientComponents/ProjectModal';
+import ProjectModal from '@/app/clientComponents/ProjectModal';
 import { ProjectIds } from '@/lib/projectsData';
 import { ProjectFeatures } from '@/app/[locale]/components/project/ProjectFeatures';
 

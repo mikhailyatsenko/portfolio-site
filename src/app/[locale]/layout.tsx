@@ -6,6 +6,8 @@ import { Header } from '@/app/[locale]/components/common/Header';
 import { ThemeProvider } from '@/context/ThemeContext';
 import { cookies } from 'next/headers';
 import { ContactsWithFooter } from '@/app/[locale]/components/landing/contacts/ContactsWithFooter';
+import TranslationsProvider from '../clientComponents/TranslationsProvider';
+import initTranslations from '../i18n';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -26,26 +28,40 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   modal,
+  params,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
+  params: Promise<{
+    locale: string;
+  }>;
 }>) {
+  const { locale } = await params;
+
+  const { resources } = await initTranslations(locale, ['common']);
+
   const cookieStore = cookies();
   const themeCookie = (await cookieStore).get('theme');
   const isDarkTheme = themeCookie ? themeCookie.value === 'dark' : false;
   return (
     <html lang="en" className={isDarkTheme ? 'dark' : ''}>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
-        <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
-          <Header />
-          <main className="relative z-[2] bg-background shadow-sm h-sm:mb-[30rem] sm576:h-sm:mb-96">
-            {children}
-            {modal}
-          </main>
-          <div className="relative bottom-0 z-[1] h-fit w-full h-sm:fixed h-sm:h-[30rem] sm576:h-sm:h-96">
-            <ContactsWithFooter />
-          </div>
-        </ThemeProvider>
+        <TranslationsProvider
+          namespaces={['common']}
+          locale={locale}
+          resources={resources}
+        >
+          <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
+            <Header />
+            <main className="relative z-[2] bg-background shadow-sm h-sm:mb-[30rem] sm576:h-sm:mb-96">
+              {children}
+              {modal}
+            </main>
+            <div className="relative bottom-0 z-[1] h-fit w-full h-sm:fixed h-sm:h-[30rem] sm576:h-sm:h-96">
+              <ContactsWithFooter />
+            </div>
+          </ThemeProvider>
+        </TranslationsProvider>
       </body>
     </html>
   );
