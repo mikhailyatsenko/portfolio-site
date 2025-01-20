@@ -5,7 +5,11 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import cls from './NavMenu.module.css';
 
+import { useTranslation } from 'react-i18next';
+
 export const NavMenu = () => {
+  const { t } = useTranslation();
+
   const pathname = usePathname(); // Получение текущего пути
   const [currentHash, setCurrentHash] = useState('');
 
@@ -22,7 +26,7 @@ export const NavMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
 
   const navItems = [
-    { label: 'Home', href: '/' },
+    { label: t('home'), href: '/' },
     { label: 'Profile', href: '/#profile' },
     { label: 'Projects', href: '/#projects' },
     { label: 'Contacts', href: '/#contacts' },

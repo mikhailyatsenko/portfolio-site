@@ -1,22 +1,25 @@
 import Image from 'next/image';
 
-import { projectsData } from '@/lib/projectsData';
+import { ProjectData, projectsData } from '@/lib/projectsData';
 import { techStackIconsData } from '@/lib/techStackIconsData';
 import { AnimateInView } from '@/lib/AnimateInView';
+import { TranslatedProjectsData } from '../../projects/[projectId]/page';
 
 export type ProjectIds = keyof typeof projectsData;
 
 export interface HeroProjectProps {
-  projectId: ProjectIds;
+  // projectId: ProjectIds;
+  projectData: ProjectData;
+  translatedProjectsData: TranslatedProjectsData;
 }
 
-const HeroProject = ({ projectId }: HeroProjectProps) => {
-  const project = projectsData[projectId];
-  if (!project) {
-    return null; // or a loading spinner
-  }
-  const { title, description, sourceLink, liveLink, mainImg, techStack } =
-    project;
+const HeroProject = ({
+  projectData,
+  translatedProjectsData,
+}: HeroProjectProps) => {
+  const { mainImg, techStack } = projectData;
+
+  const { title, description, sourceLink, liveLink } = translatedProjectsData;
 
   return (
     <div className="relative overflow-hidden bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] pt-20 dark:from-[#1f1636] dark:to-[#090610] md:pt-[130px] lg:pt-[160px]">
@@ -103,7 +106,7 @@ const HeroProject = ({ projectId }: HeroProjectProps) => {
                   <Image
                     src={mainImg}
                     className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
-                    alt={projectId.toString()}
+                    alt={projectData.id.toString()}
                   />
                 </AnimateInView>
               </div>

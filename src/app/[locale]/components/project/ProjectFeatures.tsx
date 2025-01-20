@@ -1,16 +1,20 @@
 import { ProjectTwoFeaturesRow } from './ProjectTwoFeaturesRow';
-import { projectsData, ProjectIds } from '@/lib/projectsData';
+import { ProjectData } from '@/lib/projectsData';
+import { TranslatedProjectsData } from '../../projects/[projectId]/page';
 
 export interface ProjectFeaturesProps {
-  projectId: ProjectIds;
+  projectData: ProjectData;
+  translatedProjectsData: TranslatedProjectsData;
 }
 
-export const ProjectFeatures = ({ projectId }: ProjectFeaturesProps) => {
-  const project = projectsData[projectId];
-  if (!project) {
-    return null; // or a loading spinner
-  }
-  const { features } = project;
+export const ProjectFeatures = ({
+  projectData,
+  translatedProjectsData,
+}: ProjectFeaturesProps) => {
+  const { featuresImgs } = projectData;
+
+  const { features } = translatedProjectsData;
+
   return (
     <section className="px-8 py-16">
       <h2 className="mb-10 text-center text-5xl">Project features</h2>
@@ -19,6 +23,7 @@ export const ProjectFeatures = ({ projectId }: ProjectFeaturesProps) => {
           indexChildRow={index}
           key={index}
           featuresRow={featureRow}
+          featuresImgs={featuresImgs}
         />
       ))}
     </section>

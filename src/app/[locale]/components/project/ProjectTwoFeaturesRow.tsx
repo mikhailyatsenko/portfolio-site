@@ -5,14 +5,16 @@ type ProjectTwoFeaturesRowProps = {
   indexChildRow: number;
   featuresRow: {
     title: string;
-    description: JSX.Element;
-    img: StaticImageData;
+    description: string;
+    links?: Record<string, string>[];
   }[];
+  featuresImgs: StaticImageData[];
 };
 
 export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
   featuresRow,
   indexChildRow,
+  featuresImgs,
 }) => {
   return (
     <div className="container mx-auto mb-8 overflow-hidden">
@@ -40,7 +42,7 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
             <div className="py-4">{feature.description}</div>
 
             <Image
-              src={feature.img}
+              src={featuresImgs[index]}
               alt={feature.title}
               className="mx-auto mt-auto max-h-[200px] w-auto rounded-t-lg object-contain"
             />

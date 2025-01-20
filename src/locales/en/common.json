@@ -1,4 +1,8 @@
 {
     "welcome": "Welcome to the application!",
-    "language_switch": "Switch language"
+    "language_switch": "Switch language",
+    "home": "Home",
+    "test": {
+      "test": "test"
+    }
   }

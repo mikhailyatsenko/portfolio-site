@@ -8,7 +8,6 @@ import { ChangeEvent } from 'react';
 
 export default function LanguageChanger() {
   const { i18n } = useTranslation();
-  console.log(i18n);
   const currentLocale = i18n.language;
   const router = useRouter();
   const currentPathname = usePathname();

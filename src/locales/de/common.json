@@ -1,4 +1,8 @@
 {
     "welcome": "Willkommen in der Anwendung!",
-    "language_switch": "Sprache wechseln"
+    "language_switch": "Sprache wechseln",
+    "home": "Hauptsite",
+    "test": {
+      "test": "test"
+    }
   }
