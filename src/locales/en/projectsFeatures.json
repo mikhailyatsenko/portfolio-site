@@ -13,10 +13,7 @@
         },
         {
           "title": "Fullstack application",
-          "description": "The app is built with React.js, Node.js and PostgreSQL. You can access the backend <1>here</1>.",
-          "links": {
-            "1": "https://github.com/mikhailyatsenko/berlin-coffee-backend"
-          }
+          "description": "The app is built with React.js, Node.js and PostgreSQL. You can access the backend <a href=\"https://github.com/mikhailyatsenko/berlin-coffee-backend\" class=\"font-bold\" target=\"_blank\">here</a>."
         }
       ],
       [
@@ -61,10 +58,7 @@
       [
         {
           "title": "Architecture",
-          "description": "The frontend follows the <1>Feature-Sliced Design</1> methodology.",
-          "links": {
-            "1": "https://feature-sliced.design"
-          }
+          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
         },
         {
           "title": "User Authentication and Profile Management",

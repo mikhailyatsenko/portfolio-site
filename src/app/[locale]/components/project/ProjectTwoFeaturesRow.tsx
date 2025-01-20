@@ -7,7 +7,7 @@ type ProjectTwoFeaturesRowProps = {
     title: string;
     description: string;
   }[];
-  featuresImgs: StaticImageData[];
+  featuresImgs: StaticImageData[][];
 };
 
 export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
@@ -44,7 +44,7 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
             </div>
 
             <Image
-              src={featuresImgs[index]}
+              src={featuresImgs[indexChildRow][index]}
               alt={feature.title}
               className="mx-auto mt-auto max-h-[200px] w-auto rounded-t-lg object-contain"
             />

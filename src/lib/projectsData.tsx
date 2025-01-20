@@ -18,7 +18,7 @@ export interface ProjectData {
   id: ProjectIds;
   techStack: TechStackIconKey[];
   mainImg: StaticImageData;
-  featuresImgs: StaticImageData[];
+  featuresImgs: StaticImageData[][];
 }
 
 export type ProjectsData = Record<ProjectIds, ProjectData>;
@@ -28,7 +28,10 @@ export const projectsData: ProjectsData = {
     id: 'encryptnotes',
     mainImg: encryptMainImg,
     techStack: ['react', 'typescript', 'vite', 'node'],
-    featuresImgs: [responsiveImg, fullstackAppImg, speedImg, fullstackAppImg],
+    featuresImgs: [
+      [responsiveImg, fullstackAppImg],
+      [speedImg, fullstackAppImg],
+    ],
   },
 
   welle: {
@@ -36,12 +39,9 @@ export const projectsData: ProjectsData = {
     mainImg: welleMainImg,
     techStack: ['typescript', 'react', 'vite', 'graphql', 'node', 'mongodb'],
     featuresImgs: [
-      fullstackAppImg,
-      mapIcon,
-      reviewImg,
-      responsiveImg,
-      architectureImg,
-      accountImg,
+      [fullstackAppImg, mapIcon],
+      [reviewImg, responsiveImg],
+      [architectureImg, accountImg],
     ],
   },
 
@@ -49,6 +49,9 @@ export const projectsData: ProjectsData = {
     id: 'bvg',
     mainImg: bvgMainImg,
     techStack: ['typescript', 'react', 'redux', 'vite'],
-    featuresImgs: [scheduleImg, mapIcon, architectureImg, responsiveImg],
+    featuresImgs: [
+      [scheduleImg, mapIcon],
+      [architectureImg, responsiveImg],
+    ],
   },
 };

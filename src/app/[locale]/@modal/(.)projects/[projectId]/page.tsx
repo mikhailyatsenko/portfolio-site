@@ -14,7 +14,7 @@ export default async function ProjectPageForModal({
 
   const { t } = await initTranslations(locale, ['projectsFeatures']);
 
-  const translatedProjectsData = t(`${params}`, {
+  const translatedProjectsData = t(projectId, {
     returnObjects: true,
   }) as TranslatedProjectsData;
 
