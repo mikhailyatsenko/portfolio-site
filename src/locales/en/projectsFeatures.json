@@ -93,10 +93,7 @@
       [
         {
           "title": "Architecture",
-          "description": "The app follows the <1>Feature-Sliced Design</1> methodology.",
-          "links": {
-            "1": "https://feature-sliced.design"
-          }
+          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
         },
         {
           "title": "Responsive Design",

@@ -14,11 +14,15 @@ export default async function ProjectPageForModal({
 
   const { t } = await initTranslations(locale, ['projectsFeatures']);
 
-  const translatedProjectsData = t('welle', {
+  const translatedProjectsData = t(`${params}`, {
     returnObjects: true,
   }) as TranslatedProjectsData;
 
+  if (!translatedProjectsData) return null;
+
   const projectData = projectsData[projectId];
+
+  if (!projectData) return null;
 
   console.log(translatedProjectsData, projectData);
   return (

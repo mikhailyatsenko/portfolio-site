@@ -13,7 +13,7 @@ export interface TranslatedProjectsData {
   features: {
     title: string;
     description: string;
-    links?: { text: string; href: string }[];
+    links?: Record<string, string>;
   }[][];
 }
 
@@ -26,13 +26,15 @@ export default async function ProjectPage({
 
   const { t } = await initTranslations(locale, ['projectsFeatures']);
 
-  const translatedProjectsData = t('welle', {
+  const translatedProjectsData = t(projectId, {
     returnObjects: true,
   }) as TranslatedProjectsData;
 
+  if (!translatedProjectsData) return null;
+
   const projectData = projectsData[projectId];
 
-  console.log(translatedProjectsData, projectData);
+  if (!projectData) return null;
 
   return (
     <div className="mt-[74px] w-full bg-background">

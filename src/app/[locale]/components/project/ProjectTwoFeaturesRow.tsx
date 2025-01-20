@@ -6,7 +6,6 @@ type ProjectTwoFeaturesRowProps = {
   featuresRow: {
     title: string;
     description: string;
-    links?: Record<string, string>[];
   }[];
   featuresImgs: StaticImageData[];
 };
@@ -39,7 +38,10 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
             <h4 className="mb-2 text-2xl font-medium text-foreground">
               {feature.title}
             </h4>
-            <div className="py-4">{feature.description}</div>
+            <div className="py-4">
+              <p dangerouslySetInnerHTML={{ __html: feature.description }} />
+              {/* {feature.description} */}
+            </div>
 
             <Image
               src={featuresImgs[index]}
