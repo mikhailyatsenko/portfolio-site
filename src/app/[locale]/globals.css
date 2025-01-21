@@ -118,7 +118,9 @@ html {
   select:focus,
   select:hover,
   option:hover,
-  option:focus {
+  option:focus,
+  select,
+  option {
     border: none;
     outline: none;
     border: transparent;

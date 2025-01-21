@@ -32,10 +32,8 @@ export const NavMenu = () => {
     { label: t('navigation.contacts'), href: '/#contacts' },
   ];
 
-
-
   return (
-    <div className="ml-5">
+    <div className="ml-2 sm576:ml-5">
       <nav className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''}`}>
         {navItems.map((link) => {
           // Проверка активного класса

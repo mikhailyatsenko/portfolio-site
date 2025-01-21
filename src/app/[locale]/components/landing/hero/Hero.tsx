@@ -5,7 +5,6 @@ import Image from 'next/image';
 import LinkedInIcon from '@/assets/icons/linkedin-icon.svg';
 import GithubIcon from '@/assets/icons/github-icon.svg';
 
-import LanguageChanger from '@/app/clientComponents/LanguageChanger';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 
 interface HeroProps {
@@ -45,7 +44,6 @@ export const Hero = async ({ t }: HeroProps) => {
         </AnimateInView>
         <div className="absolute bottom-5 left-0 mt-auto flex w-full animate-fadeIn flex-col items-center gap-7 text-center opacity-0 [animation-delay:_1.5s] h-sm:gap-14">
           <div className="flex justify-center gap-4">
-            <LanguageChanger />
             <a
               href="https://www.linkedin.com/in/mikhailyatsenko"
               rel="noopener"
