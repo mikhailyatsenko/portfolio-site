@@ -1,0 +1,99 @@
+{
+  "encryptnotes": {
+    "id": "encryptnotes",
+    "title": "Encrypt Notes App",
+    "description": "This is a fullstack application designed for encrypting short notes.",
+    "liveLink": "https://mikhailyatsenko.github.io/encryptnotes",
+    "sourceLink": "https://github.com/mikhailyatsenko/encryptnotes",
+    "features": [
+      [
+        {
+          "title": "Responsive design",
+          "description": "The app is designed to be responsive and work on all devices."
+        },
+        {
+          "title": "Fullstack application",
+          "description": "The app is built with React.js, Node.js and PostgreSQL. You can access the backend <a href=\"https://github.com/mikhailyatsenko/berlin-coffee-backend\" class=\"font-bold\" target=\"_blank\">here</a>."
+        }
+      ],
+      [
+        {
+          "title": "Performance",
+          "description": "The project is lightweight and simple, avoiding heavy libraries to ensure fast performance."
+        },
+        {
+          "title": "Fullstack application",
+          "description": "The app is built with React.js, Node.js and PostgreSQL."
+        }
+      ]
+    ]
+  },
+  "welle": {
+    "id": "welle",
+    "title": "3. Welle - Berlin Coffee Shop Finder",
+    "description": "Fullstack app for discovering specialty coffee shops in Berlin with reviews and ratings.",
+    "liveLink": "https://3welle.com",
+    "sourceLink": "https://github.com/mikhailyatsenko/coffemapberlin",
+    "features": [
+      [
+        {
+          "title": "Modern Full-Stack Application",
+          "description": "Built with React, Node.js, MongoDB and GraphQL for efficient data handling."
+        },
+        {
+          "title": "Interactive Guide to Berlin's Specialty Cafés",
+          "description": "Explore specialty cafés displayed on an interactive map, with detailed café pages."
+        }
+      ],
+      [
+        {
+          "title": "Community Reviews and Ratings",
+          "description": "Users can submit reviews and rate cafés to help others discover great places."
+        },
+        {
+          "title": "Responsive Design",
+          "description": "Fully responsive design ensures optimal experience across devices."
+        }
+      ],
+      [
+        {
+          "title": "Architecture",
+          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
+        },
+        {
+          "title": "User Authentication and Profile Management",
+          "description": "Supports Google and email authentication with profile management features."
+        }
+      ]
+    ]
+  },
+  "bvg": {
+    "id": "bvg",
+    "title": "Berlin Public Transport App",
+    "description": "Web app for viewing real-time public transport arrival times in Berlin and Brandenburg.",
+    "liveLink": "https://mikhailyatsenko.github.io/bvg-app-ts",
+    "sourceLink": "https://github.com/mikhailyatsenko/bvg-app-ts",
+    "features": [
+      [
+        {
+          "title": "Real-Time Departure Schedule",
+          "description": "Displays upcoming departure schedules for selected stops in Berlin and Brandenburg."
+        },
+        {
+          "title": "Advanced Filtering and Favorites",
+          "description": "Users can filter results and save favorite stops for quick access."
+        }
+      ],
+      [
+        {
+          "title": "Architecture",
+          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
+        },
+        {
+          "title": "Responsive Design",
+          "description": "Ensures an optimal user experience across different screen sizes."
+        }
+      ]
+    ]
+  }
+}

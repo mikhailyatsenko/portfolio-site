@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255, 255, 255; /* Убедитесь, что переменная содержит только RGB */
+  --foreground: 23, 23, 23;
+  --stripe-color: #fff;
+}
+
+.dark {
+  --background: 26, 26, 26;
+  --foreground: 237, 237, 237;
+  --stripe-color: #000;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+}
+
+#main-content {
+  transition: background 1s ease;
+}
+
+#main-content.new-bg {
+  background: #dbdbff;
+}
+
+.dark #main-content.new-bg {
+  background: #000035;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  header {
+    --thickness: 4px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    /*
+        Very opaque, for unsupported browsers.
+        Overwritten in the feature queries below.
+      */
+    background: hsl(0deg 0% 100% / 0.95);
+
+    /*
+       нужно доделать для темной версии фон как выше
+      */
+  }
+
+  @supports (backdrop-filter: blur(16px)) or
+    (-webkit-backdrop-filter: blur(16px)) {
+    header {
+      background: hsl(0deg 0% 100% / 0);
+    }
+
+    .backdrop {
+      position: absolute;
+      inset: 0;
+      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(16px);
+      pointer-events: none;
+    }
+
+    .backdrop-edge {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: var(--thickness);
+      background: hsl(0deg 0% 100% / 0.1);
+      -webkit-backdrop-filter: blur(12px) brightness(0.96);
+      backdrop-filter: blur(12px) brightness(0.96);
+      transform: translateY(100%);
+      pointer-events: none;
+    }
+  }
+
+  @supports (mask-image: none) or (-webkit-mask-image: none) {
+    .backdrop {
+      height: 200%;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0% 50%,
+        transparent 50% 100%
+      );
+
+      mask-image: linear-gradient(
+        to bottom,
+        black 0% 50%,
+        transparent 50% 100%
+      );
+    }
+
+    .backdrop-edge {
+      height: 100%;
+      inset: 0;
+      -webkit-mask-image: linear-gradient(
+        to bottom,
+        black 0,
+        black var(--thickness),
+        transparent var(--thickness)
+      );
+      mask-image: linear-gradient(
+        to bottom,
+        black 0,
+        black var(--thickness),
+        transparent var(--thickness)
+      );
+    }
+  }
+}
+
+@layer base {
+  select:focus,
+  select:hover,
+  option:hover,
+  option:focus,
+  select,
+  option {
+    border: none;
+    outline: none;
+    border: transparent;
+  }
+}

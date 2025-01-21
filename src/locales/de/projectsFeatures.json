@@ -1,0 +1,76 @@
+{
+  "encryptnotes": {
+    "id": "encryptnotes",
+    "title": "Encrypt Notes App",
+    "description": "Dies ist eine Fullstack-Anwendung zur Verschlüsselung von Notizen.",
+    "liveLink": "https://mikhailyatsenko.github.io/encryptnotes",
+    "sourceLink": "https://github.com/mikhailyatsenko/encryptnotes",
+    "features": [
+      [
+        {
+          "title": "Responsives Design",
+          "description": "Die App ist responsiv und funktioniert auf allen Geräten."
+        },
+        {
+          "title": "Fullstack-Anwendung",
+          "description": "Die App basiert auf React.js, Node.js und PostgreSQL. Du kannst das Backend <1>hier</1> ansehen.",
+          "links": {
+            "1": "https://github.com/mikhailyatsenko/berlin-coffee-backend"
+          }
+        }
+      ],
+      [
+        {
+          "title": "Leistung",
+          "description": "Das Projekt ist leichtgewichtig und verwendet keine schweren Bibliotheken, um eine hohe Geschwindigkeit zu gewährleisten."
+        },
+        {
+          "title": "Fullstack-Anwendung",
+          "description": "Die App basiert auf React.js, Node.js und PostgreSQL."
+        }
+      ]
+    ]
+  },
+  "welle": {
+    "id": "welle",
+    "title": "3. Welle - Berliner Kaffee-Finder",
+    "description": "Eine Fullstack-App zur Entdeckung von Spezialitäten-Cafés in Berlin mit Bewertungen und Rezensionen.",
+    "liveLink": "https://3welle.com",
+    "sourceLink": "https://github.com/mikhailyatsenko/coffemapberlin",
+    "features": [
+      [
+        {
+          "title": "Moderne Full-Stack-Anwendung",
+          "description": "Erstellt mit React, Node.js, MongoDB und GraphQL für effizientes Datenmanagement."
+        },
+        {
+          "title": "Interaktiver Stadtführer zu Spezialitäten-Cafés",
+          "description": "Eine interaktive Karte mit detaillierten Café-Seiten."
+        }
+      ],
+      [
+        {
+          "title": "Community-Bewertungen und Rankings",
+          "description": "Benutzer können Rezensionen abgeben und Cafés bewerten."
+        },
+        {
+          "title": "Responsives Design",
+          "description": "Bietet eine optimale Benutzererfahrung auf allen Geräten."
+        }
+      ],
+      [
+        {
+          "title": "Architektur",
+          "description": "Das Frontend folgt der <1>Feature-Sliced Design</1> Methodik.",
+          "links": {
+            "1": "https://feature-sliced.design"
+          }
+        },
+        {
+          "title": "Benutzer-Authentifizierung und Profilverwaltung",
+          "description": "Unterstützt Google- und E-Mail-Authentifizierung mit Profilverwaltung."
+        }
+      ]
+    ]
+  }
+}

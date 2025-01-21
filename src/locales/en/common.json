@@ -1,0 +1,8 @@
+{
+  "navigation": {
+    "home": "Home",
+    "profile": "Profile",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  }
+}
