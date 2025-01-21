@@ -6,8 +6,13 @@ import Image from 'next/image';
 import cls from './Profile.module.css';
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
 import { AnimateInView } from '@/lib/AnimateInView';
+import { LandingTranslationKeys } from '@/types/i18nTypes';
 
-export const Profile = () => {
+interface ProfileProps {
+  t: (key: LandingTranslationKeys) => string;
+}
+
+export const Profile = async ({ t }: ProfileProps) => {
   return (
     <section
       id="profile"
@@ -16,7 +21,7 @@ export const Profile = () => {
       <ScrollTrackBlock id="profile">
         <AnimateInView>
           <h2 className="text-center text-5xl font-[150] md:text-6xl">
-            Profile
+            {t('profile.title')}
           </h2>
         </AnimateInView>
         <div className="mx-auto mt-5 flex shrink-0 flex-col items-center gap-5 sm576:flex-row lg:w-3/4">
@@ -24,7 +29,7 @@ export const Profile = () => {
             src={mishaPhoto}
             width={100}
             height={100}
-            alt="Photo of Mykhailo Yatsenko"
+            alt={t('profile.photo_alt')}
             className={`${cls.photoScrollTransform} h-[100px] w-[100px] rotate-2 transition-transform duration-150 ease-in-out hover:rotate-0`}
           />
           <div
@@ -35,14 +40,11 @@ export const Profile = () => {
               <div className="flex items-center">
                 {/* <span className="text-xl">😎</span> */}
                 <h3 className="my-2 ml-3 font-mono text-lg font-bold text-gray-800 dark:text-white">
-                  Hello world!
+                  {t('profile.hello')}
                 </h3>
               </div>
               <p className="font-mono text-gray-600 dark:text-gray-300">
-                I build modern, fast, and responsive web applications with a
-                focus on user experience and functionality. My goal is to create
-                digital products that are both visually appealing and highly
-                effective.
+                {t('profile.description')}
               </p>
             </div>
           </div>
@@ -56,7 +58,7 @@ export const Profile = () => {
             <div className="mb-4 flex items-center justify-center">
               {/* <span className="text-xl">😎</span> */}
               <h3 className="text-center text-lg font-bold text-gray-800 dark:text-white">
-                My Tech Stack
+                {t('tech_stack.title')}
               </h3>
             </div>
             <div className="flex w-fit flex-wrap justify-center">

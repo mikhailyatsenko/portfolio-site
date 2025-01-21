@@ -6,40 +6,42 @@ import slideBvg from '@/assets/projectsSlides/project-2-slide-1.webp';
 import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
+import { LandingTranslationKeys } from '@/types/i18nTypes';
 
-export const ProjectCards = () => {
+interface ProfileProps {
+  t: (key: LandingTranslationKeys) => string;
+}
+
+export const ProjectCards = ({ t }: ProfileProps) => {
   const cardContent = [
     <ProjectCard
-      key={'1'}
+      key={t('projects.welle.title')}
       slide={slide3Welle}
-      title='"3. Welle" - Berlin Coffee Shop Finder'
+      title={t('projects.welle.title')}
       badges={['Fullstack', 'Responsive', 'FSD Architecture']}
-      description="Fullstack application designed to help Berlin residents and visitors
-          discover the best specialty coffee shops in the city. Users can
-          explore a map of coffee shops, read and leave reviews, and find
-          essential information about each location."
+      description={t('projects.welle.description')}
       link="https://3welle.com"
       linkText="3welle.com"
       detailsLink="welle"
     />,
 
     <ProjectCard
-      key="2"
+      key={t('projects.bvg.title')}
       slide={slideBvg}
-      title='"BVG App" - Berlin Public Transport App'
+      title={t('projects.bvg.title')}
       badges={['SPA', 'Responsive', 'FSD Architecture']}
-      description="This application designed for viewing real-time arrival times of public transport at stops in Berlin and Brandenburg"
+      description={t('projects.bvg.description')}
       link="https://mikhailyatsenko.github.io/bvg-app-ts"
       linkText="mikhailyatsenko.github.io/bvg-app-ts"
       detailsLink="bvg"
     />,
 
     <ProjectCard
-      key="3"
+      key={t('projects.encryptnotes.title')}
       slide={slideEncrypt}
-      title='"Encrypt notes" - Short message encryption service'
+      title={t('projects.encryptnotes.title')}
       badges={['SPA', 'Responsive']}
-      description="This is a fullstack application designed for encrypting short notes."
+      description={t('projects.welle.description')}
       link="https://mikhailyatsenko.github.io/encryptnotes"
       linkText="mikhailyatsenko.github.io/encryptnotes"
       detailsLink="encryptnotes"
@@ -54,7 +56,7 @@ export const ProjectCards = () => {
       >
         <AnimateInView>
           <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
-            Some projects
+            {t('projects.title')}
           </h2>
         </AnimateInView>
         <StackCards cardsArray={cardContent} />

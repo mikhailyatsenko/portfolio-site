@@ -1,8 +1,8 @@
 {
-    "welcome": "Willkommen in der Anwendung!",
-    "language_switch": "Sprache wechseln",
-    "home": "Hauptsite",
-    "test": {
-      "test": "test"
-    }
+  "navigation": {
+    "home": "Startseite",
+    "profile": "Profil",
+    "projects": "Projekte",
+    "contacts": "Kontakte"
   }
+}

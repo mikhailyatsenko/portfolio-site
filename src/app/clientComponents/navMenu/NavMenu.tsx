@@ -26,11 +26,13 @@ export const NavMenu = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
 
   const navItems = [
-    { label: t('home'), href: '/' },
-    { label: 'Profile', href: '/#profile' },
-    { label: 'Projects', href: '/#projects' },
-    { label: 'Contacts', href: '/#contacts' },
+    { label: t('navigation.home'), href: '/' },
+    { label: t('navigation.profile'), href: '/#profile' },
+    { label: t('navigation.projects'), href: '/#projects' },
+    { label: t('navigation.contacts'), href: '/#contacts' },
   ];
+
+
 
   return (
     <div className="ml-5">

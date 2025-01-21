@@ -5,16 +5,14 @@ import Image from 'next/image';
 import LinkedInIcon from '@/assets/icons/linkedin-icon.svg';
 import GithubIcon from '@/assets/icons/github-icon.svg';
 
-import initTranslations from '@/app/i18n';
 import LanguageChanger from '@/app/clientComponents/LanguageChanger';
+import { LandingTranslationKeys } from '@/types/i18nTypes';
 
 interface HeroProps {
-  locale: string;
+  t: (key: LandingTranslationKeys) => string;
 }
 
-export const Hero = async ({ locale }: HeroProps) => {
-  const { t } = await initTranslations(locale, ['common']);
-
+export const Hero = async ({ t }: HeroProps) => {
   return (
     <section className="relative h-auto w-full">
       <div
@@ -37,16 +35,16 @@ export const Hero = async ({ locale }: HeroProps) => {
             className="mb-1 ml-1.5 animate-fadeIn place-self-start text-left font-mono text-base opacity-0 [animation-delay:_1.5s] sm:ml-2 sm:text-lg"
             aria-label="Hi! I'm fontend developer"
           >
-            Hi👋! I&apos;m&nbsp;<span className={cls.typewriter}></span>
+            {t('hero.greeting')}
+            &nbsp;<span className={cls.typewriter}></span>
           </h4>
 
           <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
-            Bringing Ideas to Life
+            {t('hero.tagline')}
           </h1>
         </AnimateInView>
         <div className="absolute bottom-5 left-0 mt-auto flex w-full animate-fadeIn flex-col items-center gap-7 text-center opacity-0 [animation-delay:_1.5s] h-sm:gap-14">
           <div className="flex justify-center gap-4">
-            <p>{t('welcome')}</p>
             <LanguageChanger />
             <a
               href="https://www.linkedin.com/in/mikhailyatsenko"
@@ -62,7 +60,7 @@ export const Hero = async ({ locale }: HeroProps) => {
             <Image
               src={ScrollDownIcon}
               className="mx-auto h-[40px] w-[40px] animate-bounce dark:invert-[90%]"
-              alt="Scroll down"
+              alt={t('hero.scroll')}
             />
           </a>
         </div>

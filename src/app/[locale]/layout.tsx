@@ -38,10 +38,7 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
 
-  const { resources } = await initTranslations(locale, [
-    'common',
-    'projectsFeatures',
-  ]);
+  const { resources } = await initTranslations(locale, ['common']);
 
   const cookieStore = cookies();
   const themeCookie = (await cookieStore).get('theme');
@@ -50,7 +47,7 @@ export default async function RootLayout({
     <html lang="en" className={isDarkTheme ? 'dark' : ''}>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <TranslationsProvider
-          namespaces={['common', 'projectsFeatures']}
+          namespaces={['common']}
           locale={locale}
           resources={resources}
         >
@@ -61,7 +58,7 @@ export default async function RootLayout({
               {modal}
             </main>
             <div className="relative bottom-0 z-[1] h-fit w-full h-sm:fixed h-sm:h-[30rem] sm576:h-sm:h-96">
-              <ContactsWithFooter />
+              <ContactsWithFooter locale={locale} />
             </div>
           </ThemeProvider>
         </TranslationsProvider>

@@ -1,0 +1,59 @@
+{
+    "hero": {
+        "greeting": "Hallo👋! Ich bin",
+        "tagline": "Ideen zum Leben erwecken",
+        "scroll": "Scrollen Sie nach unten"
+    },
+    "profile": {
+        "title": "Profil",
+        "photo_alt": "Foto von Mykhailo Yatsenko",
+        "hello": "Hallo Welt!",
+        "description": "Ich erstelle moderne, schnelle und responsive Webanwendungen mit Fokus auf Benutzererfahrung und Funktionalität. Mein Ziel ist es, digitale Produkte zu entwickeln, die sowohl optisch ansprechend als auch hochfunktional sind."
+    },
+    "tech_stack": {
+        "title": "Mein Tech-Stack"
+    },
+    "projects": {
+        "title": "Einige Projekte",
+        "welle": {
+            "title": "\"3. Welle\" - Berlin Coffee Shop Finder",
+            "tags": [
+                "Fullstack",
+                "Responsive",
+                "FSD-Architektur"
+            ],
+            "link": "🔗 3welle.com",
+            "description": "Eine Fullstack-Anwendung, die Berliner und Besucher dabei unterstützt, die besten Spezialitäten-Cafés in der Stadt zu entdecken. Benutzer können eine Karte der Cafés erkunden, Bewertungen lesen und hinterlassen sowie wichtige Informationen über jeden Standort finden."
+        },
+        "bvg": {
+            "title": "\"BVG App\" - Berlin Öffentlicher Nahverkehr",
+            "tags": [
+                "SPA",
+                "Responsive",
+                "FSD-Architektur"
+            ],
+            "link": "🔗 mikhailyatsenko.github.io/bvg-app-ts",
+            "description": "Diese Anwendung dient zur Anzeige der Echtzeitankunftszeiten des öffentlichen Nahverkehrs an Haltestellen in Berlin und Brandenburg."
+        },
+        "encryptnotes": {
+            "title": "\"Encrypt notes\" - Dienst zur Verschlüsselung kurzer Nachrichten",
+            "tags": [
+                "SPA",
+                "Responsive"
+            ],
+            "link": "🔗 mikhailyatsenko.github.io/encryptnotes",
+            "description": "Dies ist eine Fullstack-Anwendung zur Verschlüsselung kurzer Notizen."
+        }
+    },
+    "contact": {
+        "title": "Bleiben wir in Kontakt",
+        "location": "Berlin, Deutschland ",
+        "email": "E-Mail",
+        "social": "Soziale Netzwerke",
+        "description": "Ich lebe in Berlin, bin aber offen für Remote-Arbeitsmöglichkeiten. Wenn Sie an einem spannenden Projekt arbeiten oder eine mögliche Zusammenarbeit erkunden möchten, zögern Sie nicht, mich zu kontaktieren. Ich antworte aktiv auf E-Mails und freue mich auf den Austausch!"
+    },
+    "footer": {
+        "created_by": "Erstellt von ©Mykhailo Yatsenko",
+        "legal_notice": "Impressum"
+    }
+}

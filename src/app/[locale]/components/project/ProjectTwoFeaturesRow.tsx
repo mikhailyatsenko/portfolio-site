@@ -40,7 +40,6 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
             </h4>
             <div className="py-4">
               <p dangerouslySetInnerHTML={{ __html: feature.description }} />
-              {/* {feature.description} */}
             </div>
 
             <Image

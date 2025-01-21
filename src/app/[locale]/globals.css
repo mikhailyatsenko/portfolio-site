@@ -113,3 +113,14 @@ html {
     }
   }
 }
+
+@layer base {
+  select:focus,
+  select:hover,
+  option:hover,
+  option:focus {
+    border: none;
+    outline: none;
+    border: transparent;
+  }
+}

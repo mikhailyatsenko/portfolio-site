@@ -1,8 +1,8 @@
 {
-    "welcome": "Welcome to the application!",
-    "language_switch": "Switch language",
+  "navigation": {
     "home": "Home",
-    "test": {
-      "test": "test"
-    }
+    "profile": "Profile",
+    "projects": "Projects",
+    "contacts": "Contacts"
   }
+}

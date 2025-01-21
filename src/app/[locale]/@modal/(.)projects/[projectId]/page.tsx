@@ -24,7 +24,6 @@ export default async function ProjectPageForModal({
 
   if (!projectData) return null;
 
-  console.log(translatedProjectsData, projectData);
   return (
     <ProjectModal>
       <HeroProject
