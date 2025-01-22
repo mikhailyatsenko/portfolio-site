@@ -18,11 +18,7 @@ export default async function ProjectPageForModal({
     returnObjects: true,
   }) as TranslatedProjectsData;
 
-  if (!translatedProjectsData) return null;
-
   const projectData = projectsData[projectId];
-
-  if (!projectData) return null;
 
   return (
     <ProjectModal>

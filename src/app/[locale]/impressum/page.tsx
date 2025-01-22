@@ -1,6 +1,4 @@
-import React from 'react';
-
-const Impressum: React.FC = () => {
+const Impressum = () => {
   return (
     <div className="mx-auto mt-[74px] min-h-dvh max-w-7xl rounded-lg bg-background p-10 shadow-md">
       <h1 className="mb-6 text-3xl font-bold">Impressum</h1>
