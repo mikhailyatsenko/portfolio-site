@@ -1,7 +1,9 @@
-import { HeroProject } from '@/app/[locale]/components/project/HeroProject';
-import { ProjectFeatures } from '@/app/[locale]/components/project/ProjectFeatures';
+import { HeroProject } from '@/app/components/project/HeroProject';
+import { ProjectFeatures } from '@/app/components/project/ProjectFeatures';
 import { ProjectIds, projectsData } from '@/lib/projectsData';
 import initTranslations from '@/app/i18n';
+
+import { cookies } from 'next/headers';
 
 export interface TranslatedProjectsData {
   id: string;
@@ -20,9 +22,12 @@ export interface TranslatedProjectsData {
 export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ projectId: ProjectIds; locale: string }>;
+  params: Promise<{ projectId: ProjectIds }>;
 }) {
-  const { projectId, locale } = await params;
+  const { projectId } = await params;
+
+  const cookieStore = cookies();
+  const locale = (await cookieStore).get('NEXT_LOCALE')?.value || 'en';
 
   const { t } = await initTranslations(locale, ['projectsFeatures']);
 

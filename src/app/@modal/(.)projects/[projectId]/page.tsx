@@ -1,9 +1,9 @@
-import { HeroProject } from '@/app/[locale]/components/project/HeroProject';
+import { HeroProject } from '@/app/components/project/HeroProject';
 import ProjectModal from '@/app/clientComponents/ProjectModal';
 import { ProjectIds, projectsData } from '@/lib/projectsData';
-import { ProjectFeatures } from '@/app/[locale]/components/project/ProjectFeatures';
+import { ProjectFeatures } from '@/app/components/project/ProjectFeatures';
 import initTranslations from '@/app/i18n';
-import { TranslatedProjectsData } from '@/app/[locale]/projects/[projectId]/page';
+import { TranslatedProjectsData } from '@/app/projects/[projectId]/page';
 
 export default async function ProjectPageForModal({
   params,
