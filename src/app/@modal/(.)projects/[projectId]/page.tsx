@@ -4,13 +4,17 @@ import { ProjectIds, projectsData } from '@/lib/projectsData';
 import { ProjectFeatures } from '@/app/components/project/ProjectFeatures';
 import initTranslations from '@/app/i18n';
 import { TranslatedProjectsData } from '@/app/projects/[projectId]/page';
+import { cookies } from 'next/headers';
 
 export default async function ProjectPageForModal({
   params,
 }: {
-  params: Promise<{ projectId: ProjectIds; locale: string }>;
+  params: Promise<{ projectId: ProjectIds }>;
 }) {
-  const { projectId, locale } = await params;
+  const { projectId } = await params;
+
+  const cookieStore = cookies();
+  const locale = (await cookieStore).get('NEXT_LOCALE')?.value || 'en';
 
   const { t } = await initTranslations(locale, ['projectsFeatures']);
 

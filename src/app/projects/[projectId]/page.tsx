@@ -39,7 +39,7 @@ export default async function ProjectPage({
 
   const projectData = projectsData[projectId];
 
-  if (!projectData) return null;
+  console.log('locale in projID page', locale);
 
   return (
     <div className="mt-[74px] w-full bg-background">

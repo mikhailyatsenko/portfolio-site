@@ -15,6 +15,8 @@ export const ProjectFeatures = ({
 
   const { features } = translatedProjectsData;
 
+  console.log('data in features', translatedProjectsData);
+
   return (
     <section className="px-8 py-16">
       <h2 className="mb-10 text-center text-5xl">Project features</h2>
