@@ -15,7 +15,7 @@ export default async function ProjectPageForModal({
 
   const locale = await getLocale();
 
-  const { t } = await initTranslations(locale, ['projectsFeatures']);
+  const { t } = await initTranslations(locale, ['projectsFeatures', 'common']);
 
   const translatedProjectsData = t(projectId, {
     returnObjects: true,
@@ -26,10 +26,12 @@ export default async function ProjectPageForModal({
   return (
     <ProjectModal>
       <HeroProject
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />
       <ProjectFeatures
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />

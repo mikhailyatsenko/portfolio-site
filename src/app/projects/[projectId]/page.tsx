@@ -28,7 +28,7 @@ export default async function ProjectPage({
 
   const locale = await getLocale();
 
-  const { t } = await initTranslations(locale, ['projectsFeatures']);
+  const { t } = await initTranslations(locale, ['projectsFeatures', 'common']);
 
   const translatedProjectsData = t(projectId, {
     returnObjects: true,
@@ -38,15 +38,15 @@ export default async function ProjectPage({
 
   const projectData = projectsData[projectId];
 
-  console.log('locale in projID page', locale);
-
   return (
     <div className="mt-[74px] w-full bg-background">
       <HeroProject
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />
       <ProjectFeatures
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />

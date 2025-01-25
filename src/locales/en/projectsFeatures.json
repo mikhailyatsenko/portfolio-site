@@ -13,7 +13,7 @@
         },
         {
           "title": "Fullstack application",
-          "description": "The app is built with React.js, Node.js and PostgreSQL. You can access the backend <a href=\"https://github.com/mikhailyatsenko/berlin-coffee-backend\" class=\"font-bold\" target=\"_blank\">here</a>."
+          "description": "The app is built with React.js, Node.js and PostgreSQL. You can access the backend <a href=\"https://github.com/mikhailyatsenko/encryptnotes_backend\" class=\"font-bold\" target=\"_blank\">here</a>."
         }
       ],
       [
