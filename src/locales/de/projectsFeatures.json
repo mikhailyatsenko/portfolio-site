@@ -13,10 +13,7 @@
         },
         {
           "title": "Fullstack-Anwendung",
-          "description": "Die App basiert auf React.js, Node.js und PostgreSQL. Du kannst das Backend <1>hier</1> ansehen.",
-          "links": {
-            "1": "https://github.com/mikhailyatsenko/berlin-coffee-backend"
-          }
+          "description": "Die App wurde mit React.js, Node.js und PostgreSQL entwickelt. Sie können auf das Backend <a href=\"https://github.com/mikhailyatsenko/encryptnotes_backend\" class=\"font-bold\" target=\"_blank\">hier</a> zugreifen."
         }
       ],
       [
@@ -41,7 +38,7 @@
       [
         {
           "title": "Moderne Full-Stack-Anwendung",
-          "description": "Erstellt mit React, Node.js, MongoDB und GraphQL für effizientes Datenmanagement."
+          "description": "Erstellt mit React, Node.js, MongoDB und GraphQL für effizientes Datenmanagement. Sie können auf das Backend <a href=\"https://github.com/mikhailyatsenko/berlin-coffee-backend\" class=\"font-bold\" target=\"_blank\">hier</a> zugreifen."
         },
         {
           "title": "Interaktiver Stadtführer zu Spezialitäten-Cafés",
@@ -61,10 +58,7 @@
       [
         {
           "title": "Architektur",
-          "description": "Das Frontend folgt der <1>Feature-Sliced Design</1> Methodik.",
-          "links": {
-            "1": "https://feature-sliced.design"
-          }
+          "description": "Die Anwendung im Frontend folgt der \"Feature-Sliced Design\"-Methodik. Weitere Informationen zum Feature-Sliced Design finden Sie unter <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
         },
         {
           "title": "Benutzer-Authentifizierung und Profilverwaltung",

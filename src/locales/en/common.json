@@ -4,5 +4,9 @@
     "profile": "Profile",
     "projects": "Projects",
     "contacts": "Contacts"
-  }
+  },
+  "livePreview": "Live preview",
+  "viewOnGitHub": "View on GitHub",
+  "builtWith": "Built with latest technology",
+  "projectFeatures": "Project features"
 }

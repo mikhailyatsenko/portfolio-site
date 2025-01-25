@@ -1,7 +1,9 @@
-import { HeroProject } from '@/app/[locale]/components/project/HeroProject';
-import { ProjectFeatures } from '@/app/[locale]/components/project/ProjectFeatures';
+import { HeroProject } from '@/app/components/project/HeroProject';
+import { ProjectFeatures } from '@/app/components/project/ProjectFeatures';
 import { ProjectIds, projectsData } from '@/lib/projectsData';
 import initTranslations from '@/app/i18n';
+
+import { getLocale } from '@/lib/getLocale';
 
 export interface TranslatedProjectsData {
   id: string;
@@ -20,11 +22,13 @@ export interface TranslatedProjectsData {
 export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ projectId: ProjectIds; locale: string }>;
+  params: Promise<{ projectId: ProjectIds }>;
 }) {
-  const { projectId, locale } = await params;
+  const { projectId } = await params;
 
-  const { t } = await initTranslations(locale, ['projectsFeatures']);
+  const locale = await getLocale();
+
+  const { t } = await initTranslations(locale, ['projectsFeatures', 'common']);
 
   const translatedProjectsData = t(projectId, {
     returnObjects: true,
@@ -34,15 +38,15 @@ export default async function ProjectPage({
 
   const projectData = projectsData[projectId];
 
-  if (!projectData) return null;
-
   return (
     <div className="mt-[74px] w-full bg-background">
       <HeroProject
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />
       <ProjectFeatures
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />

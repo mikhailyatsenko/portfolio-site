@@ -9,33 +9,47 @@ export default async function initTranslations(
   i18nInstance?: i18n,
   resources?: Resource,
 ) {
-  i18nInstance = i18nInstance || createInstance();
+  const loadingState = { isLoading: true };
 
-  i18nInstance.use(initReactI18next);
+  const setLoading = (isLoading: boolean) => {
+    loadingState.isLoading = isLoading;
+  };
 
-  if (!resources) {
-    i18nInstance.use(
-      resourcesToBackend(
-        (language: string, namespace: string) =>
-          import(`@/locales/${language}/${namespace}.json`),
-      ),
-    );
+  const getLoadingState = () => loadingState.isLoading;
+
+  try {
+    i18nInstance = i18nInstance || createInstance();
+
+    i18nInstance.use(initReactI18next);
+
+    if (!resources) {
+      i18nInstance.use(
+        resourcesToBackend(
+          async (language: string, namespace: string) =>
+            await import(`@/locales/${language}/${namespace}.json`),
+        ),
+      );
+    }
+
+    await i18nInstance.init({
+      lng: locale,
+      resources,
+      fallbackLng: i18nConfig.defaultLocale,
+      supportedLngs: i18nConfig.locales,
+      defaultNS: namespaces[0],
+      fallbackNS: namespaces[0],
+      ns: namespaces,
+      preload: resources ? [] : i18nConfig.locales,
+    });
+  } finally {
+    setLoading(false);
   }
-
-  await i18nInstance.init({
-    lng: locale,
-    resources,
-    fallbackLng: i18nConfig.defaultLocale,
-    supportedLngs: i18nConfig.locales,
-    defaultNS: namespaces[0],
-    fallbackNS: namespaces[0],
-    ns: namespaces,
-    preload: resources ? [] : i18nConfig.locales,
-  });
 
   return {
     i18n: i18nInstance,
     resources: i18nInstance.services.resourceStore.data,
     t: i18nInstance.t,
+    getLoadingState,
+    loadingState,
   };
 }

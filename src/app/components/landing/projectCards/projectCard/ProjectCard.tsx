@@ -1,10 +1,10 @@
-import { MockIphone } from '@/app/[locale]/components/common/MockIphone/MockIphone';
+import { MockIphone } from '@/app/components/common/MockIphone/MockIphone';
 import Image, { StaticImageData } from 'next/image';
-import { ButtonWithArrow } from '@/app/[locale]/components/common/Buttons/ButtonWithArrow';
+import { ButtonWithArrow } from '@/app/components/common/Buttons/ButtonWithArrow';
 import Link from 'next/link';
 import { AnimateInView } from '@/lib/AnimateInView';
-import { Badge } from '@/app/[locale]/components/common/Badges';
-import { BadgeProps } from '@/app/[locale]/components/common/Badges';
+import { Badge } from '@/app/components/common/Badges';
+import { BadgeProps } from '@/app/components/common/Badges';
 
 interface ProjectCardProps {
   title: string;

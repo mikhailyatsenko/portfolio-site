@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import { Header } from '@/app/[locale]/components/common/Header';
+import { Header } from '@/app/components/common/Header';
 
 import { ThemeProvider } from '@/context/ThemeContext';
 import { cookies } from 'next/headers';
-import { ContactsWithFooter } from '@/app/[locale]/components/landing/contacts/ContactsWithFooter';
-import TranslationsProvider from '../clientComponents/TranslationsProvider';
-import initTranslations from '../i18n';
+import { ContactsWithFooter } from '@/app/components/landing/contacts/ContactsWithFooter';
+import TranslationsProvider from './clientComponents/TranslationsProvider';
+import initTranslations from './i18n';
+import { getLocale } from '@/lib/getLocale';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -28,20 +29,16 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children,
   modal,
-  params,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
-  params: Promise<{
-    locale: string;
-  }>;
 }>) {
-  const { locale } = await params;
+  const cookieStore = cookies();
+  const themeCookie = (await cookieStore).get('theme');
+  const locale = await getLocale();
 
   const { resources } = await initTranslations(locale, ['common']);
 
-  const cookieStore = cookies();
-  const themeCookie = (await cookieStore).get('theme');
   const isDarkTheme = themeCookie ? themeCookie.value === 'dark' : false;
   return (
     <html lang="en" className={isDarkTheme ? 'dark' : ''}>

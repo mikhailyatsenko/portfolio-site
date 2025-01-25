@@ -4,5 +4,9 @@
     "profile": "Profil",
     "projects": "Projekte",
     "contacts": "Kontakte"
-  }
+  },
+  "livePreview": "Live-Vorschau",
+  "viewOnGitHub": "Quellcode auf GitHub",
+  "builtWith": "Entwickelt mit modernster Technologie",
+  "projectFeatures": "Projektmerkmale"
 }

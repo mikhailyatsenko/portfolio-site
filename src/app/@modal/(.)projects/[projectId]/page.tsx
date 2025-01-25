@@ -1,36 +1,37 @@
-import { HeroProject } from '@/app/[locale]/components/project/HeroProject';
+import { HeroProject } from '@/app/components/project/HeroProject';
 import ProjectModal from '@/app/clientComponents/ProjectModal';
 import { ProjectIds, projectsData } from '@/lib/projectsData';
-import { ProjectFeatures } from '@/app/[locale]/components/project/ProjectFeatures';
+import { ProjectFeatures } from '@/app/components/project/ProjectFeatures';
 import initTranslations from '@/app/i18n';
-import { TranslatedProjectsData } from '@/app/[locale]/projects/[projectId]/page';
+import { TranslatedProjectsData } from '@/app/projects/[projectId]/page';
+import { getLocale } from '@/lib/getLocale';
 
 export default async function ProjectPageForModal({
   params,
 }: {
-  params: Promise<{ projectId: ProjectIds; locale: string }>;
+  params: Promise<{ projectId: ProjectIds }>;
 }) {
-  const { projectId, locale } = await params;
+  const { projectId } = await params;
 
-  const { t } = await initTranslations(locale, ['projectsFeatures']);
+  const locale = await getLocale();
+
+  const { t } = await initTranslations(locale, ['projectsFeatures', 'common']);
 
   const translatedProjectsData = t(projectId, {
     returnObjects: true,
   }) as TranslatedProjectsData;
 
-  if (!translatedProjectsData) return null;
-
   const projectData = projectsData[projectId];
-
-  if (!projectData) return null;
 
   return (
     <ProjectModal>
       <HeroProject
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />
       <ProjectFeatures
+        t={t}
         projectData={projectData}
         translatedProjectsData={translatedProjectsData}
       />

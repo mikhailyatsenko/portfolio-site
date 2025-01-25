@@ -8,14 +8,15 @@ import { TranslatedProjectsData } from '../../projects/[projectId]/page';
 export type ProjectIds = keyof typeof projectsData;
 
 export interface HeroProjectProps {
-  // projectId: ProjectIds;
   projectData: ProjectData;
   translatedProjectsData: TranslatedProjectsData;
+  t: (key: string) => string;
 }
 
 const HeroProject = ({
   projectData,
   translatedProjectsData,
+  t,
 }: HeroProjectProps) => {
   const { mainImg, techStack } = projectData;
 
@@ -39,7 +40,7 @@ const HeroProject = ({
                     href={liveLink}
                     className="shadow-1 inline-flex items-center justify-center rounded-md bg-foreground px-7 py-[14px] text-center text-base font-medium text-background transition duration-300 ease-in-out hover:text-gray-500"
                   >
-                    Live preview
+                    {t('common:livePreview')}
                   </a>
                 </li>
                 <li>
@@ -69,13 +70,13 @@ const HeroProject = ({
                         </clipPath>
                       </defs>
                     </svg>
-                    Source on Github
+                    {t('common:viewOnGitHub')}
                   </a>
                 </li>
               </ul>
               <div>
                 <p className="mb-4 text-center text-base font-medium text-foreground">
-                  Built with latest technology
+                  {t('common:builtWith')}
                 </p>
                 <AnimateInView className="flex shrink-0 flex-wrap items-center justify-center gap-5 text-center opacity-0">
                   {techStack.map((tech) => {
