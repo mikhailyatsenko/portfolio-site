@@ -8,6 +8,7 @@ import { cookies } from 'next/headers';
 import { ContactsWithFooter } from '@/app/components/landing/contacts/ContactsWithFooter';
 import TranslationsProvider from './clientComponents/TranslationsProvider';
 import initTranslations from './i18n';
+import { getLocale } from '@/lib/getLocale';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -34,7 +35,7 @@ export default async function RootLayout({
 }>) {
   const cookieStore = cookies();
   const themeCookie = (await cookieStore).get('theme');
-  const locale = (await cookieStore).get('NEXT_LOCALE')?.value || 'en';
+  const locale = await getLocale();
 
   const { resources } = await initTranslations(locale, ['common']);
 

@@ -3,7 +3,7 @@ import { ProjectFeatures } from '@/app/components/project/ProjectFeatures';
 import { ProjectIds, projectsData } from '@/lib/projectsData';
 import initTranslations from '@/app/i18n';
 
-import { cookies } from 'next/headers';
+import { getLocale } from '@/lib/getLocale';
 
 export interface TranslatedProjectsData {
   id: string;
@@ -26,8 +26,7 @@ export default async function ProjectPage({
 }) {
   const { projectId } = await params;
 
-  const cookieStore = cookies();
-  const locale = (await cookieStore).get('NEXT_LOCALE')?.value || 'en';
+  const locale = await getLocale();
 
   const { t } = await initTranslations(locale, ['projectsFeatures']);
 
