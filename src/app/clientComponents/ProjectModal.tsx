@@ -18,7 +18,7 @@ export default function ProjectModal({ children }: PropsWithChildren) {
       onClick={onDismiss}
     >
       <div
-        className="mx-auto mt-[74px] w-11/12 overflow-hidden rounded-md bg-background"
+        className="mx-auto mt-[84px] w-11/12 overflow-hidden rounded-md bg-background"
         onClick={(e) => e.stopPropagation()}
       >
         {children}

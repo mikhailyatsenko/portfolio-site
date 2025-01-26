@@ -5,7 +5,7 @@ const Impressum = async () => {
   const locale = await getLocale();
   const { t } = await initTranslations(locale, ['impressum']);
   return (
-    <div className="mx-auto mt-[74px] min-h-dvh max-w-7xl rounded-lg bg-background p-10 shadow-md">
+    <div className="mx-auto mt-[74px] min-h-dvh max-w-7xl rounded-lg bg-background p-10">
       <h1 className="mb-6 text-3xl font-bold">{t('impressum')}</h1>
 
       <section className="mb-6">

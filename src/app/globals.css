@@ -19,7 +19,7 @@ body {
 }
 
 #projects {
-  transition: background 1s ease;
+  transition: background 2s ease;
 }
 
 #projects.new-bg {
