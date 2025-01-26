@@ -18,16 +18,16 @@ body {
   @apply bg-background text-foreground antialiased;
 }
 
-#main-content {
+#projects {
   transition: background 1s ease;
 }
 
-#main-content.new-bg {
-  background: #dbdbff;
+#projects.new-bg {
+  background: #c2c6ff;
 }
 
-.dark #main-content.new-bg {
-  background: #000035;
+.dark #projects.new-bg {
+  background: #11012a;
 }
 
 html {

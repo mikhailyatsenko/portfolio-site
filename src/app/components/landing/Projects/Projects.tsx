@@ -5,14 +5,13 @@ import slide3Welle from '@/assets/projectsSlides/project-1-slide-1.webp';
 import slideBvg from '@/assets/projectsSlides/project-2-slide-1.webp';
 import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
 import { AnimateInView } from '@/lib/AnimateInView';
-import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 
 interface ProfileProps {
   t: (key: LandingTranslationKeys) => string;
 }
 
-export const ProjectCards = ({ t }: ProfileProps) => {
+export const Projects = ({ t }: ProfileProps) => {
   const cardContent = [
     <ProjectCard
       key={t('projects.welle.title')}
@@ -49,19 +48,17 @@ export const ProjectCards = ({ t }: ProfileProps) => {
   ];
 
   return (
-    <ScrollTrackBlock id="proj">
-      <section
-        id="projects"
-        className="relative px-8 py-7 pb-28 md:px-14 md:pt-16"
-      >
-        <AnimateInView>
-          <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
-            {t('projects.title')}
-          </h2>
-        </AnimateInView>
-        <StackCards cardsArray={cardContent} />
-      </section>
+    <section
+      id="projects"
+      className="relative px-8 py-7 pb-28 md:px-14 md:pt-16"
+    >
+      <AnimateInView>
+        <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
+          {t('projects.title')}
+        </h2>
+      </AnimateInView>
+      <StackCards cardsArray={cardContent} />
       <div className="h-0 w-0 opacity-0" id="contacts"></div>
-    </ScrollTrackBlock>
+    </section>
   );
 };

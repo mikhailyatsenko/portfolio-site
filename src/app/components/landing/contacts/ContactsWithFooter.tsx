@@ -32,6 +32,7 @@ export const ContactsWithFooter = async ({
           <div className="w-1/2 text-sm text-gray-500">
             <p className="text-left">
               {t('contact.location')}
+              {'\u00A0'}
               <LocationTime />
             </p>
           </div>
@@ -70,7 +71,7 @@ export const ContactsWithFooter = async ({
                 </a>
                 <a
                   className="block leading-6 text-gray-100 transition-colors hover:text-gray-400"
-                  href="https:// https://t.me/mikhailyatsenko"
+                  href="https://t.me/mikhailyatsenko"
                   target="_blank"
                   rel="noopener"
                 >

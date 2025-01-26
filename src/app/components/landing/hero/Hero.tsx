@@ -37,10 +37,11 @@ export const Hero = async ({ t }: HeroProps) => {
             {t('hero.greeting')}
             &nbsp;<span className={cls.typewriter}></span>
           </h4>
-
-          <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
-            {t('hero.tagline')}
-          </h1>
+          <div className="w-fit">
+            <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
+              {t('hero.tagline')}
+            </h1>
+          </div>
         </AnimateInView>
         <div className="absolute bottom-5 left-0 mt-auto flex w-full animate-fadeIn flex-col items-center gap-7 text-center opacity-0 [animation-delay:_1.5s] h-sm:gap-14">
           <div className="flex justify-center gap-4">

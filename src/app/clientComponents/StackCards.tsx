@@ -97,11 +97,11 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
 
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        document.getElementById('main-content')?.classList.add('new-bg');
+        document.getElementById('projects')?.classList.add('new-bg');
 
         window.addEventListener('scroll', debouncedScroll);
       } else {
-        document.getElementById('main-content')?.classList.remove('new-bg');
+        document.getElementById('projects')?.classList.remove('new-bg');
         window.removeEventListener('scroll', debouncedScroll);
       }
     });

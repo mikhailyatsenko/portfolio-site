@@ -14,7 +14,7 @@ export default function ProjectModal({ children }: PropsWithChildren) {
 
   return (
     <div
-      className="fixed inset-0 z-[19] overflow-y-auto bg-black bg-opacity-25"
+      className="fixed inset-0 z-[19] animate-fadeIn overflow-y-auto bg-black bg-opacity-25 opacity-0 [animation-duration:_0.2s]"
       onClick={onDismiss}
     >
       <div

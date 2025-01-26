@@ -1,4 +1,5 @@
 import { LandingTranslationKeys } from '@/types/i18nTypes';
+import Link from 'next/link';
 
 export interface FooterProps {
   t: (key: LandingTranslationKeys) => string;
@@ -10,9 +11,13 @@ export const Footer = ({ t }: FooterProps) => {
       <p>
         {t('footer.created_by')} {new Date().getFullYear()}
       </p>
-      <a className="text-sm text-gray-100 transition-colors hover:text-gray-400">
+
+      <Link
+        href="impressum"
+        className="text-sm text-gray-100 transition-colors hover:text-gray-400"
+      >
         {t('footer.legal_notice')}
-      </a>
+      </Link>
     </footer>
   );
 };
