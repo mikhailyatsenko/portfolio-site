@@ -121,7 +121,7 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
       {cardsArray.map((child, index) => (
         <div
           key={index}
-          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-lg transition-transform duration-100`}
+          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-lg transition-transform duration-300`}
         >
           {child}
         </div>
