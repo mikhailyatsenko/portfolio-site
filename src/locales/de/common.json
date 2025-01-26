@@ -5,8 +5,10 @@
     "projects": "Projekte",
     "contacts": "Kontakte"
   },
+  "moreDetails": "Mehr erfahren",
   "livePreview": "Live-Vorschau",
   "viewOnGitHub": "Quellcode auf GitHub",
   "builtWith": "Entwickelt mit modernster Technologie",
   "projectFeatures": "Projektmerkmale"
+
 }

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { Badge } from '@/app/components/common/Badges';
 import { BadgeProps } from '@/app/components/common/Badges';
+import initTranslations from '@/app/i18n';
+import { getLocale } from '@/lib/getLocale';
 
 interface ProjectCardProps {
   title: string;
@@ -16,7 +18,7 @@ interface ProjectCardProps {
   badges: BadgeProps['type'][];
 }
 
-export const ProjectCard = ({
+export const ProjectCard = async ({
   title,
   description,
   link,
@@ -25,6 +27,8 @@ export const ProjectCard = ({
   slide,
   badges,
 }: ProjectCardProps) => {
+  const locale = await getLocale();
+  const { t } = await initTranslations(locale, ['common']);
   return (
     <div className="flex h-full max-h-screen w-full justify-center overflow-hidden bg-background sm576:justify-start sm576:bg-gray-800 sm576:bg-opacity-30 sm576:bg-clip-padding sm576:px-10 sm576:py-6 sm576:backdrop-blur-md sm576:backdrop-filter sm576:dark:bg-gray-600 sm576:dark:bg-opacity-30 md:py-10 lg:gap-10 lg:px-20">
       <AnimateInView
@@ -60,7 +64,9 @@ export const ProjectCard = ({
 
         <div className="flex justify-center sm576:justify-start">
           <Link href={`projects/${detailsLink}`}>
-            <ButtonWithArrow className="my-5">More details</ButtonWithArrow>
+            <ButtonWithArrow className="my-5">
+              {t('moreDetails')}
+            </ButtonWithArrow>
           </Link>
         </div>
       </AnimateInView>
