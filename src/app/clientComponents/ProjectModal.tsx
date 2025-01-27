@@ -37,7 +37,7 @@ export default function ProjectModal({ children }: PropsWithChildren) {
       onClick={onDismiss}
     >
       <div
-        className="animate-fadeInWithZoom mx-auto mt-[84px] w-11/12 overflow-hidden rounded-md bg-background opacity-0 [animation-duration:_0.2s]"
+        className="mx-auto mt-[84px] w-11/12 animate-fadeInWithZoom overflow-hidden rounded-md bg-background opacity-0 [animation-duration:_0.2s]"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
