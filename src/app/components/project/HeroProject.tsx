@@ -23,7 +23,7 @@ const HeroProject = ({
   const { title, description, sourceLink, liveLink } = translatedProjectsData;
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] pt-20 dark:from-[#1f1636] dark:to-[#090610] md:pt-[130px] lg:pt-[160px]">
+    <div className="relative overflow-hidden bg-gradient-to-br from-[#e3fdf5] to-[#ffe6fa] pt-28 dark:from-[#1f1636] dark:to-[#090610]">
       <div className="container mx-auto">
         <div className="flex-wrap items-center">
           <div className="w-full px-4">
@@ -101,7 +101,7 @@ const HeroProject = ({
               <div className="mt-16">
                 <AnimateInView
                   threshold={0.7}
-                  className="relative -bottom-full opacity-0 duration-300 ease-in-out"
+                  className="relative -bottom-12 opacity-0 duration-300 ease-in-out"
                   activeClass="!opacity-100 !bottom-0"
                 >
                   <Image

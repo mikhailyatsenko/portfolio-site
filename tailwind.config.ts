@@ -52,12 +52,17 @@ export default {
         smoothBg: 'smoothBg 60s linear infinite',
         blink: 'blink-animation 2s ease-in-out infinite',
         textGlow: 'textGlow 2s linear forwards',
-        fadeIn: 'fadeIn 1s linear 0.2s forwards',
+        fadeIn: 'fadeIn 0.8s linear 0.2s forwards',
+        fadeInWithZoom: 'fadeIn 0.5s linear 0.2s forwards',
       },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0' },
           '100%': { opacity: '1' },
+        },
+        fadeInWithZoom: {
+          '0%': { opacity: '0', transform: 'scale(0.97)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
         },
         smoothBg: {
           '0%': { backgroundPosition: '50% 50%, 50% 50%' },

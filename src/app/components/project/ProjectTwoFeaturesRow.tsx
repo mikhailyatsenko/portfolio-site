@@ -19,7 +19,7 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
     <div className="container mx-auto mb-8 overflow-hidden">
       <AnimateInView
         threshold={0.3}
-        className="relative -bottom-full grid w-full grid-cols-1 gap-y-8 opacity-0 duration-300 ease-in-out md:grid-cols-5 md:gap-x-4 lg:gap-x-8"
+        className="relative -bottom-12 grid w-full grid-cols-1 gap-y-8 opacity-0 duration-300 ease-in-out md:grid-cols-5 md:gap-x-4 lg:gap-x-8"
         activeClass="!opacity-100 !bottom-0"
       >
         {featuresRow.map((feature, index) => (
@@ -33,7 +33,7 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
                 : index === 0
                   ? 'col-span-3'
                   : 'col-span-2'
-            } flex flex-col justify-between overflow-hidden rounded-lg bg-opacity-5 px-6 pt-6 text-center shadow-sm fg-opacity-variable`}
+            } flex flex-col justify-between overflow-hidden rounded-lg bg-opacity-5 p-5 text-center shadow-sm fg-opacity-variable`}
           >
             <h4 className="mb-2 text-2xl font-medium text-foreground">
               {feature.title}

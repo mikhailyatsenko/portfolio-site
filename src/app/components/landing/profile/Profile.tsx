@@ -38,7 +38,7 @@ export const Profile = async ({ t }: ProfileProps) => {
             <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
             <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
               <div className="flex items-center">
-                {/* <span className="text-xl">😎</span> */}
+                <span className="text-xl">😎</span>
                 <h3 className="my-2 ml-3 font-mono text-lg font-bold text-gray-800 dark:text-white">
                   {t('profile.hello')}
                 </h3>
@@ -56,7 +56,6 @@ export const Profile = async ({ t }: ProfileProps) => {
           <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
           <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
             <div className="mb-4 flex items-center justify-center">
-              {/* <span className="text-xl">😎</span> */}
               <h3 className="text-center text-lg font-bold text-gray-800 dark:text-white">
                 {t('tech_stack.title')}
               </h3>

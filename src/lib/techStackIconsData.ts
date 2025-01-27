@@ -13,13 +13,22 @@ import MongoDbIcon from '@/assets/icons/stackIcons/mongodb.svg';
 export type TechStackIconKey = keyof typeof techStackIconsData;
 
 export const techStackIconsData = {
-  graphql: {
-    name: 'GraphQL',
-    icon: GraphqlIcon,
+  typescript: {
+    name: 'Typescript',
+    icon: TypescriptIcon,
   },
   javascript: {
     name: 'Javascript',
     icon: JavascriptIcon,
+  },
+
+  react: {
+    name: 'React',
+    icon: ReactIcon,
+  },
+  redux: {
+    name: 'Redux',
+    icon: ReduxIcon,
   },
   next: {
     name: 'Next.js',
@@ -29,21 +38,17 @@ export const techStackIconsData = {
     name: 'Node.js',
     icon: NodeIcon,
   },
-  react: {
-    name: 'React',
-    icon: ReactIcon,
+  graphql: {
+    name: 'GraphQL',
+    icon: GraphqlIcon,
   },
-  redux: {
-    name: 'Redux',
-    icon: ReduxIcon,
+  mongodb: {
+    name: 'MongoDB',
+    icon: MongoDbIcon,
   },
   tailwind: {
     name: 'Tailwind',
     icon: TailwindIcon,
-  },
-  typescript: {
-    name: 'Typescript',
-    icon: TypescriptIcon,
   },
   vite: {
     name: 'Vite',
@@ -52,9 +57,5 @@ export const techStackIconsData = {
   webpack: {
     name: 'Webpack',
     icon: WebpackIcon,
-  },
-  mongodb: {
-    name: 'MongoDB',
-    icon: MongoDbIcon,
   },
 };

@@ -1,6 +1,6 @@
 import { MockIphone } from '@/app/components/common/MockIphone/MockIphone';
 import Image, { StaticImageData } from 'next/image';
-import { ButtonWithArrow } from '@/app/components/common/Buttons/ButtonWithArrow';
+import { ButtonWithShadow } from '@/app/components/common/Buttons/ButtonWithShadow';
 import Link from 'next/link';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { Badge } from '@/app/components/common/Badges';
@@ -64,9 +64,9 @@ export const ProjectCard = async ({
 
         <div className="flex justify-center sm576:justify-start">
           <Link href={`projects/${detailsLink}`}>
-            <ButtonWithArrow className="my-5">
+            <ButtonWithShadow className="my-5">
               {t('moreDetails')}
-            </ButtonWithArrow>
+            </ButtonWithShadow>
           </Link>
         </div>
       </AnimateInView>

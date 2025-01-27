@@ -1,4 +1,3 @@
-// context/ThemeContext.tsx
 'use client';
 
 import {
@@ -19,23 +18,37 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({
-  children,
-  initialTheme,
-}: {
-  children: ReactNode;
-  initialTheme: Theme;
-}) => {
-  const [theme, setTheme] = useState<Theme>(initialTheme);
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const getInitialTheme = (): Theme => {
+    if (typeof window === 'undefined') return 'light'; // SSR-защита
+
+    const savedTheme = Cookies.get('theme') as Theme | undefined;
+    if (savedTheme) return savedTheme;
+
+    const systemPrefersDark = window.matchMedia(
+      '(prefers-color-scheme: dark)',
+    ).matches;
+    return systemPrefersDark ? 'dark' : 'light';
+  };
+
+  const [theme, setTheme] = useState<Theme>('light');
 
   useEffect(() => {
-    document.documentElement.className = theme === 'dark' ? 'dark' : '';
+    const initialTheme = getInitialTheme();
+    setTheme(initialTheme);
+    document.documentElement.className = initialTheme === 'dark' ? 'dark' : '';
+  }, []);
+
+  useEffect(() => {
     Cookies.set('theme', theme);
+    document.documentElement.className = theme === 'dark' ? 'dark' : '';
   }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme: Theme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
+    setTheme((prevTheme) => {
+      const newTheme: Theme = prevTheme === 'light' ? 'dark' : 'light';
+      return newTheme;
+    });
   };
 
   return (
