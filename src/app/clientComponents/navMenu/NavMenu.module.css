@@ -23,13 +23,13 @@
     position: fixed;
     top: 74px;
     right: -100%;
-    height: calc(100vh - 74px);
+    height: calc(100dvh - 74px);
     width: 100%;
     flex-direction: column;
     justify-content: space-around;
     background: rgb(var(--background));
     transition: right 0.2s ease-in-out;
-    padding: 10% 0;
+    padding: 15% 0;
 
     z-index: 4;
   }

@@ -46,7 +46,9 @@ export const NavMenu = () => {
               key={link.label}
               href={link.href}
               className={`${
-                isLinkActive ? 'border-b border-[var(--foreground)]' : ''
+                isLinkActive
+                  ? 'animate-textGlow shadow-purple-400 dark:shadow-yellow-500'
+                  : ''
               } text-6xl lg:text-lg`}
               onClick={() => {
                 setIsBurgerActive(false);

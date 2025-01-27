@@ -15,7 +15,7 @@ export const Hero = async ({ t }: HeroProps) => {
   return (
     <section className="relative w-full">
       <div
-        className="mask-image-[radial-gradient(ellipse_at_100%_0%,black_40%,transparent_70%)] relative flex min-h-screen w-full items-center justify-center bg-stripes-rainbow bg-[length:200%_100%] bg-center blur-[10px] invert-[100%] will-change-[transform,opacity] dark:filter-opacity-saturate"
+        className="mask-image-[radial-gradient(ellipse_at_100%_0%,black_40%,transparent_70%)] relative flex min-h-dvh w-full items-center justify-center bg-stripes-rainbow bg-[length:200%_100%] bg-center blur-[10px] invert-[100%] will-change-[transform,opacity] dark:filter-opacity-saturate"
         style={{
           maskImage:
             'radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%)',
