@@ -64,7 +64,7 @@ export const Profile = async ({ t }: ProfileProps) => {
               {Object.entries(techStackIconsData).map(([key, tech]) => (
                 <div
                   key={key}
-                  className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/5"
+                  className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/6"
                 >
                   <tech.icon className="h-[40px] w-[40px] fill-foreground" />
                   <h4>{tech.name}</h4>

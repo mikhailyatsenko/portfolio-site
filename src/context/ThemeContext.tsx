@@ -18,37 +18,27 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const getInitialTheme = (): Theme => {
-    if (typeof window === 'undefined') return 'light'; // SSR-защита
+export const ThemeProvider = ({ children, serverThemeCookie }: { children: ReactNode, serverThemeCookie?: Theme}) => {
 
-    const savedTheme = Cookies.get('theme') as Theme | undefined;
-    if (savedTheme) return savedTheme;
+console.log(serverThemeCookie)
 
-    const systemPrefersDark = window.matchMedia(
-      '(prefers-color-scheme: dark)',
-    ).matches;
-    return systemPrefersDark ? 'dark' : 'light';
-  };
 
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>(serverThemeCookie || 'light');
 
   useEffect(() => {
-    const initialTheme = getInitialTheme();
-    setTheme(initialTheme);
-    document.documentElement.className = initialTheme === 'dark' ? 'dark' : '';
-  }, []);
+    if (!serverThemeCookie) {
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(systemPrefersDark ? 'dark' : 'light');
+    }
+  }, [serverThemeCookie]);
 
   useEffect(() => {
-    Cookies.set('theme', theme);
     document.documentElement.className = theme === 'dark' ? 'dark' : '';
+    Cookies.set('theme', theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prevTheme) => {
-      const newTheme: Theme = prevTheme === 'light' ? 'dark' : 'light';
-      return newTheme;
-    });
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
   };
 
   return (

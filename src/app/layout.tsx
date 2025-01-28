@@ -38,17 +38,22 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   const { resources } = await initTranslations(locale, ['common']);
+  const serverThemeCookie = themeCookie?.value as 'dark' | 'light' | undefined;
 
-  const isDarkTheme = themeCookie ? themeCookie.value === 'dark' : false;
   return (
-    <html lang="en" className={isDarkTheme ? 'dark' : ''}>
+    <html
+      lang="en"
+      className={
+        serverThemeCookie === 'dark' ? serverThemeCookie : ''
+      }
+    >
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <TranslationsProvider
           namespaces={['common']}
           locale={locale}
           resources={resources}
         >
-          <ThemeProvider initialTheme={isDarkTheme ? 'dark' : 'light'}>
+          <ThemeProvider serverThemeCookie={serverThemeCookie}>
             <Header />
             <main className="relative z-[2] bg-background shadow-sm h-sm:mb-[30rem] sm576:h-sm:mb-96">
               {children}
