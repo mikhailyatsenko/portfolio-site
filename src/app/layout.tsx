@@ -43,9 +43,7 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={
-        serverThemeCookie === 'dark' ? serverThemeCookie : ''
-      }
+      className={serverThemeCookie === 'dark' ? serverThemeCookie : ''}
     >
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <TranslationsProvider

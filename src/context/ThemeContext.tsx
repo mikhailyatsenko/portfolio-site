@@ -18,16 +18,22 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children, serverThemeCookie }: { children: ReactNode, serverThemeCookie?: Theme}) => {
-
-console.log(serverThemeCookie)
-
+export const ThemeProvider = ({
+  children,
+  serverThemeCookie,
+}: {
+  children: ReactNode;
+  serverThemeCookie?: Theme;
+}) => {
+  console.log(serverThemeCookie);
 
   const [theme, setTheme] = useState<Theme>(serverThemeCookie || 'light');
 
   useEffect(() => {
     if (!serverThemeCookie) {
-      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const systemPrefersDark = window.matchMedia(
+        '(prefers-color-scheme: dark)',
+      ).matches;
       setTheme(systemPrefersDark ? 'dark' : 'light');
     }
   }, [serverThemeCookie]);
