@@ -33,7 +33,7 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
                 : index === 0
                   ? 'col-span-3'
                   : 'col-span-2'
-            } flex flex-col justify-center gap-2 overflow-hidden rounded-lg bg-opacity-5 p-5 text-center shadow-sm fg-opacity-variable`}
+            } flex flex-col justify-start gap-2 overflow-hidden rounded-lg bg-opacity-5 p-5 text-center shadow-sm fg-opacity-variable`}
           >
             <Image
               src={featuresImgs[indexChildRow][index]}

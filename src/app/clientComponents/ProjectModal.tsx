@@ -1,6 +1,12 @@
 'use client';
 
-import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import {
+  PropsWithChildren,
+  useEffect,
+  useRef,
+  useState,
+  useCallback,
+} from 'react';
 import { useRouter } from 'next/navigation';
 import { useScrollLock } from '@/lib/useScrollLock';
 import ButtonBack from '../components/common/Buttons/ButtonBack';
@@ -10,7 +16,12 @@ export default function ProjectModal({ children }: PropsWithChildren) {
   useScrollLock();
 
   const modalRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const onDismiss = useCallback(() => {
+    router.back();
+  }, [router]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,25 +30,44 @@ export default function ProjectModal({ children }: PropsWithChildren) {
         setIsScrolled(scrollTop >= 20);
       }
     };
-
+    handleScroll();
     const modalElement = modalRef.current;
     modalElement?.addEventListener('scroll', handleScroll, { passive: true });
 
-    return () => modalElement?.removeEventListener('scroll', handleScroll);
-  }, []);
+    // Добавляем обработчик нажатия клавиши Esc
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        onDismiss();
+      }
+    };
 
-  const onDismiss = () => {
-    router.back();
-  };
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (
+        contentRef.current &&
+        !contentRef.current.contains(event.target as Node)
+      ) {
+        onDismiss();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      modalElement?.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [onDismiss]);
 
   return (
     <div
       ref={modalRef}
       className="fixed inset-0 z-[19] overflow-y-auto bg-black bg-opacity-25"
-      onClick={onDismiss}
     >
       <div
-        className="mx-auto mt-[84px] w-11/12 animate-fadeInWithZoom overflow-hidden rounded-md bg-background opacity-0 [animation-duration:_0.2s]"
+        ref={contentRef}
+        className="mx-auto mt-[84px] w-11/12 animate-fadeInWithSlide overflow-hidden rounded-md bg-background opacity-0 [animation-duration:_0.2s]"
         onClick={(e) => e.stopPropagation()}
       >
         {children}
@@ -51,7 +81,6 @@ export default function ProjectModal({ children }: PropsWithChildren) {
         title="Back"
         onClick={(e) => {
           e.stopPropagation();
-          onDismiss();
         }}
       />
     </div>

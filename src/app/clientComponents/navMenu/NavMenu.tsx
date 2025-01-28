@@ -52,7 +52,7 @@ export const NavMenu = () => {
               } text-6xl lg:text-lg`}
               onClick={() => {
                 setIsBurgerActive(false);
-                setCurrentHash(link.href); // Устанавливаем активный хэш при клике
+                setCurrentHash(link.href);
               }}
             >
               {link.label}

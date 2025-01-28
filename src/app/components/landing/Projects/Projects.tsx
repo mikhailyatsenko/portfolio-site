@@ -48,10 +48,7 @@ export const Projects = ({ t }: ProfileProps) => {
   ];
 
   return (
-    <section
-      id="projects"
-      className="relative px-8 py-7 pb-28 md:px-14 md:pt-16"
-    >
+    <section id="projects" className="relative px-8 py-20 pb-28 md:px-14">
       <AnimateInView>
         <h2 className="mb-10 text-center text-5xl font-[150] md:text-6xl">
           {t('projects.title')}

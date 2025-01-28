@@ -1,5 +1,3 @@
-// import ExpressIcon from './icons/express.svg';
-// import GithubIcon from './icons/github.svg';
 import { techStackIconsData } from '@/lib/techStackIconsData';
 import mishaPhoto from '@/assets/icons/me.webp';
 import Image from 'next/image';
@@ -7,6 +5,9 @@ import cls from './Profile.module.css';
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
+import { DownloadButton } from '../../common/Buttons/DownloadButton';
+import Link from 'next/link';
+import { getLocale } from '@/lib/getLocale';
 
 interface ProfileProps {
   t: (key: LandingTranslationKeys) => string;
@@ -16,7 +17,7 @@ export const Profile = async ({ t }: ProfileProps) => {
   return (
     <section
       id="profile"
-      className="overflow-hidden bg-[linear-gradient(to_right,#bfbfbf_1px,transparent_1px),linear-gradient(to_bottom,#bfbfbf_1px,transparent_1px)] bg-[size:70px_70px] px-8 py-6 dark:bg-[linear-gradient(to_right,#575757_1px,transparent_1px),linear-gradient(to_bottom,#575757_1px,transparent_1px)] md:px-14 md:py-16"
+      className="overflow-hidden bg-[linear-gradient(to_right,#bfbfbf_1px,transparent_1px),linear-gradient(to_bottom,#bfbfbf_1px,transparent_1px)] bg-[size:70px_70px] px-8 py-20 dark:bg-[linear-gradient(to_right,#575757_1px,transparent_1px),linear-gradient(to_bottom,#575757_1px,transparent_1px)] md:px-14"
     >
       <ScrollTrackBlock id="profile">
         <AnimateInView>
@@ -72,6 +73,20 @@ export const Profile = async ({ t }: ProfileProps) => {
               ))}
             </div>
           </div>
+        </div>
+        <div
+          className={`${cls.buttonCv} mx-auto mt-6 flex w-full justify-center`}
+        >
+          <Link
+            target="_blank"
+            href={
+              (await getLocale()) === 'de'
+                ? 'cv/CV_Yatsenko_de.pdf'
+                : 'cv/CV_Yatsenko_en.pdf'
+            }
+          >
+            <DownloadButton>{t('profile.downloadCv')}</DownloadButton>
+          </Link>
         </div>
       </ScrollTrackBlock>
     </section>

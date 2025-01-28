@@ -9,6 +9,7 @@ export interface LandingTranslations {
     photo_alt: string;
     hello: string;
     description: string;
+    downloadCv: string;
   };
   tech_stack: {
     title: string;
