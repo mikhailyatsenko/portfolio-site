@@ -19,7 +19,7 @@ export const ProjectFeatures = ({
 
   return (
     <section className="px-8 py-16">
-      <h2 className="mb-10 text-center text-5xl">
+      <h2 className="mb-10 text-center text-3xl sm576:text-5xl">
         {t('common:projectFeatures')}
       </h2>
       {features.map((featureRow, index) => (

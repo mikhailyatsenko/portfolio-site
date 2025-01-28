@@ -33,20 +33,19 @@ export const ProjectTwoFeaturesRow: React.FC<ProjectTwoFeaturesRowProps> = ({
                 : index === 0
                   ? 'col-span-3'
                   : 'col-span-2'
-            } flex flex-col justify-between overflow-hidden rounded-lg bg-opacity-5 p-5 text-center shadow-sm fg-opacity-variable`}
+            } flex flex-col justify-center gap-2 overflow-hidden rounded-lg bg-opacity-5 p-5 text-center shadow-sm fg-opacity-variable`}
           >
-            <h4 className="mb-2 text-2xl font-medium text-foreground">
-              {feature.title}
-            </h4>
-            <div className="py-4">
-              <p dangerouslySetInnerHTML={{ __html: feature.description }} />
-            </div>
-
             <Image
               src={featuresImgs[indexChildRow][index]}
               alt={feature.title}
-              className="mx-auto mt-auto max-h-[200px] w-auto rounded-t-lg object-contain"
+              className="mx-auto max-h-[100px] w-auto rounded-t-lg object-contain"
             />
+            <h4 className="text-2xl font-medium text-foreground">
+              {feature.title}
+            </h4>
+            <div className="">
+              <p dangerouslySetInnerHTML={{ __html: feature.description }} />
+            </div>
           </div>
         ))}
       </AnimateInView>
