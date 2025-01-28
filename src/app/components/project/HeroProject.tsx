@@ -78,7 +78,7 @@ const HeroProject = ({
                 <p className="mb-4 text-center text-base font-medium text-foreground">
                   {t('common:builtWith')}
                 </p>
-                <div className="flex shrink-0 flex-wrap items-center justify-center gap-5 text-center animate-fadeIn">
+                <div className="flex shrink-0 animate-fadeIn flex-wrap items-center justify-center gap-5 text-center">
                   {techStack.map((tech) => {
                     const IconComponent = techStackIconsData[tech].icon;
                     return (
