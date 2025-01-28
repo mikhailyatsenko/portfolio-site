@@ -15,7 +15,7 @@ export const Header = () => {
       >
         <Link href="/" className="flex flex-col gap-0.5 p-2.5">
           <h2 className="font-mono uppercase">Mykhailo Yatsenko</h2>
-          <div className="h-0 w-[calc(var(--scroll-progress-profile)*100%)] border-b-2 border-b-red-700 transition-[width] duration-150"></div>
+          <div className="h-0 w-[calc(var(--scroll-progress-profile)*100%)] border-b-2 border-b-red-700 transition-[width] duration-300"></div>
         </Link>
         <div className="ml-auto flex items-center">
           <LanguageChanger />

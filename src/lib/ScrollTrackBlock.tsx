@@ -29,7 +29,7 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
           `${progress}`,
         );
       }
-    }, 100); // Частота обновления 100 мс
+    }, 150); // Частота обновления 100 мс
 
     const observer = new IntersectionObserver(
       ([entry]) => {

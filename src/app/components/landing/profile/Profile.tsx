@@ -31,10 +31,10 @@ export const Profile = async ({ t }: ProfileProps) => {
             width={100}
             height={100}
             alt={t('profile.photo_alt')}
-            className={`${cls.photoScrollTransform} h-[100px] w-[100px] rotate-2 transition-transform duration-150 ease-in-out hover:rotate-0`}
+            className={`${cls.photoScrollTransform} h-[100px] w-[100px] rotate-2 transition-transform duration-150 ease-in-out will-change-transform hover:rotate-0`}
           />
           <div
-            className={`${cls.aboutMeScrollTransform} relative cursor-pointer dark:text-white`}
+            className={`${cls.aboutMeScrollTransform} relative cursor-pointer will-change-transform dark:text-white`}
           >
             <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
             <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
@@ -52,7 +52,7 @@ export const Profile = async ({ t }: ProfileProps) => {
         </div>
 
         <div
-          className={`${cls.skillsScrollTransform} relative mx-auto mt-6 w-fit dark:text-white`}
+          className={`${cls.skillsScrollTransform} relative mx-auto mt-6 w-fit will-change-transform dark:text-white`}
         >
           <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
           <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">

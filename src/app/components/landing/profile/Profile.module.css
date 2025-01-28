@@ -4,7 +4,7 @@
     calc((1 - (min(var(--scroll-progress-profile), 0.4)) / 0.4) * -200%)
   );
   opacity: calc((min(var(--scroll-progress-profile), 0.4)) / 0.4);
-  transition: transform 0.2s linear;
+  transition: transform 0.4s linear;
 }
 
 .photoScrollTransform {
@@ -13,16 +13,16 @@
     calc((1 - (min(var(--scroll-progress-profile), 0.4)) / 0.4) * -400%)
   );
   opacity: calc((min(var(--scroll-progress-profile), 0.4)) / 0.4);
-  transition: transform 0.2s linear;
+  transition: transform 0.3s linear;
 }
 
 .skillsScrollTransform {
   transform: translateY(
     calc(
-      (1 - (clamp(0, var(--scroll-progress-profile) - 0.8, 0.2) / 0.2)) * 150%
+      (1 - (clamp(0, var(--scroll-progress-profile) - 0.7, 0.2) / 0.2)) * 150%
     )
   );
-  transition: transform 0.2s linear;
+  transition: transform 0.3s linear;
 }
 .buttonCv {
   transform: rotateX(
@@ -32,5 +32,5 @@
     )
   );
 
-  transition: transform 0.2s linear;
+  transition: transform 0.3s linear;
 }
