@@ -78,7 +78,7 @@ const HeroProject = ({
                 <p className="mb-4 text-center text-base font-medium text-foreground">
                   {t('common:builtWith')}
                 </p>
-                <AnimateInView className="flex shrink-0 flex-wrap items-center justify-center gap-5 text-center opacity-0">
+                <div className="flex shrink-0 flex-wrap items-center justify-center gap-5 text-center animate-fadeIn">
                   {techStack.map((tech) => {
                     const IconComponent = techStackIconsData[tech].icon;
                     return (
@@ -91,7 +91,7 @@ const HeroProject = ({
                       </div>
                     );
                   })}
-                </AnimateInView>
+                </div>
               </div>
             </div>
           </div>
@@ -100,7 +100,7 @@ const HeroProject = ({
             <div className="relative z-10 mx-auto max-w-[845px]">
               <div className="mt-16">
                 <AnimateInView
-                  threshold={0.7}
+                  threshold={0.2}
                   className="relative -bottom-12 opacity-0 duration-300 ease-in-out"
                   activeClass="!opacity-100 !bottom-0"
                 >
