@@ -6,6 +6,7 @@ import LinkedInIcon from '@/assets/icons/linkedin-icon.svg';
 import GithubIcon from '@/assets/icons/github-icon.svg';
 
 import { LandingTranslationKeys } from '@/types/i18nTypes';
+import { HeroAnimatedBg } from '@/app/clientComponents/heroAnimatedBg/HeroAnimatedBg';
 
 interface HeroProps {
   t: (key: LandingTranslationKeys) => string;
@@ -13,18 +14,8 @@ interface HeroProps {
 
 export const Hero = async ({ t }: HeroProps) => {
   return (
-    <section className="relative w-full">
-      <div
-        className="mask-image-[radial-gradient(ellipse_at_100%_0%,black_40%,transparent_70%)] relative flex min-h-dvh w-full items-center justify-center bg-stripes-rainbow bg-[length:200%_100%] bg-center blur-[10px] invert-[100%] will-change-transform dark:filter-opacity-saturate"
-        style={{
-          maskImage:
-            'radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%)',
-        }}
-      >
-        <div className="absolute inset-0 animate-smoothBg bg-stripes-rainbow bg-[length:200%_100%] mix-blend-difference will-change-transform" />
-      </div>
-
-      <div className="gap-4.5 absolute inset-0 mx-auto flex max-w-7xl flex-col items-center justify-center px-4 text-center mix-blend-difference invert dark:filter-none sm:px-6 lg:px-8">
+    <HeroAnimatedBg>
+      <div className="gap-4.5 absolute inset-0 mx-auto flex max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
         <AnimateInView
           className="scale-105 opacity-0 transition duration-1000 ease-in-out"
           activeClass="!opacity-100 !scale-100 transition duration-1000 ease-in-out"
@@ -47,8 +38,7 @@ export const Hero = async ({ t }: HeroProps) => {
               &nbsp;<span className={cls.typewriter}></span>
             </h4>
           </div>
-
-          <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
+          <h1 className="text-left text-5xl opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-90 sm:text-7xl lg:text-center xl:text-8xl">
             {t('hero.tagline')}
           </h1>
         </AnimateInView>
@@ -73,6 +63,6 @@ export const Hero = async ({ t }: HeroProps) => {
           </a>
         </div>
       </div>
-    </section>
+    </HeroAnimatedBg>
   );
 };
