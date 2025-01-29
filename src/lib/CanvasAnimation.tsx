@@ -15,11 +15,11 @@ class Circle {
     this.color = color;
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D, theme: 'light' | 'dark') {
     if (!this.active) return;
     ctx.beginPath();
     ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-    ctx.fillStyle = `rgba(156,217,249,${this.active})`;
+    ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '157, 49, 235'},${this.active})`;
     ctx.fill();
   }
 }
@@ -37,9 +37,14 @@ interface Point {
 interface CanvasAnimationProps {
   width: number;
   height: number;
+  theme: 'light' | 'dark';
 }
 
-const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ width, height }) => {
+const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
+  width,
+  height,
+  theme,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const pointsRef = useRef<Point[]>([]);
@@ -135,7 +140,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ width, height }) => {
 
         drawLines(p, ctx);
         if (p.circle) {
-          p.circle.draw(ctx);
+          p.circle.draw(ctx, theme);
         }
       }
 
@@ -149,7 +154,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ width, height }) => {
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(close.x, close.y);
       }
-      ctx.strokeStyle = `rgba(156,217,249,${p.active})`;
+      ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '157, 49, 235'},${p.active})`;
       ctx.stroke();
     };
 
@@ -187,7 +192,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ width, height }) => {
       window.removeEventListener('mousemove', mouseMove);
       window.removeEventListener('resize', resize);
     };
-  }, [width, height]);
+  }, [width, height, theme]);
 
   return (
     <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" />

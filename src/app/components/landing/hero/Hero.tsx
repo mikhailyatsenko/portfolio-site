@@ -15,7 +15,7 @@ interface HeroProps {
 export const Hero = async ({ t }: HeroProps) => {
   return (
     <HeroAnimatedBg>
-      <div className="gap-4.5 absolute inset-0 mx-auto flex max-w-7xl flex-col items-center justify-center px-4 text-center mix-blend-difference invert dark:filter-none sm:px-6 lg:px-8">
+      <div className="gap-4.5 absolute inset-0 mx-auto flex max-w-7xl flex-col items-center justify-center px-4 text-center sm:px-6 lg:px-8">
         <AnimateInView
           className="scale-105 opacity-0 transition duration-1000 ease-in-out"
           activeClass="!opacity-100 !scale-100 transition duration-1000 ease-in-out"
@@ -38,8 +38,7 @@ export const Hero = async ({ t }: HeroProps) => {
               &nbsp;<span className={cls.typewriter}></span>
             </h4>
           </div>
-
-          <h1 className="text-left text-5xl sm:text-7xl lg:text-center xl:text-8xl">
+          <h1 className="text-left text-5xl opacity-70 transition-opacity duration-700 ease-in-out hover:opacity-90 sm:text-7xl lg:text-center xl:text-8xl">
             {t('hero.tagline')}
           </h1>
         </AnimateInView>

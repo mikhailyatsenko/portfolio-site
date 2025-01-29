@@ -2,9 +2,11 @@
 
 import { PropsWithChildren, useEffect, useState } from 'react';
 import CanvasAnimation from '@/lib/CanvasAnimation';
-import cls from './HeroAnimatedBg.module.css';
+import './style.css';
+import { useTheme } from '@/context/ThemeContext';
 
 export const HeroAnimatedBg: React.FC<PropsWithChildren> = ({ children }) => {
+  const { theme } = useTheme();
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
@@ -24,9 +26,13 @@ export const HeroAnimatedBg: React.FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <section className="relative h-dvh w-full overflow-hidden bg-[radial-gradient(ellipse_at_center,_#221b35_0%,_#0b090f_100%)]">
-      <div className={cls.stars}></div>
-      <CanvasAnimation width={dimensions.width} height={dimensions.height} />
+    <section className="bg relative h-dvh w-full overflow-hidden">
+      <div className="animCircles"></div>
+      <CanvasAnimation
+        theme={theme}
+        width={dimensions.width}
+        height={dimensions.height}
+      />
       {children}
     </section>
   );
