@@ -19,7 +19,7 @@ class Circle {
     if (!this.active) return;
     ctx.beginPath();
     ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-    ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '157, 49, 235'},${this.active})`;
+    ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${this.active})`;
     ctx.fill();
   }
 }
@@ -154,7 +154,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(close.x, close.y);
       }
-      ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '157, 49, 235'},${p.active})`;
+      ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${p.active})`;
       ctx.stroke();
     };
 
