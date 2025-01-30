@@ -27,7 +27,7 @@ export const HeroAnimatedBg: React.FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <section className="bg relative h-dvh w-full overflow-hidden">
-      <div className="animCircles"></div>
+      <div className="animCircles duration-300"></div>
       <CanvasAnimation
         theme={theme}
         width={dimensions.width}
