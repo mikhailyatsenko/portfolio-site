@@ -28,7 +28,7 @@ const StickySection: React.FC<StickySectionProps> = ({ children }) => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="relative h-[400vh]">
+    <div ref={sectionRef} className="relative h-[300vh]">
       <div
         className={`sticky left-0 top-0 h-screen w-full bg-background transition-all ${
           isSticky ? 'overflow-auto' : ''
