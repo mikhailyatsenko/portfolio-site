@@ -1,13 +1,13 @@
-import { techStackIconsData } from '@/lib/techStackIconsData';
+// import { techStackIconsData } from '@/lib/techStackIconsData';
 import mishaPhoto from '@/assets/icons/me.webp';
 import Image from 'next/image';
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
-import { DownloadButton } from '../../common/Buttons/DownloadButton';
-import Link from 'next/link';
-import { getLocale } from '@/lib/getLocale';
-import cls from './Profile.module.css';
+// import { DownloadButton } from '../../common/Buttons/DownloadButton';
+// import Link from 'next/link';
+// import { getLocale } from '@/lib/getLocale';
+// import cls from './Profile.module.css';
 import StickySection from './StickySection';
 import { ProfileFeatures } from './ProfileFeatures';
 
