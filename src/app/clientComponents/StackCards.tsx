@@ -108,7 +108,7 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
 
     observer.observe(container);
 
-    const debouncedScroll = debounce(handleScroll, 10);
+    const debouncedScroll = debounce(handleScroll, 15);
 
     return () => {
       observer.disconnect();

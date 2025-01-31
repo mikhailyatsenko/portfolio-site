@@ -1,13 +1,15 @@
 import { techStackIconsData } from '@/lib/techStackIconsData';
 import mishaPhoto from '@/assets/icons/me.webp';
 import Image from 'next/image';
-import cls from './Profile.module.css';
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 import { DownloadButton } from '../../common/Buttons/DownloadButton';
 import Link from 'next/link';
 import { getLocale } from '@/lib/getLocale';
+import cls from './Profile.module.css';
+import StickySection from './StickySection';
+import { ProfileFeatures } from './ProfileFeatures';
 
 interface ProfileProps {
   t: (key: LandingTranslationKeys) => string;
@@ -15,80 +17,96 @@ interface ProfileProps {
 
 export const Profile = async ({ t }: ProfileProps) => {
   return (
-    <section
-      id="profile"
-      className="overflow-hidden bg-[linear-gradient(to_right,#bfbfbf_1px,transparent_1px),linear-gradient(to_bottom,#bfbfbf_1px,transparent_1px)] bg-[size:70px_70px] px-8 py-20 dark:bg-[linear-gradient(to_right,#575757_1px,transparent_1px),linear-gradient(to_bottom,#575757_1px,transparent_1px)] md:px-14"
-    >
-      <ScrollTrackBlock id="profile">
-        <AnimateInView>
+    <ScrollTrackBlock id="profile">
+      <StickySection>
+        <section
+          id="profile"
+          className={`flex h-screen flex-col items-center gap-6 overflow-hidden py-20`}
+        >
           <h2 className="text-center text-5xl font-[150] md:text-6xl">
             {t('profile.title')}
           </h2>
-        </AnimateInView>
-        <div className="mx-auto mt-5 flex shrink-0 flex-col items-center gap-5 sm576:flex-row lg:w-3/4">
-          <Image
-            src={mishaPhoto}
-            width={100}
-            height={100}
-            alt={t('profile.photo_alt')}
-            className={`${cls.photoScrollTransform} h-[100px] w-[100px] rotate-2 transition-transform duration-150 ease-in-out hover:rotate-0`}
-          />
-          <div
-            className={`${cls.aboutMeScrollTransform} relative cursor-pointer dark:text-white`}
+          <div className="relative">
+            <AnimateInView
+              className="origin-top opacity-0 transition-all duration-500 [transform:_rotateX(-80deg)]"
+              activeClass="![transform:_rotateX(0deg)] !opacity-100"
+              threshold={1}
+            >
+              <Image
+                src={mishaPhoto}
+                width={100}
+                height={100}
+                alt={t('profile.photo_alt')}
+              />
+            </AnimateInView>
+          </div>
+
+          <ProfileFeatures t={t} />
+          {/* <div
+            className={`${cls.aboutMeScrollTransform} mx-auto mt-5 flex shrink-0 flex-col items-center gap-5 sm576:flex-row lg:w-3/4`}
           >
+            <Image
+              src={mishaPhoto}
+              width={100}
+              height={100}
+              alt={t('profile.photo_alt')}
+              className={`h-[100px] w-[100px]`}
+            />
+            <div className={`relative cursor-pointer dark:text-white`}>
+              <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
+              <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
+                <div className="flex items-center">
+                  <span className="text-xl">😎</span>
+                  <h3 className="my-2 ml-3 font-mono text-lg font-bold text-gray-800 dark:text-white">
+                    {t('profile.hello')}
+                  </h3>
+                </div>
+                <p className="font-mono text-gray-600 dark:text-gray-300">
+                  {t('profile.description')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={`relative mx-auto mt-6 w-fit dark:text-white`}>
             <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
             <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
-              <div className="flex items-center">
-                <span className="text-xl">😎</span>
-                <h3 className="my-2 ml-3 font-mono text-lg font-bold text-gray-800 dark:text-white">
-                  {t('profile.hello')}
-                </h3>
+              <div className="mb-4 flex items-center justify-center">
+                  <h3 className="text-center text-lg font-bold text-gray-800 dark:text-white">
+                    {t('tech_stack.title')}
+                  </h3>
               </div>
-              <p className="font-mono text-gray-600 dark:text-gray-300">
-                {t('profile.description')}
-              </p>
+              <div className="flex w-fit flex-wrap justify-center">
+                {Object.entries(techStackIconsData).map(([key, tech]) => (
+                  <div
+                    key={key}
+                    className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/6"
+                  >
+                    <tech.icon className="h-[40px] w-[40px] fill-foreground" />
+                    <h4>{tech.name}</h4>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-
-        <div
-          className={`${cls.skillsScrollTransform} relative mx-auto mt-6 w-fit dark:text-white`}
-        >
-          <span className="absolute left-0 top-0 ml-1 mt-1 h-full w-full rounded-lg bg-indigo-500 dark:bg-gray-200"></span>
-          <div className="relative rounded-lg border-2 border-indigo-500 bg-white p-6 transition duration-500 hover:scale-105 dark:border-gray-300 dark:bg-gray-800">
-            <div className="mb-4 flex items-center justify-center">
-              <h3 className="text-center text-lg font-bold text-gray-800 dark:text-white">
-                {t('tech_stack.title')}
-              </h3>
-            </div>
-            <div className="flex w-fit flex-wrap justify-center">
-              {Object.entries(techStackIconsData).map(([key, tech]) => (
-                <div
-                  key={key}
-                  className="flex w-1/3 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 sm:w-1/6"
-                >
-                  <tech.icon className="h-[40px] w-[40px] fill-foreground" />
-                  <h4>{tech.name}</h4>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <div
-          className={`${cls.buttonCv} mx-auto mt-6 flex w-full justify-center`}
-        >
-          <Link
-            target="_blank"
-            href={
-              (await getLocale()) === 'de'
-                ? 'cv/CV_Yatsenko_de.pdf'
-                : 'cv/CV_Yatsenko_en.pdf'
-            }
+          <AnimateInView
+            className="mx-auto mt-6 flex w-full justify-center transition-transform duration-300 [transform:_rotateX(90deg)]"
+            activeClass="![transform:_rotateX(0deg)]"
+            threshold={1}
           >
-            <DownloadButton>{t('profile.downloadCv')}</DownloadButton>
-          </Link>
-        </div>
-      </ScrollTrackBlock>
-    </section>
+            <Link
+              target="_blank"
+              href={
+                (await getLocale()) === 'de'
+                  ? 'cv/CV_Yatsenko_de.pdf'
+                  : 'cv/CV_Yatsenko_en.pdf'
+              }
+            >
+              <DownloadButton>{t('profile.downloadCv')}</DownloadButton>
+            </Link>
+          </AnimateInView> */}
+        </section>
+      </StickySection>
+    </ScrollTrackBlock>
   );
 };

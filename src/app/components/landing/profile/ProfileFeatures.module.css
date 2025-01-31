@@ -1,0 +1,110 @@
+.features {
+  --firs-scene-leave-progress: clamp(
+    0,
+    (var(--scroll-progress-profile) - 0.55) / 0.1,
+    1
+  );
+}
+
+/* .item {
+  position: absolute;
+  list-style-type: inherit;
+  padding: 1em;
+
+  background: #eeeeee;
+  color: #222831;
+  max-width: 28vw;
+  margin: 0;
+  line-height: 1;
+  border-radius: 0.75em;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+} */
+
+.firstScene {
+  transform: translateX(calc(var(--firs-scene-leave-progress) * -100%));
+}
+
+.aboutMe {
+  --start: 0.15;
+  --end: 0.3;
+
+  --progress: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--start)) /
+      (var(--end) - var(--start)),
+    1
+  );
+
+  transform: scale(var(--progress))
+    translateY(calc((1 - var(--progress)) * -75%))
+    translateX(calc((1 - var(--progress)) * 75%))
+    rotate(calc((1 - var(--progress)) * -28deg));
+  transition-duration: 0.3s;
+}
+
+.stackTitle {
+  --start: 0.32;
+  --end: 0.5;
+
+  --progress: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--start)) /
+      (var(--end) - var(--start)),
+    1
+  );
+
+  transform: scale(calc(5 - var(--progress) * 4))
+    translateY(calc((1 - var(--progress)) * 500%));
+  transition-duration: 0.3s;
+}
+
+/* 
+.item:nth-of-type(1) {
+  background: #ffd369;
+  transform: scale(var(--first-f-progress))
+    translateY(calc(var(--first-f-progress) * -75%))
+    translateX(calc(var(--first-f-progress) * -125%))
+    rotate(calc(var(--first-f-progress) * -12deg));
+  transition-duration: 0.3s;
+}
+
+.item:nth-of-type(2) {
+  transform: scale(var(--first-f-progress))
+    translateY(calc(var(--first-f-progress) * 75%))
+    translateX(calc(var(--first-f-progress) * -100%))
+    rotate(calc(var(--first-f-progress) * 8deg));
+  transition-duration: 0.35s;
+  z-index: 2;
+}
+
+.item:nth-of-type(3) {
+  background: #393e46;
+  transform: scale(var(--first-f-progress))
+    translateY(calc(var(--first-f-progress) * -75%))
+    translateX(calc(var(--first-f-progress) * 100%))
+    rotate(calc(var(--first-f-progress) * -8deg));
+  transition-duration: 0.45s;
+}
+
+.item:nth-of-type(4) {
+  transform: scale(var(--first-f-progress))
+    translateY(calc(var(--first-f-progress) * 75%))
+    translateX(calc(var(--first-f-progress) * 50%))
+    rotate(calc(var(--first-f-progress) * -12deg));
+  transition-duration: 0.45s;
+  background: #393e46;
+  color: #ffd369;
+  z-index: 2;
+}
+
+.item:nth-of-type(5) {
+  transform: scale(var(--first-f-progress))
+    translateY(calc(var(--first-f-progress) * -150%))
+    translateX(calc(var(--first-f-progress) * -7.5%))
+    rotate(calc(var(--first-f-progress) * 4deg));
+  transition-duration: 0.45s;
+  background: #222831;
+  font-size: 2vw;
+  outline: 2px solid #ffd369;
+  color: #ffd369;
+} */

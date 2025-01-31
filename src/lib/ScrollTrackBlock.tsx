@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
-import throttle from 'lodash/throttle';
 
 interface ScrollBlockProps {
   children: React.ReactNode;
@@ -15,13 +14,19 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
   id,
 }) => {
   const blockRef = useRef<HTMLDivElement | null>(null);
-  const progressRef = useRef(0); // Для хранения текущего прогресса
+  const progressRef = useRef(0);
 
   useEffect(() => {
-    if (!blockRef.current) return;
+    const handleScroll = () => {
+      if (!blockRef.current) return;
 
-    const updateProgress = throttle((progress: number) => {
-      // Троттлим обновления стиля
+      const { top, height } = blockRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+
+      const totalScrollDistance = height;
+      const scrolled = Math.max(0, windowHeight - top);
+      const progress = Math.min(1, scrolled / totalScrollDistance);
+
       if (progressRef.current !== progress) {
         progressRef.current = progress;
         document.documentElement.style.setProperty(
@@ -29,40 +34,24 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
           `${progress}`,
         );
       }
-    }, 150); // Частота обновления 100 мс
+    };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!blockRef.current) return;
+    let animationFrameId: number;
 
-        const { top, height } = blockRef.current.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+    const onScroll = () => {
+      animationFrameId = requestAnimationFrame(handleScroll);
+    };
 
-        let progress = 0;
+    // Устанавливаем начальное значение прогресса
+    handleScroll();
 
-        if (entry.isIntersecting) {
-          const visibleHeight = Math.min(height, windowHeight - top);
-          progress = Math.min(1, Math.max(0, visibleHeight / height));
-        } else if (entry.boundingClientRect.top < 0) {
-          // Если блок уже проскроллен
-          progress = 1;
-        }
-
-        updateProgress(progress);
-      },
-      {
-        threshold: Array.from({ length: 101 }, (_, i) => i / 100), // Отслеживаем видимость с шагом 1%
-      },
-    );
-
-    observer.observe(blockRef.current);
-
-    // Устанавливаем прогресс в 0 при загрузке
-    document.documentElement.style.setProperty(`--scroll-progress-${id}`, `0`);
+    window.addEventListener('scroll', onScroll);
+    window.addEventListener('resize', handleScroll);
 
     return () => {
-      observer.disconnect();
-      updateProgress.cancel(); // Отменяем троттлинг при размонтировании
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', handleScroll);
+      cancelAnimationFrame(animationFrameId); // Отменяем анимацию при размонтировании
     };
   }, [id]);
 
