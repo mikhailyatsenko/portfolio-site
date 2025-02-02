@@ -8,12 +8,13 @@ const LocationTime: React.FC = () => {
   useEffect(() => {
     const updateCurrentTime = () => {
       const now = new Date();
-      const berlinTime = now.toLocaleTimeString('en-US', {
+      let berlinTime = now.toLocaleTimeString('en-US', {
         hour: 'numeric',
         minute: '2-digit',
         hour12: true,
         timeZone: 'Europe/Berlin',
       });
+      berlinTime = berlinTime.replace(' ', '\u00A0'); // Replace space with non-breaking space
       setCurrentTime(berlinTime);
     };
 

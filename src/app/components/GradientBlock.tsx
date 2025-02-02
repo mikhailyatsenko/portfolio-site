@@ -11,7 +11,7 @@ export const GradientBlock: React.FC<GlowingBlockProps> = ({
 }) => {
   return (
     <div
-      className={`relative h-[calc(100vh-160px)] overflow-hidden bg-yellow-300 px-5 py-10 text-center text-black sm576:h-auto sm576:rounded-3xl lg:w-1/2 ${className || ''}`}
+      className={`relative h-[calc(100vh-160px)] overflow-hidden bg-yellow-300 px-5 py-10 text-center text-black sm576:h-auto sm576:w-5/6 sm576:rounded-3xl lg:w-1/2 ${className || ''}`}
     >
       <div className="relative z-10">
         <h3 className="font-display font-mono text-3xl lg:text-4xl">{title}</h3>

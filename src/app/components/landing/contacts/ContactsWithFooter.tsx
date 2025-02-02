@@ -32,7 +32,7 @@ export const ContactsWithFooter = async ({
           <div className="w-1/2 text-sm text-gray-500">
             <p className="text-left">
               {t('contact.location')}
-              {'\u00A0'}
+
               <LocationTime />
             </p>
           </div>

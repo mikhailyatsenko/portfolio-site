@@ -10,9 +10,6 @@
   transform: translateX(calc(var(--firs-scene-leave-progress) * -100%));
 }
 
-.secodnScene {
-}
-
 .aboutMe {
   --start: 0.15;
   --end: 0.4;
