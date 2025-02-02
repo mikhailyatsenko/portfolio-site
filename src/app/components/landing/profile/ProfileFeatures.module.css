@@ -6,20 +6,6 @@
   );
 }
 
-/* .item {
-  position: absolute;
-  list-style-type: inherit;
-  padding: 1em;
-
-  background: #eeeeee;
-  color: #222831;
-  max-width: 28vw;
-  margin: 0;
-  line-height: 1;
-  border-radius: 0.75em;
-  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-} */
-
 .firstScene {
   transform: translateX(calc(var(--firs-scene-leave-progress) * -100%));
 }
@@ -38,28 +24,28 @@
     1
   );
 
-  transform: scale(var(--progress))
-    translateY(calc((1 - var(--progress)) * -75%))
-    translateX(calc((1 - var(--progress)) * 75%))
-    rotate(calc((1 - var(--progress)) * -28deg));
+  transform: translateX(calc((1 - var(--progress)) * -100%));
+  transition-duration: 0.3s;
+}
+
+.photoMe {
+  --start: 0.15;
+  --end: 0.3;
+
+  --progress: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--start)) /
+      (var(--end) - var(--start)),
+    1
+  );
+  opacity: var(--progress);
+  transform: translateY(calc((1 - var(--progress)) * -200%));
   transition-duration: 0.3s;
 }
 
 .stackIcons {
-  --start: 0.4;
-  --end: 0.8;
-
-  --progress: clamp(
-    0,
-    (var(--scroll-progress-profile) - var(--start)) /
-      (var(--end) - var(--start)),
-    1
-  );
-}
-
-.stackTitle {
-  --start: 0.32;
-  --end: 0.5;
+  --start: 0.55;
+  --end: 0.65;
 
   --progress: clamp(
     0,
@@ -68,10 +54,38 @@
     1
   );
 
-  transform: scale(calc(5 - var(--progress) * 4))
-    translateY(calc((1 - var(--progress)) * 500%));
+  transform: translateX(calc((1 - var(--progress)) * 200%));
   transition-duration: 0.3s;
 }
+
+.techStack {
+  --start: 0.6;
+  --end: 0.65;
+
+  --progress: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--start)) /
+      (var(--end) - var(--start)),
+    1
+  );
+  opacity: var(--progress);
+  transform: translateY(calc((1 - var(--progress)) * -200%));
+  transition-duration: 0.3s;
+}
+
+.secodndScene {
+  --start: 0.75;
+  --end: 1;
+  --second-scene-leave-progress: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--start)) /
+      (var(--end) - var(--start)),
+    1
+  );
+  transform: translateX(calc(var(--second-scene-leave-progress) * 100%));
+  opacity: calc(1 - var(--second-scene-leave-progress));
+}
+/* 
 
 .stackIcon:nth-of-type(1) {
   opacity: var(--progress);
@@ -116,4 +130,4 @@
     translateX(calc((1 - var(--progress)) * -7.5%))
     rotate(calc((1 - var(--progress)) * 4deg));
   transition-duration: 0.45s;
-}
+} */

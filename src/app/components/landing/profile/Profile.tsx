@@ -1,8 +1,7 @@
 // import { techStackIconsData } from '@/lib/techStackIconsData';
-import mishaPhoto from '@/assets/icons/me.webp';
-import Image from 'next/image';
+
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
-import { AnimateInView } from '@/lib/AnimateInView';
+
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 // import { DownloadButton } from '../../common/Buttons/DownloadButton';
 // import Link from 'next/link';
@@ -21,25 +20,11 @@ export const Profile = async ({ t }: ProfileProps) => {
       <StickySection>
         <section
           id="profile"
-          className={`flex h-screen flex-col items-center gap-6 overflow-hidden py-20`}
+          className={`flex h-screen flex-col items-center gap-6 overflow-hidden pt-20 sm576:py-20`}
         >
           <h2 className="text-center text-5xl font-[150] md:text-6xl">
             {t('profile.title')}
           </h2>
-          <div className="relative">
-            <AnimateInView
-              className="origin-top opacity-0 transition-all duration-500 [transform:_rotateX(-80deg)]"
-              activeClass="![transform:_rotateX(0deg)] !opacity-100"
-              threshold={1}
-            >
-              <Image
-                src={mishaPhoto}
-                width={100}
-                height={100}
-                alt={t('profile.photo_alt')}
-              />
-            </AnimateInView>
-          </div>
 
           <ProfileFeatures t={t} />
           {/* <div

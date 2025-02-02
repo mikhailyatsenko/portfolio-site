@@ -30,14 +30,14 @@ export const ProjectCard = async ({
   const locale = await getLocale();
   const { t } = await initTranslations(locale, ['common']);
   return (
-    <div className="flex h-full max-h-screen w-full justify-center overflow-hidden bg-background sm576:justify-start sm576:bg-gray-800 sm576:bg-opacity-30 sm576:bg-clip-padding sm576:px-10 sm576:py-6 sm576:backdrop-blur-md sm576:backdrop-filter sm576:dark:bg-gray-600 sm576:dark:bg-opacity-30 md:py-10 lg:gap-10 lg:px-20">
+    <div className="flex h-full max-h-screen w-full justify-center overflow-hidden bg-background sm576:justify-start sm576:bg-gray-800 sm576:bg-opacity-30 sm576:bg-clip-padding sm576:px-10 sm576:py-6 sm576:backdrop-blur-md sm576:dark:bg-gray-600 sm576:dark:bg-opacity-30 md:py-10 lg:gap-10 lg:px-20">
       <MockIphone screenContent={<Image src={slide} alt={title} />} />
 
       <AnimateInView
         resetOnExit={true}
         threshold={0.7}
         activeClass="!opacity-100 z-[2] transition-opacity duration-1000 ease-in-out"
-        className="z-[2] w-full grow-0 overflow-y-auto bg-gray-800 bg-opacity-40 bg-clip-padding px-6 pt-6 text-white opacity-0 backdrop-blur-md backdrop-filter transition-opacity duration-1000 ease-in-out sm576:bg-transparent sm576:pt-2 sm576:opacity-100 sm576:backdrop-blur-none sm576:backdrop-filter-none md:px-10"
+        className="z-[2] w-full grow-0 overflow-y-auto bg-gray-800 bg-opacity-40 bg-clip-padding px-6 pt-6 text-white opacity-0 backdrop-blur-md transition-opacity duration-1000 ease-in-out sm576:bg-transparent sm576:pt-2 sm576:opacity-100 sm576:backdrop-blur-none sm576:backdrop-filter-none md:px-10"
       >
         <h3 className="mb-0.5 text-balance text-xl font-bold md:text-h3">
           {title}

@@ -46,7 +46,7 @@ export default function LanguageChanger() {
       onChange={handleChange}
       value={currentLocale}
       id="countries"
-      className="mr-1 w-[54px] bg-transparent text-sm text-foreground"
+      className="mr-1 w-[54px] bg-transparent text-sm"
     >
       {selectedOption}
       {otherOptions}
