@@ -1,12 +1,8 @@
-// import { techStackIconsData } from '@/lib/techStackIconsData';
-
 import { ScrollTrackBlock } from '@/lib/ScrollTrackBlock';
 
 import { LandingTranslationKeys } from '@/types/i18nTypes';
-// import { DownloadButton } from '../../common/Buttons/DownloadButton';
-// import Link from 'next/link';
-// import { getLocale } from '@/lib/getLocale';
-// import cls from './Profile.module.css';
+
+import './profileStyles.css';
 import StickySection from './StickySection';
 import { ProfileFeatures } from './ProfileFeatures';
 
@@ -17,6 +13,13 @@ interface ProfileProps {
 export const Profile = async ({ t }: ProfileProps) => {
   return (
     <ScrollTrackBlock id="profile">
+      <div className="overlay left">
+        <h1>This is a title</h1>
+      </div>
+
+      <div className="overlay right">
+        <h1>This is a title</h1>
+      </div>
       <StickySection>
         <section
           id="profile"

@@ -23,30 +23,16 @@
 
 .dark .bg {
   --circles-color: #324a6b;
-  /* background-image: radial-gradient(
-    ellipse at center,
-    #221b35 5%,
-    #0b090f 100%
-  ); */
-  /* background: conic-gradient(
-    from 180deg at 50% 50%,
-    #5b6367 -93.75deg,
-    #163242 0.36deg,
-    #3f5c6b 72.89deg,
-    #708e9b 123.25deg,
-    #d1b7a8 211.95deg,
-    #5b6367 266.25deg,
-    #163242 360.36deg
-  ); */
+
   background: radial-gradient(
       farthest-side at bottom left,
       rgba(255, 0, 255, 0.5),
-      transparent
+      #121212
     ),
     radial-gradient(
       farthest-corner at bottom right,
       rgba(255, 50, 50, 0.5),
-      transparent 400px
+      #121212 400px
     );
 }
 

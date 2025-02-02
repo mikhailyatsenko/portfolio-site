@@ -1,13 +1,15 @@
-.features {
-  --firs-scene-leave-progress: clamp(
+.firstScene {
+  --startLeave: 0.4;
+  --endLeave: 0.55;
+
+  --first-scene-leave-progress: clamp(
     0,
-    (var(--scroll-progress-profile) - 0.55) / 0.1,
+    (var(--scroll-progress-profile) - var(--startLeave)) /
+      (var(--endLeave) - var(--startLeave)),
     1
   );
-}
 
-.firstScene {
-  --startScale: 0.3;
+  --startScale: 0.25;
   --endScale: 0.65;
 
   --progressScale: clamp(
@@ -16,14 +18,15 @@
       (var(--endScale) - var(--startScale)),
     1
   );
-  transform: translateX(calc(var(--firs-scene-leave-progress) * -150%))
-    scale(max(1, calc(0.5 + var(--progressScale))));
-  transition-duration: 0.3s;
+  transform: translateX(calc(var(--first-scene-leave-progress) * -150%))
+    scale(max(1, calc(0.8 + var(--progressScale))));
+  opacity: calc(1 - var(--first-scene-leave-progress));
+  transition: transform opacity 0.3s;
 }
 
 .aboutMe {
   --start: 0.15;
-  --end: 0.4;
+  --end: 0.2;
 
   --progress: clamp(
     0,
@@ -32,13 +35,13 @@
     1
   );
 
-  transform: translateX(calc((1 - var(--progress)) * -100%));
-  transition-duration: 0.3s;
+  transform: translateX(calc((1 - var(--progress)) * -150%));
+  transition: transform 0.3s;
 }
 
 .photoMe {
   --start: 0.15;
-  --end: 0.45;
+  --end: 0.2;
 
   --progress: clamp(
     0,
@@ -48,12 +51,12 @@
   );
   opacity: var(--progress);
   transform: translateY(calc((1 - var(--progress)) * -200%));
-  transition-duration: 0.3s;
+  transition: transform opacity 0.4s;
 }
 
 .stackIcons {
-  --start: 0.55;
-  --end: 0.65;
+  --start: 0.4;
+  --end: 0.55;
 
   --progress: clamp(
     0,
@@ -63,12 +66,12 @@
   );
 
   transform: translateX(calc((1 - var(--progress)) * 200%));
-  transition-duration: 0.3s;
+  transition: transform 0.3s;
 }
 
 .techStack {
-  --start: 0.6;
-  --end: 0.65;
+  --start: 0.5;
+  --end: 0.55;
 
   --progress: clamp(
     0,
@@ -78,12 +81,12 @@
   );
   opacity: var(--progress);
   transform: translateY(calc((1 - var(--progress)) * -200%));
-  transition-duration: 0.3s;
+  transition: transform opacity 0.3s;
 }
 
 .secodndScene {
-  --startScale: 0.6;
-  --endScale: 0.85;
+  --startScale: 0.55;
+  --endScale: 0.9;
 
   --progressScale: clamp(
     0,
@@ -100,7 +103,7 @@
       (var(--end) - var(--start)),
     1
   );
-  transform: scale(max(1, calc(0.5 + var(--progressScale))));
+  transform: scale(max(1, calc(0.9 + var(--progressScale))));
   opacity: calc(1 - var(--second-scene-leave-progress));
-  transition-duration: 0.3s;
+  transition: transform opacity 0.3s;
 }
