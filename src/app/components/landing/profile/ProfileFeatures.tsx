@@ -29,6 +29,7 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
         <GradientBlock
           title={t('profile.hello')}
           content={t('profile.description')}
+          buttonText={t('profile.viewProjects')}
           className={`${cls.aboutMe} mt-4`}
         />
       </div>

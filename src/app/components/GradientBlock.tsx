@@ -2,12 +2,14 @@ interface GlowingBlockProps {
   className?: string;
   title?: string;
   content: string;
+  buttonText: string;
 }
 
 export const GradientBlock: React.FC<GlowingBlockProps> = ({
   title,
   content,
   className,
+  buttonText,
 }) => {
   return (
     <div
@@ -25,7 +27,7 @@ export const GradientBlock: React.FC<GlowingBlockProps> = ({
               →
             </span>
             <span className="absolute opacity-100 transition-opacity group-hover:opacity-100 sm576:opacity-0">
-              View Projects
+              {buttonText}
             </span>
           </a>
         </div>

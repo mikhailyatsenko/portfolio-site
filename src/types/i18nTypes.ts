@@ -10,6 +10,7 @@ export interface LandingTranslations {
     hello: string;
     description: string;
     downloadCv: string;
+    viewProjects: string;
   };
   tech_stack: {
     title: string;

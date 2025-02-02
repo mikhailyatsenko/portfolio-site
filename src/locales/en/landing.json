@@ -9,7 +9,8 @@
         "photo_alt": "Photo of Mykhailo Yatsenko",
         "hello": "Hello world!",
         "description": "I build modern, fast, and responsive web applications with a focus on user experience and functionality. My goal is to create digital products that are both visually appealing and highly effective.",
-         "downloadCv": "Download CV"
+         "downloadCv": "Download CV",
+           "viewProjects": "View Projects"
     },
     "tech_stack": {
         "title": "My Tech Stack"
