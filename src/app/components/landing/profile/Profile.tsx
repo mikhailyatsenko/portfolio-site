@@ -14,11 +14,11 @@ export const Profile = async ({ t }: ProfileProps) => {
   return (
     <ScrollTrackBlock id="profile">
       <div className="overlay left">
-        <h1>This is a title</h1>
+        <h1>Profile</h1>
       </div>
 
       <div className="overlay right">
-        <h1>This is a title</h1>
+        <h1>Profile</h1>
       </div>
       <StickySection>
         <section
