@@ -54,6 +54,7 @@ export default {
         textGlow: 'textGlow 2s linear forwards',
         fadeIn: 'fadeIn 0.8s linear 0.2s forwards',
         fadeInWithSlide: 'fadeInWithSlide 0.5s linear 0.2s forwards',
+        rotate: 'rotateAnimation 1s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -82,6 +83,15 @@ export default {
           },
           '100%': {
             textShadow: 'none',
+          },
+        },
+        rotateAnimation: {
+          '0%': { transform: 'rotate(0deg)', width: '64px', height: '64px' },
+          '50%': { transform: 'rotate(180deg)', width: '30px', height: '30px' },
+          '100%': {
+            transform: 'rotate(360deg)',
+            width: '64px',
+            height: '64px',
           },
         },
       },
