@@ -23,9 +23,9 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
       const { top, height } = blockRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      const totalScrollDistance = height;
-      const scrolled = Math.max(0, windowHeight - top);
-      const progress = Math.min(1, scrolled / totalScrollDistance);
+      const totalScrollDistance = height + windowHeight;
+      const scrolled = windowHeight - top;
+      const progress = Math.max(0, Math.min(1, scrolled / totalScrollDistance));
 
       if (progressRef.current !== progress) {
         progressRef.current = progress;
