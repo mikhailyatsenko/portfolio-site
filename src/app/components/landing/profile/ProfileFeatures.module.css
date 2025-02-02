@@ -7,7 +7,7 @@
 }
 
 .firstScene {
-  --startScale: 0.4;
+  --startScale: 0.3;
   --endScale: 0.65;
 
   --progressScale: clamp(
