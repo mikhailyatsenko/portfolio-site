@@ -8,6 +8,7 @@
 
 .firstScene {
   transform: translateX(calc(var(--firs-scene-leave-progress) * -100%));
+  transition-duration: 0.3s;
 }
 
 .aboutMe {
@@ -81,50 +82,5 @@
   );
   transform: translateX(calc(var(--second-scene-leave-progress) * 100%));
   opacity: calc(1 - var(--second-scene-leave-progress));
-}
-/* 
-
-.stackIcon:nth-of-type(1) {
-  opacity: var(--progress);
-  transform: scale(calc(5 - var(--progress) * 4))
-    translateY(calc((1 - var(--progress)) * -75%))
-    translateX(calc((1 - var(--progress)) * -125%))
-    rotate(calc((1 - var(--progress)) * -12deg));
   transition-duration: 0.3s;
 }
-
-.stackIcon:nth-of-type(2) {
-  opacity: var(--progress);
-  transform: scale(calc(5 - var(--progress) * 4))
-    translateY(calc((1 - var(--progress)) * 75%))
-    translateX(calc((1 - var(--progress)) * -100%))
-    rotate(calc((1 - var(--progress)) * 8deg));
-  transition-duration: 0.35s;
-}
-
-.stackIcon:nth-of-type(3) {
-  opacity: var(--progress);
-  transform: scale(calc(5 - var(--progress) * 4))
-    translateY(calc((1 - var(--progress)) * -75%))
-    translateX(calc((1 - var(--progress)) * 100%))
-    rotate(calc((1 - var(--progress)) * -8deg));
-  transition-duration: 0.45s;
-}
-
-.stackIcon:nth-of-type(4) {
-  opacity: var(--progress);
-  transform: scale(calc(5 - var(--progress) * 4))
-    translateY(calc((1 - var(--progress)) * 175%))
-    translateX(calc((1 - var(--progress)) * 50%))
-    rotate(calc((1 - var(--progress)) * -12deg));
-  transition-duration: 0.45s;
-}
-
-.stackIcon:nth-of-type(5) {
-  opacity: var(--progress);
-  transform: scale(calc(5 - var(--progress) * 4))
-    translateY(calc((1 - var(--progress)) * -150%))
-    translateX(calc((1 - var(--progress)) * -7.5%))
-    rotate(calc((1 - var(--progress)) * 4deg));
-  transition-duration: 0.45s;
-} */
