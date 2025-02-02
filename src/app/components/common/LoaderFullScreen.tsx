@@ -1,7 +1,7 @@
 export const LoaderFullScreen = () => {
   return (
     <div className="fixed left-0 top-0 z-10 flex h-screen w-screen items-center justify-center bg-black bg-opacity-50">
-      <div className="animate-rotate z-20 h-16 w-16">
+      <div className="z-20 h-16 w-16 animate-rotate">
         <div
           className="inset-0 bg-transparent"
           style={{
