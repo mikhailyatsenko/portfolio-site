@@ -7,7 +7,17 @@
 }
 
 .firstScene {
-  transform: translateX(calc(var(--firs-scene-leave-progress) * -100%));
+  --startScale: 0.4;
+  --endScale: 0.65;
+
+  --progressScale: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--startScale)) /
+      (var(--endScale) - var(--startScale)),
+    1
+  );
+  transform: translateX(calc(var(--firs-scene-leave-progress) * -150%))
+    scale(max(1, calc(0.5 + var(--progressScale))));
   transition-duration: 0.3s;
 }
 
@@ -72,6 +82,16 @@
 }
 
 .secodndScene {
+  --startScale: 0.6;
+  --endScale: 0.85;
+
+  --progressScale: clamp(
+    0,
+    (var(--scroll-progress-profile) - var(--startScale)) /
+      (var(--endScale) - var(--startScale)),
+    1
+  );
+
   --start: 0.75;
   --end: 1;
   --second-scene-leave-progress: clamp(
@@ -80,7 +100,8 @@
       (var(--end) - var(--start)),
     1
   );
-  transform: translateX(calc(var(--second-scene-leave-progress) * 100%));
+  transform: translateX(calc(var(--second-scene-leave-progress) * -150%))
+    scale(max(1, calc(0.5 + var(--progressScale))));
   opacity: calc(1 - var(--second-scene-leave-progress));
   transition-duration: 0.3s;
 }
