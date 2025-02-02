@@ -51,7 +51,9 @@
   );
   opacity: var(--progress);
   transform: translateY(calc((1 - var(--progress)) * -200%));
-  transition: transform opacity 0.4s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .stackIcons {
@@ -81,7 +83,9 @@
   );
   opacity: var(--progress);
   transform: translateY(calc((1 - var(--progress)) * -200%));
-  transition: transform opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .secodndScene {
@@ -95,7 +99,7 @@
     1
   );
 
-  --start: 0.75;
+  --start: 0.65;
   --end: 0.82;
   --second-scene-leave-progress: clamp(
     0,
@@ -105,5 +109,7 @@
   );
   transform: scale(max(1, calc(0.9 + var(--progressScale))));
   opacity: calc(1 - var(--second-scene-leave-progress));
-  transition: transform opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
