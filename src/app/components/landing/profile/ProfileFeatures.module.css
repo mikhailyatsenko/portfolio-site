@@ -93,15 +93,14 @@
   );
 
   --start: 0.75;
-  --end: 1;
+  --end: 0.82;
   --second-scene-leave-progress: clamp(
     0,
     (var(--scroll-progress-profile) - var(--start)) /
       (var(--end) - var(--start)),
     1
   );
-  transform: translateX(calc(var(--second-scene-leave-progress) * -150%))
-    scale(max(1, calc(0.5 + var(--progressScale))));
+  transform: scale(max(1, calc(0.5 + var(--progressScale))));
   opacity: calc(1 - var(--second-scene-leave-progress));
   transition-duration: 0.3s;
 }
