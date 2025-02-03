@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 interface CanvasAnimationProps {
   theme: 'light' | 'dark';
@@ -16,7 +16,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
     dx: number;
     dy: number;
     closest: Point[];
-    circle: Circle | null;
+    circle: InstanceType<typeof Circle> | null;
     active?: number;
   }
 
@@ -36,6 +36,83 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
   useEffect(() => {
     setIsClient(true);
   }, []);
+
+  const getDistance = useCallback((p1: Point, p2: Point) => {
+    return (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2;
+  }, []);
+  const animate = useCallback(() => {
+    if (!isClient) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    pointsRef.current.forEach((point) => {
+      // Ограничиваем движение, чтобы не появлялось лишних линий
+      point.dx += (Math.random() - 0.5) * 0.1;
+      point.dy += (Math.random() - 0.5) * 0.1;
+      point.x =
+        point.originX + Math.sin(performance.now() / 1000 + point.originX) * 5;
+      point.y =
+        point.originY + Math.sin(performance.now() / 1000 + point.originY) * 5;
+
+      const distance = getDistance(targetRef.current, point);
+      if (distance < 4000) {
+        point.active = 0.3;
+        point.circle!.active = 0.6;
+      } else if (distance < 20000) {
+        point.active = 0.1;
+        point.circle!.active = 0.3;
+      } else if (distance < 40000) {
+        point.active = 0.02;
+        point.circle!.active = 0.1;
+      } else {
+        point.active = 0;
+        point.circle!.active = 0;
+      }
+      const drawLines = (ctx: CanvasRenderingContext2D, point: Point) => {
+        if (!point.active) return;
+        for (let i = 0; i < point.closest.length; i++) {
+          ctx.beginPath();
+          ctx.moveTo(point.x, point.y);
+          ctx.lineTo(point.closest[i].x, point.closest[i].y);
+          ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${point.active})`;
+          ctx.stroke();
+        }
+      };
+
+      drawLines(ctx, point);
+      point.circle!.draw(ctx);
+    });
+
+    requestAnimationFrame(animate);
+  }, [isClient, getDistance, theme]);
+
+  const Circle = useMemo(() => {
+    return class Circle {
+      pos: Point;
+      radius: number;
+      color: string;
+      active: number;
+
+      constructor(pos: Point, radius: number, color: string) {
+        this.pos = pos;
+        this.radius = radius;
+        this.color = color;
+        this.active = 0;
+      }
+
+      draw(ctx: CanvasRenderingContext2D) {
+        if (!this.active) return;
+        ctx.beginPath();
+        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
+        ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${this.active})`;
+        ctx.fill();
+      }
+    };
+  }, [theme]);
 
   useEffect(() => {
     if (!isClient) return;
@@ -127,86 +204,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isClient, theme]);
-
-  function animate() {
-    if (!isClient) return;
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    pointsRef.current.forEach((point) => {
-      // Ограничиваем движение, чтобы не появлялось лишних линий
-      point.dx += (Math.random() - 0.5) * 0.1;
-      point.dy += (Math.random() - 0.5) * 0.1;
-      point.x =
-        point.originX + Math.sin(performance.now() / 1000 + point.originX) * 5;
-      point.y =
-        point.originY + Math.sin(performance.now() / 1000 + point.originY) * 5;
-
-      const distance = getDistance(targetRef.current, point);
-      if (distance < 4000) {
-        point.active = 0.3;
-        point.circle!.active = 0.6;
-      } else if (distance < 20000) {
-        point.active = 0.1;
-        point.circle!.active = 0.3;
-      } else if (distance < 40000) {
-        point.active = 0.02;
-        point.circle!.active = 0.1;
-      } else {
-        point.active = 0;
-        point.circle!.active = 0;
-      }
-
-      drawLines(ctx, point);
-      point.circle!.draw(ctx);
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  function drawLines(ctx: CanvasRenderingContext2D, point: Point) {
-    if (!point.active) return;
-    for (let i = 0; i < point.closest.length; i++) {
-      ctx.beginPath();
-      ctx.moveTo(point.x, point.y);
-      ctx.lineTo(point.closest[i].x, point.closest[i].y);
-      ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${point.active})`;
-      ctx.stroke();
-    }
-  }
-
-  class Circle {
-    pos: Point;
-    radius: number;
-    color: string;
-    active: number;
-
-    constructor(pos: Point, radius: number, color: string) {
-      this.pos = pos;
-      this.radius = radius;
-      this.color = color;
-      this.active = 0;
-    }
-
-    draw(ctx: CanvasRenderingContext2D) {
-      if (!this.active) return;
-      ctx.beginPath();
-      ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-      ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${this.active})`;
-      ctx.fill();
-    }
-  }
-
-  function getDistance(p1: Point, p2: Point) {
-    return (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2;
-  }
+  }, [Circle, animate, getDistance, isClient, theme]);
 
   return isClient ? (
     <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" />
