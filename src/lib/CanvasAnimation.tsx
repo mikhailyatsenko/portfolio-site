@@ -4,8 +4,29 @@ import { useEffect, useRef, useState } from 'react';
 
 const ParticleBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const pointsRef = useRef<any[]>([]);
-  const targetRef = useRef({ x: 0, y: 0 });
+  interface Point {
+    x: number;
+    y: number;
+    originX: number;
+    originY: number;
+    dx: number;
+    dy: number;
+    closest: Point[];
+    circle: Circle | null;
+    active?: number;
+  }
+
+  const pointsRef = useRef<Point[]>([]);
+  const targetRef = useRef<Point>({
+    x: 0,
+    y: 0,
+    originX: 0,
+    originY: 0,
+    dx: 0,
+    dy: 0,
+    closest: [],
+    circle: null,
+  });
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -25,10 +46,19 @@ const ParticleBackground = () => {
     canvas.height = height;
 
     // Инициализируем targetRef теперь, когда мы на клиенте
-    targetRef.current = { x: width / 2, y: height / 2 };
+    targetRef.current = {
+      x: width / 2,
+      y: height / 2,
+      originX: 0,
+      originY: 0,
+      dx: 0,
+      dy: 0,
+      closest: [],
+      circle: null,
+    };
 
     // Создаем точки
-    const points = [];
+    const points: Point[] = [];
     for (let x = 0; x < width; x += width / 20) {
       for (let y = 0; y < height; y += height / 20) {
         const px = x + (Math.random() * width) / 20;
@@ -93,6 +123,7 @@ const ParticleBackground = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isClient]);
 
   function animate() {
@@ -116,26 +147,26 @@ const ParticleBackground = () => {
       const distance = getDistance(targetRef.current, point);
       if (distance < 4000) {
         point.active = 0.3;
-        point.circle.active = 0.6;
+        point.circle!.active = 0.6;
       } else if (distance < 20000) {
         point.active = 0.1;
-        point.circle.active = 0.3;
+        point.circle!.active = 0.3;
       } else if (distance < 40000) {
         point.active = 0.02;
-        point.circle.active = 0.1;
+        point.circle!.active = 0.1;
       } else {
         point.active = 0;
-        point.circle.active = 0;
+        point.circle!.active = 0;
       }
 
       drawLines(ctx, point);
-      point.circle.draw(ctx);
+      point.circle!.draw(ctx);
     });
 
     requestAnimationFrame(animate);
   }
 
-  function drawLines(ctx: CanvasRenderingContext2D, point: any) {
+  function drawLines(ctx: CanvasRenderingContext2D, point: Point) {
     if (!point.active) return;
     for (let i = 0; i < point.closest.length; i++) {
       ctx.beginPath();
@@ -147,12 +178,12 @@ const ParticleBackground = () => {
   }
 
   class Circle {
-    pos: any;
+    pos: Point;
     radius: number;
     color: string;
     active: number;
 
-    constructor(pos: any, radius: number, color: string) {
+    constructor(pos: Point, radius: number, color: string) {
       this.pos = pos;
       this.radius = radius;
       this.color = color;
@@ -168,7 +199,7 @@ const ParticleBackground = () => {
     }
   }
 
-  function getDistance(p1: any, p2: any) {
+  function getDistance(p1: Point, p2: Point) {
     return (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2;
   }
 
