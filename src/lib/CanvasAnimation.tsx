@@ -195,7 +195,10 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
   }, [width, height, theme]);
 
   return (
-    <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" />
+    <canvas
+      ref={canvasRef}
+      className="absolute left-0 top-0 h-full w-full will-change-transform"
+    />
   );
 };
 
