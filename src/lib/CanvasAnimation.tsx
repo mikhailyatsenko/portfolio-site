@@ -2,7 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const ParticleBackground = () => {
+interface CanvasAnimationProps {
+  theme: 'light' | 'dark';
+}
+
+const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   interface Point {
     x: number;
@@ -95,7 +99,7 @@ const ParticleBackground = () => {
       point.circle = new Circle(
         point,
         2 + Math.random() * 2,
-        'rgba(255,255,255,0.3)',
+        `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},0.3)`,
       );
     });
 
@@ -123,8 +127,9 @@ const ParticleBackground = () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isClient]);
+  }, [isClient, theme]);
 
   function animate() {
     if (!isClient) return;
@@ -172,7 +177,7 @@ const ParticleBackground = () => {
       ctx.beginPath();
       ctx.moveTo(point.x, point.y);
       ctx.lineTo(point.closest[i].x, point.closest[i].y);
-      ctx.strokeStyle = `rgba(156,217,249,${point.active})`;
+      ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${point.active})`;
       ctx.stroke();
     }
   }
@@ -194,7 +199,7 @@ const ParticleBackground = () => {
       if (!this.active) return;
       ctx.beginPath();
       ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-      ctx.fillStyle = `rgba(156,217,249,${this.active})`;
+      ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${this.active})`;
       ctx.fill();
     }
   }
@@ -208,4 +213,4 @@ const ParticleBackground = () => {
   ) : null;
 };
 
-export default ParticleBackground;
+export default CanvasAnimation;
