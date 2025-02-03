@@ -17,7 +17,7 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
       className={`relative flex h-full w-full flex-col items-center h-sm:sm576:pt-[74px]`}
     >
       <div
-        className={`${cls.firstScene} bottom-0 left-0 z-[2] flex w-screen flex-col flex-nowrap items-center justify-end will-change-[transform,_scale,_opacity] h-sm:sm576:h-[calc(100vh-74px)] h-sm:sm576:justify-center`}
+        className={`${cls.firstScene} bottom-0 left-0 z-[2] flex w-screen flex-col flex-nowrap items-center justify-end h-sm:sm576:h-[calc(100vh-74px)] h-sm:sm576:justify-center`}
       >
         <div className={`${cls.photoMe} relative hidden h-sm:sm576:block`}>
           <Sunglasses
@@ -31,15 +31,9 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
             className="relative z-[1]"
           />
         </div>
-        {/* <GradientBlock
-          title={t('profile.hello')}
-          content={t('profile.description')}
-          buttonText={t('profile.viewProjects')}
-          className={`${cls.aboutMe} mt-0 will-change-[transform] h-sm:mt-4`}
-        /> */}
 
         <div
-          className={`${cls.aboutMe} relative mt-0 h-screen w-full overflow-hidden bg-yellow-300 px-20 py-5 pt-[74px] text-center text-foreground will-change-[transform] dark:bg-indigo-950 h-sm:sm576:mt-5 h-sm:sm576:h-auto h-sm:sm576:w-5/6 h-sm:sm576:rounded-3xl h-md:py-10 h-sm:lg:w-1/2`}
+          className={`${cls.aboutMe} relative mt-0 h-screen w-full overflow-hidden bg-yellow-300 px-20 py-5 pt-[74px] text-center text-foreground dark:bg-indigo-950 h-sm:sm576:mt-5 h-sm:sm576:h-auto h-sm:sm576:w-5/6 h-sm:sm576:rounded-3xl h-md:py-10 h-sm:lg:w-1/2`}
         >
           <div className="relative z-10 flex h-full flex-col items-center justify-center">
             <div className={`${cls.photoMe} relative block h-sm:sm576:hidden`}>
