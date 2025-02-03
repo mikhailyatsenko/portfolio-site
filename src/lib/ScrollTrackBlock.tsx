@@ -42,7 +42,6 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
       animationFrameId = requestAnimationFrame(handleScroll);
     };
 
-    // Устанавливаем начальное значение прогресса
     handleScroll();
 
     window.addEventListener('scroll', onScroll);

@@ -27,7 +27,7 @@ export const Profile = async ({ t }: ProfileProps) => {
       <StickySection>
         <section
           id="profile"
-          className={`flex h-screen flex-col items-center gap-6 overflow-hidden pt-20 sm576:py-20`}
+          className={`flex h-screen flex-col items-center gap-6 overflow-hidden`}
         >
           <ProfileFeatures t={t} />
 
