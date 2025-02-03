@@ -114,15 +114,24 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
       p2: { x: number; y: number },
     ) => (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2;
 
-    const animate = () => {
+    let lastTime = 0;
+    const maxFPS = 30;
+
+    const animate = (timestamp?: number) => {
       if (!animateHeaderRef.current) return;
+
+      if (timestamp && timestamp - lastTime < 1000 / maxFPS) {
+        requestAnimationFrame(animate);
+        return;
+      }
+      lastTime = timestamp || 0;
+
       ctx.clearRect(
         0,
         0,
         dimensionsRef.current.width,
         dimensionsRef.current.height,
       );
-
       for (const p of pointsRef.current) {
         if (Math.abs(getDistance(targetRef.current, p)) < 4000) {
           p.active = 0.3;
@@ -137,7 +146,6 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
           p.active = 0;
           if (p.circle) p.circle.active = 0;
         }
-
         drawLines(p, ctx);
         if (p.circle) {
           p.circle.draw(ctx, theme);
@@ -168,9 +176,15 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
       });
     };
 
+    let mouseMoveTimeout: number | null = null;
+
     const mouseMove = (e: MouseEvent) => {
-      targetRef.current.x = e.clientX;
-      targetRef.current.y = e.clientY;
+      if (mouseMoveTimeout) return;
+      mouseMoveTimeout = window.requestAnimationFrame(() => {
+        targetRef.current.x = e.clientX;
+        targetRef.current.y = e.clientY;
+        mouseMoveTimeout = null;
+      });
     };
 
     const resize = () => {
