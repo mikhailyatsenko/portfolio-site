@@ -8,6 +8,10 @@
   --stripe-color: #fff;
 }
 
+html {
+  --scroll-progress-profile: 0;
+}
+
 .dark {
   --background: 26, 26, 26;
   --foreground: 237, 237, 237;

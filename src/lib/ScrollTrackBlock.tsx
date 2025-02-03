@@ -26,12 +26,12 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
       const totalScrollDistance = height + windowHeight;
       const scrolled = windowHeight - top;
       const progress = Math.max(0, Math.min(1, scrolled / totalScrollDistance));
-
+      console.log('after return', progress);
       if (progressRef.current !== progress) {
         progressRef.current = progress;
         document.documentElement.style.setProperty(
           `--scroll-progress-${id}`,
-          `${progress}`,
+          `${progress || 0}`,
         );
       }
     };
@@ -50,7 +50,7 @@ export const ScrollTrackBlock: React.FC<ScrollBlockProps> = ({
     return () => {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('resize', handleScroll);
-      cancelAnimationFrame(animationFrameId); // Отменяем анимацию при размонтировании
+      cancelAnimationFrame(animationFrameId);
     };
   }, [id]);
 

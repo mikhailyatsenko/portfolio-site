@@ -25,8 +25,6 @@ export const ThemeProvider = ({
   children: ReactNode;
   serverThemeCookie?: Theme;
 }) => {
-  console.log(serverThemeCookie);
-
   const [theme, setTheme] = useState<Theme>(serverThemeCookie || 'light');
 
   useEffect(() => {
