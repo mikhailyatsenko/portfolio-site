@@ -1,25 +1,46 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 interface CanvasAnimationProps {
   theme: 'light' | 'dark';
 }
 
-const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  interface Point {
-    x: number;
-    y: number;
-    originX: number;
-    originY: number;
-    dx: number;
-    dy: number;
-    closest: Point[];
-    circle: InstanceType<typeof Circle> | null;
-    active?: number;
+interface Point {
+  x: number;
+  y: number;
+  originX: number;
+  originY: number;
+  dx: number;
+  dy: number;
+  closest: Point[];
+  circle: Circle;
+  active?: number;
+}
+
+class Circle {
+  pos: Point;
+  radius: number;
+  color: string;
+  active: number = 0;
+
+  constructor(pos: Point, radius: number, color: string) {
+    this.pos = pos;
+    this.radius = radius;
+    this.color = color;
   }
 
+  draw(ctx: CanvasRenderingContext2D) {
+    if (!this.active) return;
+    ctx.beginPath();
+    ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
+    ctx.fillStyle = this.color.replace('0.3', String(this.active));
+    ctx.fill();
+  }
+}
+
+const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const pointsRef = useRef<Point[]>([]);
   const targetRef = useRef<Point>({
     x: 0,
@@ -29,19 +50,15 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
     dx: 0,
     dy: 0,
     closest: [],
-    circle: null,
+    circle: null!,
   });
-  const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  const getDistance = useCallback(
+    (p1: Point, p2: Point) => (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2,
+    [],
+  );
 
-  const getDistance = useCallback((p1: Point, p2: Point) => {
-    return (p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2;
-  }, []);
   const animate = useCallback(() => {
-    if (!isClient) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -50,72 +67,38 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     pointsRef.current.forEach((point) => {
-      // Ограничиваем движение, чтобы не появлялось лишних линий
-      point.dx += (Math.random() - 0.5) * 0.1;
-      point.dy += (Math.random() - 0.5) * 0.1;
       point.x =
         point.originX + Math.sin(performance.now() / 1000 + point.originX) * 5;
       point.y =
         point.originY + Math.sin(performance.now() / 1000 + point.originY) * 5;
 
       const distance = getDistance(targetRef.current, point);
-      if (distance < 4000) {
-        point.active = 0.3;
-        point.circle!.active = 0.6;
-      } else if (distance < 20000) {
-        point.active = 0.1;
-        point.circle!.active = 0.3;
-      } else if (distance < 40000) {
-        point.active = 0.02;
-        point.circle!.active = 0.1;
-      } else {
-        point.active = 0;
-        point.circle!.active = 0;
-      }
-      const drawLines = (ctx: CanvasRenderingContext2D, point: Point) => {
-        if (!point.active) return;
-        for (let i = 0; i < point.closest.length; i++) {
-          ctx.beginPath();
-          ctx.moveTo(point.x, point.y);
-          ctx.lineTo(point.closest[i].x, point.closest[i].y);
-          ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${point.active})`;
-          ctx.stroke();
-        }
-      };
+      point.active =
+        distance < 4000
+          ? 0.3
+          : distance < 20000
+            ? 0.1
+            : distance < 40000
+              ? 0.02
+              : 0;
+      point.circle.active = point.active ? point.active * 2 : 0;
 
-      drawLines(ctx, point);
-      point.circle!.draw(ctx);
+      point.closest.forEach((p) => {
+        if (!point.active) return;
+        ctx.beginPath();
+        ctx.moveTo(point.x, point.y);
+        ctx.lineTo(p.x, p.y);
+        ctx.strokeStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${point.active})`;
+        ctx.stroke();
+      });
+
+      point.circle.draw(ctx);
     });
 
     requestAnimationFrame(animate);
-  }, [isClient, getDistance, theme]);
-
-  const Circle = useMemo(() => {
-    return class Circle {
-      pos: Point;
-      radius: number;
-      color: string;
-      active: number;
-
-      constructor(pos: Point, radius: number, color: string) {
-        this.pos = pos;
-        this.radius = radius;
-        this.color = color;
-        this.active = 0;
-      }
-
-      draw(ctx: CanvasRenderingContext2D) {
-        if (!this.active) return;
-        ctx.beginPath();
-        ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = `rgba(${theme === 'dark' ? '156,217,249' : '225, 250, 255'},${this.active})`;
-        ctx.fill();
-      }
-    };
-  }, [theme]);
+  }, [getDistance, theme]);
 
   useEffect(() => {
-    if (!isClient) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -126,7 +109,6 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
     canvas.width = width;
     canvas.height = height;
 
-    // Инициализируем targetRef теперь, когда мы на клиенте
     targetRef.current = {
       x: width / 2,
       y: height / 2,
@@ -135,10 +117,9 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
       dx: 0,
       dy: 0,
       closest: [],
-      circle: null,
+      circle: null!,
     };
 
-    // Создаем точки
     const points: Point[] = [];
     for (let x = 0; x < width; x += width / 20) {
       for (let y = 0; y < height; y += height / 20) {
@@ -152,27 +133,17 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
           dx: 0,
           dy: 0,
           closest: [],
-          circle: null,
+          circle: null!,
         });
       }
     }
 
-    // Определяем ближайшие точки
-    for (let i = 0; i < points.length; i++) {
-      const closest = [];
-      for (let j = 0; j < points.length; j++) {
-        if (i !== j) {
-          closest.push(points[j]);
-        }
-      }
-      closest.sort(
-        (a, b) => getDistance(points[i], a) - getDistance(points[i], b),
-      );
-      points[i].closest = closest.slice(0, 5);
-    }
-
-    // Создаем круги
     points.forEach((point) => {
+      point.closest = [...points]
+        .filter((p) => p !== point)
+        .sort((a, b) => getDistance(point, a) - getDistance(point, b))
+        .slice(0, 5);
+
       point.circle = new Circle(
         point,
         2 + Math.random() * 2,
@@ -182,7 +153,6 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
 
     pointsRef.current = points;
 
-    // Запускаем анимацию
     animate();
 
     const handleMouseMove = (e: MouseEvent) => {
@@ -204,11 +174,11 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
     };
-  }, [Circle, animate, getDistance, isClient, theme]);
+  }, [animate, getDistance, theme]);
 
-  return isClient ? (
+  return (
     <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" />
-  ) : null;
+  );
 };
 
 export default CanvasAnimation;
