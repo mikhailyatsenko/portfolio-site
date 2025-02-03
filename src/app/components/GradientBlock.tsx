@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface GlowingBlockProps {
   className?: string;
   title?: string;
@@ -19,7 +21,7 @@ export const GradientBlock: React.FC<GlowingBlockProps> = ({
         <h3 className="font-display font-mono text-3xl lg:text-4xl">{title}</h3>
         <p className="text-mono mx-auto mt-4 max-w-md text-lg">{content}</p>
         <div className="mx-auto mt-12 flex justify-center">
-          <a
+          <Link
             className="group relative flex h-12 w-12 w-48 items-center justify-center rounded-full bg-black text-white transition-all hover:w-48 sm576:w-12"
             href="#projects"
           >
@@ -29,7 +31,7 @@ export const GradientBlock: React.FC<GlowingBlockProps> = ({
             <span className="absolute opacity-100 transition-opacity group-hover:opacity-100 sm576:opacity-0">
               {buttonText}
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
