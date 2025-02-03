@@ -59,9 +59,6 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
     if (!ctx) return;
 
     const initCanvas = () => {
-      const isMobile = window.innerWidth < 768; // Простая проверка на мобильные устройства
-      const pointSpacing = isMobile ? 15 : 30; // На мобильных уменьшаем плотность точек
-
       dimensionsRef.current.width = window.innerWidth;
       dimensionsRef.current.height = window.innerHeight;
       targetRef.current = {
@@ -76,17 +73,15 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({
       for (
         let x = 0;
         x < dimensionsRef.current.width;
-        x += dimensionsRef.current.width / pointSpacing
+        x += dimensionsRef.current.width / 20
       ) {
         for (
           let y = 0;
           y < dimensionsRef.current.height;
-          y += dimensionsRef.current.height / pointSpacing
+          y += dimensionsRef.current.height / 20
         ) {
-          const px =
-            x + (Math.random() * dimensionsRef.current.width) / pointSpacing;
-          const py =
-            y + (Math.random() * dimensionsRef.current.height) / pointSpacing;
+          const px = x + (Math.random() * dimensionsRef.current.width) / 20;
+          const py = y + (Math.random() * dimensionsRef.current.height) / 20;
           const p = {
             x: px,
             originX: px,
