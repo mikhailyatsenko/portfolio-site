@@ -35,8 +35,8 @@
 }
 
 .overlay {
-  --start: 0.05;
-  --end: 0.15;
+  --start: 0.08;
+  --end: 0.2;
 
   --progress: clamp(
     0,
@@ -64,11 +64,10 @@
     radial-gradient(at 57% 56%, #f4c5f7 0px, #a299ff 50%) 0% 0% repeat scroll
       rgba(0, 0, 0, 0);
 
-  transition: all 0.4s;
-
+  transition: clip-path 0.2s;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   pointer-events: none;
 }
 

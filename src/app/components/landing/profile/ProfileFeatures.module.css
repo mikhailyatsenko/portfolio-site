@@ -10,7 +10,7 @@
   );
 
   --startScale: 0.25;
-  --endScale: 0.65;
+  --endScale: 0.4;
 
   --progressScale: clamp(
     0,
@@ -19,9 +19,12 @@
     1
   );
   transform: translateX(calc(var(--first-scene-leave-progress) * -150%))
-    scale(max(1, calc(0.8 + var(--progressScale))));
+    scale(max(1, calc(1 + var(--progressScale) / 4)));
   opacity: calc(1 - var(--first-scene-leave-progress));
-  transition: transform opacity 0.3s;
+  transition:
+    transform 0.1s,
+    opacity 0.1s,
+    scale 0.1s;
 }
 
 .aboutMe {
@@ -36,7 +39,7 @@
   );
 
   transform: translateX(calc((1 - var(--progress)) * -150%));
-  transition: transform 0.3s;
+  transition: transform 0.1s;
 }
 
 .photoMe {
@@ -68,7 +71,7 @@
   );
 
   transform: translateX(calc((1 - var(--progress)) * 200%));
-  transition: transform 0.3s;
+  transition: transform 0.1s;
 }
 
 .techStack {
@@ -107,9 +110,9 @@
       (var(--end) - var(--start)),
     1
   );
-  transform: scale(max(1, calc(0.9 + var(--progressScale))));
+  transform: scale(max(1, calc(1 + var(--progressScale))));
   opacity: calc(1 - var(--second-scene-leave-progress));
   transition:
-    transform 0.3s,
-    opacity 0.3s;
+    transform 0.1s,
+    opacity 0.1s;
 }

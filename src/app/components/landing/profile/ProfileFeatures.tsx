@@ -15,9 +15,9 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
       className={`${cls.features} features relative flex h-full w-full flex-col items-center`}
     >
       <div
-        className={`${cls.firstScene} z-[2] flex h-full w-full flex-col flex-nowrap items-center justify-end sm576:justify-center`}
+        className={`${cls.firstScene} z-[2] flex h-full w-full flex-col flex-nowrap items-center justify-end will-change-[transform,_scale,_opacity] sm576:justify-center`}
       >
-        <div className="relative">
+        <div className="relative hidden h-sm:block">
           <Image
             src={mishaPhoto}
             width={100}
@@ -30,7 +30,7 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
           title={t('profile.hello')}
           content={t('profile.description')}
           buttonText={t('profile.viewProjects')}
-          className={`${cls.aboutMe} mt-4`}
+          className={`${cls.aboutMe} mt-0 will-change-[transform] h-sm:mt-4`}
         />
       </div>
 
@@ -38,7 +38,7 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
         className={`${cls.secodndScene} absolute flex h-[calc(100vh-160px)] flex-col items-center justify-center`}
       >
         <h3
-          className={`${cls.techStack} relative z-[1] mb-2 text-center text-3xl`}
+          className={`${cls.techStack} relative z-[1] text-center text-2xl h-sm:sm576:text-3xl`}
         >
           {t('tech_stack.title')}
         </h3>

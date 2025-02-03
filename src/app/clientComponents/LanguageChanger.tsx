@@ -22,8 +22,8 @@ export default function LanguageChanger() {
 
   // Определяем доступные локали
   const locales = [
-    { code: 'en', label: currentLocale === 'en' ? 'EN' : 'English' },
-    { code: 'de', label: currentLocale === 'de' ? 'DE' : 'Deutsch' },
+    { code: 'en', label: 'EN' },
+    { code: 'de', label: 'DE' },
   ];
 
   // Генерируем элементы option, сначала для выбранной локали
@@ -46,7 +46,7 @@ export default function LanguageChanger() {
       onChange={handleChange}
       value={currentLocale}
       id="countries"
-      className="mr-1 w-[58px] bg-transparent text-sm"
+      className="mr-1 w-fit bg-transparent text-sm"
     >
       {selectedOption}
       {otherOptions}
