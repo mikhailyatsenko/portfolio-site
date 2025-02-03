@@ -4,6 +4,7 @@ import cls from './ProfileFeatures.module.css';
 import { techStackIconsData } from '@/lib/techStackIconsData';
 import mishaPhoto from '@/assets/icons/me.webp';
 import Image from 'next/image';
+import Sunglasses from '@/assets/icons/sunglasses.svg';
 
 interface ProfileFeaturesProps {
   t: (key: LandingTranslationKeys) => string;
@@ -17,13 +18,16 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
       <div
         className={`${cls.firstScene} z-[2] flex h-full w-full flex-col flex-nowrap items-center justify-end will-change-[transform,_scale,_opacity] sm576:justify-center`}
       >
-        <div className="relative hidden h-sm:block">
+        <div className={`${cls.photoMe} relative hidden h-sm:block`}>
+          <Sunglasses
+            className={`${cls.sunglasses} absolute left-6 top-[43px] z-[2] h-auto w-12`}
+          />
           <Image
             src={mishaPhoto}
             width={100}
             height={100}
             alt={t('profile.photo_alt')}
-            className={cls.photoMe}
+            className="relative z-[1]"
           />
         </div>
         <GradientBlock
