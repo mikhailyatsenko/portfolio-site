@@ -61,7 +61,7 @@
 
 .sunglasses {
   --start: 0.2;
-  --end: 0.4;
+  --end: 0.38;
 
   --progress: clamp(
     0,
