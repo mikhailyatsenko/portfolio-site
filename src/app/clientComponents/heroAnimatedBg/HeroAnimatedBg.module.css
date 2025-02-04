@@ -1,42 +1,6 @@
-.bg {
-  --circles-color: #baeef8;
-  /* background-image: radial-gradient(
-    ellipse at center,
-    #a2bed5 5%,
-    #8297d2 100%
-  ); */
-  background:
-    radial-gradient(at 20% 97%, #dde37e 0px, transparent 50%) 0% 0% repeat
-      scroll,
-    radial-gradient(at 93% 9%, #76f9ad 0px, transparent 50%) 0% 0% repeat scroll,
-    radial-gradient(at 82% 82%, #ef96a6 0px, transparent 50%) 0% 0% repeat
-      scroll,
-    radial-gradient(at 94% 10%, #f0a9ff 0px, transparent 50%) 0% 0% repeat
-      scroll,
-    radial-gradient(at 43% 18%, #7df4ff 0px, transparent 50%) 0% 0% repeat
-      scroll,
-    radial-gradient(at 10% 45%, #f3b7fb 0px, transparent 50%) 0% 0% repeat
-      scroll,
-    radial-gradient(at 57% 44%, #f4c5f7 0px, #a299ff 50%) 0% 0% repeat scroll
-      rgba(0, 0, 0, 0);
-}
-
-.dark .bg {
-  --circles-color: #324a6b;
-
-  background: radial-gradient(
-      farthest-side at bottom left,
-      rgba(255, 0, 255, 0.5),
-      #121212
-    ),
-    radial-gradient(
-      farthest-corner at bottom right,
-      rgba(255, 50, 50, 0.5),
-      #121212 400px
-    );
-}
-
 .animCircles {
+  --circles-color: #baeef8;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -133,7 +97,9 @@
   animation: zoom 26s alternate infinite;
 }
 
-.dark .animCircles {
+:global(.dark) .animCircles {
+  --circles-color: #324a6b;
+
   box-shadow:
     -42vw -4vh 0px 0px var(--circles-color),
     25vw -41vh 0px 0px var(--circles-color),

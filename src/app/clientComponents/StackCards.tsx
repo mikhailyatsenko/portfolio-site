@@ -9,96 +9,66 @@ interface StackCardsProps {
 const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrolling, setScrolling] = useState(false);
-
-  // Дебаунсинг функции скролла
-  const debounce = (
-    func: (...args: unknown[]) => void,
-    delay: number,
-  ): ((...args: unknown[]) => void) => {
-    let timer: NodeJS.Timeout;
-    return (...args: unknown[]) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => func(...args), delay);
-    };
-  };
-
-  useEffect(() => {
-    const normalizwItemsHeight = () => {
-      const container = containerRef.current;
-      if (!container) return;
-
-      const items = container.getElementsByClassName(
-        'card',
-      ) as HTMLCollectionOf<HTMLDivElement>;
-
-      Array.from(items).forEach((item, index) => {
-        if (index !== 0 && items[index - 1].clientHeight > item.clientHeight) {
-          item.style.height = `${items[index - 1].clientHeight}px`;
-        }
-      });
-    };
-
-    normalizwItemsHeight();
-    window.addEventListener('resize', normalizwItemsHeight);
-    return () => {
-      window.removeEventListener('resize', normalizwItemsHeight);
-    };
-  }, []);
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const handleScroll = useCallback(() => {
     if (scrolling) return;
     setScrolling(true);
 
-    window.requestAnimationFrame(() => {
+    if (scrollTimeout.current) {
+      clearTimeout(scrollTimeout.current);
+    }
+
+    scrollTimeout.current = setTimeout(() => {
       const container = containerRef.current;
       if (!container) return;
 
       const items = container.getElementsByClassName(
         'card',
       ) as HTMLCollectionOf<HTMLDivElement>;
-
-      const top = container.getBoundingClientRect().top;
+      const containerTop = container.getBoundingClientRect().top;
       const offsetTop = 100; // отступ от верха
       const marginY = 8; // промежуток между карточками
 
       let accumulatedHeight = 0;
 
       Array.from(items).forEach((item, index) => {
-        // const cardHeight = item.getBoundingClientRect().height;
-
         if (index !== 0) {
-          accumulatedHeight +=
-            items[index - 1].getBoundingClientRect().height + marginY;
+          accumulatedHeight += items[index - 1].clientHeight + marginY;
         }
 
-        const scrolling = offsetTop - top - accumulatedHeight;
-        // Анимация только с transform для оптимизации производительности
-        if (scrolling > 0) {
-          const scale = Math.min(Math.max(1 - scrolling / 1000, 0.95), 1);
-
+        const scrollingOffset = offsetTop - containerTop - accumulatedHeight;
+        if (scrollingOffset > 0) {
+          const scale = Math.min(Math.max(1 - scrollingOffset / 1000, 0.95), 1);
           const rotateDirection = index % 2 === 0 ? -1 : 1;
           const rotateCard =
-            rotateDirection * Math.min(Math.max(scrolling / 50, 0), 0.6);
-
+            rotateDirection * Math.min(Math.max(scrollingOffset / 50, 0), 0.6);
+          const opacity = Math.max(
+            0,
+            1.2 - scrollingOffset / item.clientHeight,
+          );
           const translateY = marginY * index;
+
           item.style.transform = `translateY(${translateY}px) scale(${scale}) rotate(${rotateCard}deg)`;
+          item.style.opacity = opacity.toString();
         } else {
-          item.style.transform = `translateY(${marginY * index}px) scale(1) `;
+          item.style.transform = `translateY(${marginY * index}px) scale(1)`;
         }
       });
 
       setScrolling(false);
-    });
+    }, 15);
   }, [scrolling]);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    const debouncedScroll = () => handleScroll();
+
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         document.getElementById('projects')?.classList.add('new-bg');
-
         window.addEventListener('scroll', debouncedScroll);
       } else {
         document.getElementById('projects')?.classList.remove('new-bg');
@@ -107,8 +77,6 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
     });
 
     observer.observe(container);
-
-    const debouncedScroll = debounce(handleScroll, 15);
 
     return () => {
       observer.disconnect();
@@ -121,7 +89,7 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
       {cardsArray.map((child, index) => (
         <div
           key={index}
-          className={`card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-lg transition-transform duration-300`}
+          className="card sticky top-20 mx-auto max-w-[1024px] transform overflow-hidden rounded-lg transition-[transform,_opacity] duration-300"
         >
           {child}
         </div>

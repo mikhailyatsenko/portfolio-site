@@ -106,9 +106,6 @@ export default {
         '.fg-opacity-variable': {
           backgroundColor: 'rgba(var(--foreground), var(--tw-bg-opacity, 1))',
         },
-        '.filter-opacity-saturate': {
-          filter: 'blur(10px) opacity(50%) saturate(200%)',
-        },
       });
     }),
   ],

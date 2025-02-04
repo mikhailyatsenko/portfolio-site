@@ -130,3 +130,28 @@ html {
     border: transparent;
   }
 }
+
+@layer utilities {
+  .bg-gradient {
+    background: radial-gradient(at 20% 97%, #dde37e 0px, transparent 50%),
+      radial-gradient(at 93% 9%, #76f9ad 0px, transparent 50%),
+      radial-gradient(at 82% 82%, #ef96a6 0px, transparent 50%),
+      radial-gradient(at 94% 10%, #f0a9ff 0px, transparent 50%),
+      radial-gradient(at 43% 18%, #7df4ff 0px, transparent 50%),
+      radial-gradient(at 10% 45%, #f3b7fb 0px, transparent 50%),
+      radial-gradient(at 57% 44%, #f4c5f7 0px, #a299ff 50%);
+  }
+
+  .bg-gradient-dark {
+    background: radial-gradient(
+        farthest-side at bottom left,
+        rgba(255, 0, 255, 0.5),
+        #121212
+      ),
+      radial-gradient(
+        farthest-corner at bottom right,
+        rgba(255, 50, 50, 0.5),
+        #121212 400px
+      );
+  }
+}
