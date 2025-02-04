@@ -14,7 +14,7 @@ const LocationTime: React.FC = () => {
         hour12: true,
         timeZone: 'Europe/Berlin',
       });
-      berlinTime = berlinTime.replace(' ', '\u00A0'); // Replace space with non-breaking space
+      berlinTime = berlinTime.replace(' ', '\u00A0');
       setCurrentTime(berlinTime);
     };
 

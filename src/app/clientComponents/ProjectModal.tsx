@@ -34,7 +34,6 @@ export default function ProjectModal({ children }: PropsWithChildren) {
     const modalElement = modalRef.current;
     modalElement?.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Добавляем обработчик нажатия клавиши Esc
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onDismiss();

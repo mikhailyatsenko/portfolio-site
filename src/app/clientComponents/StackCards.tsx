@@ -27,8 +27,8 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
         'card',
       ) as HTMLCollectionOf<HTMLDivElement>;
       const containerTop = container.getBoundingClientRect().top;
-      const offsetTop = 100; // отступ от верха
-      const marginY = 8; // промежуток между карточками
+      const offsetTop = 100;
+      const marginY = 8;
 
       let accumulatedHeight = 0;
 

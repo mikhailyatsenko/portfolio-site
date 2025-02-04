@@ -4,11 +4,11 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 
 interface AnimateInViewProps {
   children?: React.ReactNode;
-  className?: string; // Изначальные классы
-  activeClass?: string; // Классы, которые активируются при появлении
-  tag?: JSX.ElementType; // Тег, который нужно использовать для обёртки (по умолчанию div)
-  threshold?: number; // Порог видимости
-  resetOnExit?: boolean; // Возвращать ли в исходное состояние при выходе из видимости
+  className?: string;
+  activeClass?: string;
+  tag?: JSX.ElementType;
+  threshold?: number;
+  resetOnExit?: boolean;
 }
 
 export const AnimateInView: React.FC<AnimateInViewProps> = ({

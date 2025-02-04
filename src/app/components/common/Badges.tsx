@@ -1,16 +1,3 @@
-// export interface BadgeProps {
-//   text: string;
-//   color:
-//     | 'blue'
-//     | 'gray'
-//     | 'red'
-//     | 'green'
-//     | 'yellow'
-//     | 'indigo'
-//     | 'purple'
-//     | 'pink';
-// }
-
 export enum BadgeTypes {
   Fullstack = 'green',
   Responsive = 'yellow',
@@ -22,7 +9,7 @@ export enum BadgeTypes {
 }
 
 export interface BadgeProps {
-  type: keyof typeof BadgeTypes; // Ключи из enum
+  type: keyof typeof BadgeTypes;
 }
 
 const Badge: React.FC<BadgeProps> = ({ type }) => {
@@ -48,7 +35,7 @@ const Badge: React.FC<BadgeProps> = ({ type }) => {
     pink: 'dark:bg-pink-900 dark:text-pink-300',
   };
 
-  const color = BadgeTypes[type]; // Определяем цвет из enum
+  const color = BadgeTypes[type];
   const selectedLightColor = lightColors[color];
   const selectedDarkColor = darkColors[color];
 

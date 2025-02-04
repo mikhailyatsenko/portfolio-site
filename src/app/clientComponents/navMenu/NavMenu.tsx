@@ -10,13 +10,13 @@ import { useTranslation } from 'react-i18next';
 export const NavMenu = () => {
   const { t } = useTranslation();
 
-  const pathname = usePathname(); // Получение текущего пути
+  const pathname = usePathname();
   const [currentHash, setCurrentHash] = useState('');
 
   useEffect(() => {
-    const updateHash = () => setCurrentHash(window.location.hash); // Установка текущего хэша
-    updateHash(); // Установить текущий хэш при загрузке
-    window.addEventListener('hashchange', updateHash); // Обновлять при изменении якоря
+    const updateHash = () => setCurrentHash(window.location.hash);
+    updateHash();
+    window.addEventListener('hashchange', updateHash);
 
     return () => {
       window.removeEventListener('hashchange', updateHash);
@@ -36,10 +36,9 @@ export const NavMenu = () => {
     <div className="ml-2 sm576:ml-5">
       <nav className={`${cls.menuItems} ${isBurgerActive ? cls.active : ''}`}>
         {navItems.map((link) => {
-          // Проверка активного класса
           const isLinkActive =
-            (link.href === '/' && pathname === '/' && !currentHash) || // Home активен только без хэша
-            currentHash === link.href; // Остальные ссылки активны по хэшу
+            (link.href === '/' && pathname === '/' && !currentHash) ||
+            currentHash === link.href;
 
           return (
             <Link

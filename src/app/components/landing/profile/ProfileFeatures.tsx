@@ -1,5 +1,4 @@
 import { LandingTranslationKeys } from '@/types/i18nTypes';
-// import { GradientBlock } from '../../GradientBlock';
 import cls from './ProfileFeatures.module.css';
 import { techStackIconsData } from '@/lib/techStackIconsData';
 import mishaPhoto from '@/assets/icons/me.webp';

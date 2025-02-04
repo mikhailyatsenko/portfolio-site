@@ -20,20 +20,17 @@ export default function LanguageChanger() {
     router.refresh();
   };
 
-  // Определяем доступные локали
   const locales = [
     { code: 'en', label: 'EN' },
     { code: 'de', label: 'DE' },
   ];
 
-  // Генерируем элементы option, сначала для выбранной локали
   const options = locales.map((locale) => (
     <option key={locale.code} value={locale.code}>
       {locale.label} {locale.code === 'en' ? '🇬🇧' : '🇩🇪'}
     </option>
   ));
 
-  // Перемещаем выбранный элемент на первое место
   const selectedOption = options.find(
     (option) => option.props.value === currentLocale,
   );
