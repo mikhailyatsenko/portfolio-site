@@ -55,14 +55,14 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
             </p>
             <div className="mx-auto mt-5 hidden justify-center h-sm:flex h-md:mt-12">
               <Link href="#projects">
-                <div className="group relative flex h-12 w-48 items-center justify-center rounded-full bg-black text-white transition-all hover:w-48 sm576:w-12">
+                <button className="group relative flex h-12 w-48 items-center justify-center rounded-full bg-black text-white transition-all hover:w-48 sm576:w-12">
                   <span className="absolute opacity-0 transition-opacity group-hover:opacity-0 sm576:opacity-100">
                     →
                   </span>
-                  <span className="absolute opacity-100 transition-opacity group-hover:opacity-100 sm576:opacity-0">
+                  <span className="absolute text-nowrap opacity-100 transition-opacity group-hover:opacity-100 sm576:opacity-0">
                     {t('profile.viewProjects')}
                   </span>
-                </div>
+                </button>
               </Link>
             </div>
           </div>

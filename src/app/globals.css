@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: 255, 255, 255; /* Убедитесь, что переменная содержит только RGB */
+  --background: 255, 255, 255;
   --foreground: 23, 23, 23;
   --stripe-color: #fff;
 }
