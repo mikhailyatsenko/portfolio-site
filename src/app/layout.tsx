@@ -9,6 +9,7 @@ import { ContactsWithFooter } from '@/app/components/landing/contacts/ContactsWi
 import TranslationsProvider from './clientComponents/TranslationsProvider';
 import initTranslations from './i18n';
 import { getLocale } from '@/lib/getLocale';
+import Script from 'next/script';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -45,6 +46,18 @@ export default async function RootLayout({
       lang="en"
       className={serverThemeCookie === 'dark' ? serverThemeCookie : ''}
     >
+      <head>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-SH91XJBX3R"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-SH91XJBX3R');`}
+        </Script>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans`}>
         <TranslationsProvider
           namespaces={['common']}
