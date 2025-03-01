@@ -4,6 +4,8 @@ import { ProjectCard } from './projectCard/ProjectCard';
 import slide3Welle from '@/assets/projectsSlides/project-1-slide-1.webp';
 import slideBvg from '@/assets/projectsSlides/project-2-slide-1.webp';
 import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
+import slideEisenhower from '@/assets/projectsSlides/project-4-slide-1.webp';
+
 import { AnimateInView } from '@/lib/AnimateInView';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 
@@ -33,6 +35,17 @@ export const Projects = ({ t }: ProfileProps) => {
       link="https://mikhailyatsenko.github.io/bvg-app-ts"
       linkText="mikhailyatsenko.github.io/bvg-app-ts"
       detailsLink="bvg"
+    />,
+
+    <ProjectCard
+      key={t('projects.eisenhower.title')}
+      slide={slideEisenhower}
+      title={t('projects.eisenhower.title')}
+      badges={['FSD Architecture', 'Responsive', 'SPA']}
+      description={t('projects.eisenhower.description')}
+      link="https://eisenhower-psi.vercel.app"
+      linkText="eisenhower-psi.vercel.app"
+      detailsLink="eisenhower"
     />,
 
     <ProjectCard

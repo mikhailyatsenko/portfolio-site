@@ -4,6 +4,7 @@ import { ProjectData, projectsData } from '@/lib/projectsData';
 import { techStackIconsData } from '@/lib/techStackIconsData';
 import { AnimateInView } from '@/lib/AnimateInView';
 import { TranslatedProjectsData } from '../../projects/[projectId]/page';
+import Link from 'next/link';
 
 export type ProjectIds = keyof typeof projectsData;
 
@@ -36,16 +37,21 @@ const HeroProject = ({
               </p>
               <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
                 <li>
-                  <a
+                  <Link
+                    rel="noopener"
                     href={liveLink}
+                    target="_blank"
+                    aria-label="Live Preview"
                     className="shadow-1 inline-flex items-center justify-center rounded-md bg-foreground px-7 py-[14px] text-center text-base font-medium text-background transition duration-300 ease-in-out hover:text-gray-500"
                   >
                     {t('common:livePreview')}
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href={sourceLink}
+                    rel="noopener"
+                    aria-label="View on GitHub"
                     target="_blank"
                     className="flex items-center gap-4 rounded-md bg-opacity-15 px-6 py-[14px] text-base font-medium text-foreground transition duration-300 ease-in-out fg-opacity-variable hover:bg-foreground hover:text-background"
                   >
@@ -71,7 +77,7 @@ const HeroProject = ({
                       </defs>
                     </svg>
                     {t('common:viewOnGitHub')}
-                  </a>
+                  </Link>
                 </li>
               </ul>
               <div>

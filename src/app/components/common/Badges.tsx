@@ -4,8 +4,6 @@ export enum BadgeTypes {
   Frontend = 'blue',
   SPA = 'red',
   'FSD Architecture' = 'purple',
-  Design = 'pink',
-  'Mykhailo Yatsenko' = 'indigo',
 }
 
 export interface BadgeProps {

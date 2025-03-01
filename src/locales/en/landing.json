@@ -24,7 +24,6 @@
                 "Responsive",
                 "FSD Architecture"
             ],
-            "link": "🔗 3welle.com",
             "description": "Fullstack application designed to help Berlin residents and visitors discover the best specialty coffee shops in the city. Users can explore a map of coffee shops, read and leave reviews, and find essential information about each location."
         },
         "bvg": {
@@ -34,16 +33,25 @@
                 "Responsive",
                 "FSD Architecture"
             ],
-            "link": "🔗 mikhailyatsenko.github.io/bvg-app-ts",
             "description": "This application designed for viewing real-time arrival times of public transport at stops in Berlin and Brandenburg"
         },
+
+        "eisenhower": {
+            "title": "\"Eisenhower Matrix App\" - Task Management Tool",
+            "tags": [
+                "SPA",
+                "Responsive",
+                "FSD Architecture"
+            ],
+            "description": "Web app for organizing tasks based on the Eisenhower Matrix principle."
+        },
+        
         "encryptnotes": {
             "title": "\"Encrypt notes\" - Short message encryption service",
             "tags": [
                 "SPA",
                 "Responsive"
             ],
-            "link": "🔗 mikhailyatsenko.github.io/encryptnotes",
             "description": "This is a fullstack application designed for encrypting short notes."
         }
     },

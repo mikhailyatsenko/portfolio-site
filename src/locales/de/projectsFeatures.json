@@ -66,5 +66,34 @@
         }
       ]
     ]
+  },
+  "eisenhower": {
+    "id": "eisenhower",
+    "title": "Eisenhower-Matrix",
+    "description": "Web-App zur Organisation von Aufgaben basierend auf dem Prinzip der Eisenhower-Matrix.",
+    "liveLink": "https://eisenhower-psi.vercel.app",
+    "sourceLink": "https://github.com/mikhailyatsenko/eisenhower",
+    "features": [
+      [
+        {
+          "title": "Aufgabenorganisation",
+          "description": "Organisieren Sie Aufgaben basierend auf ihrer Dringlichkeit und Wichtigkeit."
+        },
+        {
+          "title": "Drag-and-Drop-Oberfläche",
+          "description": "Intuitive Drag-and-Drop-Oberfläche für eine einfache Aufgabenverwaltung."
+        }
+      ],
+      [
+        {
+          "title": "Responsives Design",
+          "description": "Sorgt für eine optimale Benutzererfahrung auf verschiedenen Bildschirmgrößen."
+        },
+        {
+          "title": "Zustandsverwaltung",
+          "description": "Verwendet Zustand für das State Management und persist Middleware zur Speicherung des Zustands im lokalen Speicher."
+        }
+      ]
+    ]
   }
 }
