@@ -37,6 +37,18 @@
             "link": "🔗 mikhailyatsenko.github.io/bvg-app-ts",
             "description": "Diese Anwendung dient zur Anzeige der Echtzeitankunftszeiten des öffentlichen Nahverkehrs an Haltestellen in Berlin und Brandenburg."
         },
+
+        "eisenhower": {
+            "title": "\"Eisenhower Matrix App\" - Aufgabenmanagement-Tool",
+            "tags": [
+                "SPA",
+                "Responsive",
+                "FSD Architecture"
+            ],
+            "link": "🔗 eisenhower-psi.vercel.app",
+            "description": "Web-App zur Organisation von Aufgaben basierend auf dem Prinzip der Eisenhower-Matrix."
+        },
+        
         "encryptnotes": {
             "title": "\"Encrypt notes\" - Dienst zur Verschlüsselung kurzer Nachrichten",
             "tags": [

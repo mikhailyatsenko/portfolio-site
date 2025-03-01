@@ -38,23 +38,23 @@ export const Projects = ({ t }: ProfileProps) => {
     />,
 
     <ProjectCard
+      key={t('projects.eisenhower.title')}
+      slide={slideEisenhower}
+      title={t('projects.eisenhower.title')}
+      badges={['Fullstack', 'Responsive', 'SPA']}
+      description={t('projects.eisenhower.description')}
+      link="https://eisenhower-psi.vercel.app"
+      linkText="eisenhower-psi.vercel.app"
+      detailsLink="eisenhower"
+    />,
+
+    <ProjectCard
       key={t('projects.encryptnotes.title')}
       slide={slideEncrypt}
       title={t('projects.encryptnotes.title')}
       badges={['Fullstack', 'Responsive', 'SPA']}
       description={t('projects.encryptnotes.description')}
       link="https://mikhailyatsenko.github.io/encryptnotes"
-      linkText="mikhailyatsenko.github.io/encryptnotes"
-      detailsLink="encryptnotes"
-    />,
-
-    <ProjectCard
-      key={t('projects.encryptnotes.title')}
-      slide={slideEisenhower}
-      title={t('projects.encryptnotes.title')}
-      badges={['Fullstack', 'Responsive', 'SPA']}
-      description={t('projects.welle.description')}
-      link="https://eisenhower-psi.vercel.app"
       linkText="mikhailyatsenko.github.io/encryptnotes"
       detailsLink="encryptnotes"
     />,

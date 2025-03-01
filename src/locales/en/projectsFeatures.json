@@ -95,5 +95,34 @@
         }
       ]
     ]
+  },
+  "eisenhower": {
+    "id": "eisenhower",
+    "title": "Eisenhower Matrix",
+    "description": "Web app for organizing tasks based on the Eisenhower Matrix principle.",
+    "liveLink": "https://eisenhower-psi.vercel.app",
+    "sourceLink": "https://github.com/mikhailyatsenko/eisenhower",
+    "features": [
+      [
+        {
+          "title": "Task Organization",
+          "description": "Organize tasks based on the urgency and importance of each task."
+        },
+        {
+          "title": "Drag-and-Drop Interface",
+          "description": "Intuitive drag-and-drop interface for easy task management."
+        }
+      ],
+      [
+        {
+          "title": "Responsive Design",
+          "description": "Ensures an optimal user experience across different screen sizes."
+        },
+        {
+          "title": "State Management",
+          "description": "Uses Zustand for state management and persist middleware to save the state in local storage."
+        }
+      ]
+    ]
   }
 }

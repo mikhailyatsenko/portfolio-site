@@ -1,5 +1,6 @@
 import encryptMainImg from '@/assets/projectFeatures/encrypnt-desktop.webp';
 import welleMainImg from '@/assets/projectFeatures/3welle-main.webp';
+import eisenhowerMainImg from '@/assets/projectFeatures/eisenhower-main.webp';
 import fullstackAppImg from '@/assets/projectFeatures/fullstack-app.svg?url';
 import speedImg from '@/assets/projectFeatures/speed.svg?url';
 import mapIcon from '@/assets/projectFeatures/map-icon.svg?url';
@@ -12,7 +13,7 @@ import architectureImg from '@/assets/projectFeatures/architecture.svg?url';
 import { TechStackIconKey } from './techStackIconsData';
 import { StaticImageData } from 'next/image';
 
-export type ProjectIds = 'encryptnotes' | 'welle' | 'bvg';
+export type ProjectIds = 'encryptnotes' | 'welle' | 'bvg' | 'eisenhower';
 
 export interface ProjectData {
   id: ProjectIds;
@@ -49,6 +50,16 @@ export const projectsData: ProjectsData = {
     id: 'bvg',
     mainImg: bvgMainImg,
     techStack: ['typescript', 'react', 'redux', 'vite'],
+    featuresImgs: [
+      [scheduleImg, mapIcon],
+      [architectureImg, responsiveImg],
+    ],
+  },
+
+  eisenhower: {
+    id: 'eisenhower',
+    mainImg: eisenhowerMainImg,
+    techStack: ['typescript', 'next', 'zustand', 'webpack'],
     featuresImgs: [
       [scheduleImg, mapIcon],
       [architectureImg, responsiveImg],

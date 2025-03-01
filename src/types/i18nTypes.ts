@@ -19,6 +19,7 @@ export interface LandingTranslations {
     title: string;
     welle: ProjectDetails;
     bvg: ProjectDetails;
+    eisenhower: ProjectDetails;
     encryptnotes: ProjectDetails;
   };
   contact: {
