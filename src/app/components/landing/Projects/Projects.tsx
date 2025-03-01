@@ -40,7 +40,7 @@ export const Projects = ({ t }: ProfileProps) => {
       slide={slideEncrypt}
       title={t('projects.encryptnotes.title')}
       badges={['Fullstack', 'Responsive', 'SPA']}
-      description={t('projects.welle.description')}
+      description={t('projects.encryptnotes.description')}
       link="https://mikhailyatsenko.github.io/encryptnotes"
       linkText="mikhailyatsenko.github.io/encryptnotes"
       detailsLink="encryptnotes"
