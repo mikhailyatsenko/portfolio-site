@@ -41,7 +41,7 @@ export const Projects = ({ t }: ProfileProps) => {
       key={t('projects.eisenhower.title')}
       slide={slideEisenhower}
       title={t('projects.eisenhower.title')}
-      badges={['Fullstack', 'Responsive', 'SPA']}
+      badges={['FSD Architecture', 'Responsive', 'SPA']}
       description={t('projects.eisenhower.description')}
       link="https://eisenhower-psi.vercel.app"
       linkText="eisenhower-psi.vercel.app"
