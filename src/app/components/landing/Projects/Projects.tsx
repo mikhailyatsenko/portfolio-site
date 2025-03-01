@@ -4,6 +4,8 @@ import { ProjectCard } from './projectCard/ProjectCard';
 import slide3Welle from '@/assets/projectsSlides/project-1-slide-1.webp';
 import slideBvg from '@/assets/projectsSlides/project-2-slide-1.webp';
 import slideEncrypt from '@/assets/projectsSlides/project-3-slide-1.webp';
+import slideEisenhower from '@/assets/projectsSlides/project-4-slide-1.webp';
+
 import { AnimateInView } from '@/lib/AnimateInView';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 
@@ -42,6 +44,17 @@ export const Projects = ({ t }: ProfileProps) => {
       badges={['Fullstack', 'Responsive', 'SPA']}
       description={t('projects.encryptnotes.description')}
       link="https://mikhailyatsenko.github.io/encryptnotes"
+      linkText="mikhailyatsenko.github.io/encryptnotes"
+      detailsLink="encryptnotes"
+    />,
+
+    <ProjectCard
+      key={t('projects.encryptnotes.title')}
+      slide={slideEisenhower}
+      title={t('projects.encryptnotes.title')}
+      badges={['Fullstack', 'Responsive', 'SPA']}
+      description={t('projects.welle.description')}
+      link="https://eisenhower-psi.vercel.app"
       linkText="mikhailyatsenko.github.io/encryptnotes"
       detailsLink="encryptnotes"
     />,

@@ -37,6 +37,18 @@
             "link": "🔗 mikhailyatsenko.github.io/bvg-app-ts",
             "description": "This application designed for viewing real-time arrival times of public transport at stops in Berlin and Brandenburg"
         },
+
+        "eisenhower": {
+            "title": "\"BVG App\" - Berlin Public Transport App",
+            "tags": [
+                "SPA",
+                "Responsive",
+                "FSD Architecture"
+            ],
+            "link": "🔗 eisenhower-psi.vercel.app",
+            "description": "This application designed for viewing real-time arrival times of public transport at stops in Berlin and Brandenburg"
+        },
+        
         "encryptnotes": {
             "title": "\"Encrypt notes\" - Short message encryption service",
             "tags": [
