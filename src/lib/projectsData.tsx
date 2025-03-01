@@ -9,7 +9,10 @@ import reviewImg from '@/assets/projectFeatures/review.svg?url';
 import responsiveImg from '@/assets/projectFeatures/responsive.svg?url';
 import accountImg from '@/assets/projectFeatures/account.svg?url';
 import scheduleImg from '@/assets/projectFeatures/schedule.svg?url';
+import dragImg from '@/assets/projectFeatures/drag.svg?url';
 import architectureImg from '@/assets/projectFeatures/architecture.svg?url';
+import storageImg from '@/assets/projectFeatures/storage.svg?url';
+
 import { TechStackIconKey } from './techStackIconsData';
 import { StaticImageData } from 'next/image';
 
@@ -59,10 +62,10 @@ export const projectsData: ProjectsData = {
   eisenhower: {
     id: 'eisenhower',
     mainImg: eisenhowerMainImg,
-    techStack: ['typescript', 'next', 'zustand', 'webpack'],
+    techStack: ['typescript', 'next', 'zustand', 'webpack', 'tailwind'],
     featuresImgs: [
-      [scheduleImg, mapIcon],
-      [architectureImg, responsiveImg],
+      [scheduleImg, dragImg],
+      [responsiveImg, storageImg],
     ],
   },
 };

@@ -13,7 +13,7 @@ export const Footer = ({ t }: FooterProps) => {
       </p>
 
       <Link
-        href="impressum"
+        href="/impressum"
         className="text-sm text-gray-100 transition-colors hover:text-gray-400"
       >
         {t('footer.legal_notice')}
