@@ -34,7 +34,7 @@ export const projectsData: ProjectsData = {
     techStack: ['react', 'typescript', 'vite', 'node'],
     featuresImgs: [
       [responsiveImg, fullstackAppImg],
-      [speedImg, fullstackAppImg],
+      [speedImg, architectureImg],
     ],
   },
 
