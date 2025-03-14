@@ -22,8 +22,8 @@
           "description": "Das Projekt ist leichtgewichtig und verwendet keine schweren Bibliotheken, um eine hohe Geschwindigkeit zu gewährleisten."
         },
         {
-          "title": "Fullstack-Anwendung",
-          "description": "Die App basiert auf React.js, Node.js und PostgreSQL."
+          "title": "Klare modulare Architektur",
+          "description": "Die Anwendung ist flexibel für Änderungen und Skalierung, was die Entwicklung und Wartung effizienter macht."
         }
       ]
     ]
@@ -90,8 +90,8 @@
           "description": "Sorgt für eine optimale Benutzererfahrung auf verschiedenen Bildschirmgrößen."
         },
         {
-          "title": "Zustandsverwaltung",
-          "description": "Verwendet Zustand für das State Management und persist Middleware zur Speicherung des Zustands im lokalen Speicher."
+          "title": "Datenspeicherung",
+          "description": "Ermöglicht die Speicherung von Daten sowohl auf dem Gerät als auch in der Cloud."
         }
       ]
     ]

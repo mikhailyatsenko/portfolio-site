@@ -22,8 +22,8 @@
           "description": "The project is lightweight and simple, avoiding heavy libraries to ensure fast performance."
         },
         {
-          "title": "Fullstack application",
-          "description": "The app is built with React.js, Node.js and PostgreSQL."
+          "title": "Clear Modular Architecture",
+          "description": "The application is flexible for modifications and scaling, making development and maintenance more efficient."
         }
       ]
     ]
@@ -119,8 +119,8 @@
           "description": "Ensures an optimal user experience across different screen sizes."
         },
         {
-          "title": "State Management",
-          "description": "Uses Zustand for state management and persist middleware to save the state in local storage."
+          "title": "Data Storage",
+          "description": "Provides the ability to store data both on the device and in the cloud."
         }
       ]
     ]
