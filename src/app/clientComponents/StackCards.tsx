@@ -48,7 +48,6 @@ const StackCards: React.FC<StackCardsProps> = ({ cardsArray }) => {
             1.2 - scrollingOffset / item.clientHeight,
           );
 
-          console.log(index, opacity);
           const translateY = marginY * index;
 
           item.style.transform = `translateY(${translateY}px) scale(${scale}) rotate(${rotateCard}deg)`;
