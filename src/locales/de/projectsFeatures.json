@@ -58,7 +58,7 @@
       [
         {
           "title": "Architektur",
-          "description": "Die Anwendung im Frontend folgt der \"Feature-Sliced Design\"-Methodik. Weitere Informationen zum Feature-Sliced Design finden Sie unter <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
+          "description": "Die Anwendung im Frontend folgt der \"Feature-Sliced Design\"-Methodik. Weitere Informationen zum Feature-Sliced Design finden Sie unter <a href=\"https://feature-sliced.github.io/documentation/docs/get-started/overview\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
         },
         {
           "title": "Benutzer-Authentifizierung und Profilverwaltung",

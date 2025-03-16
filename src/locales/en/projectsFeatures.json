@@ -58,7 +58,7 @@
       [
         {
           "title": "Architecture",
-          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
+          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.github.io/documentation/docs/get-started/overview\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
         },
         {
           "title": "User Authentication and Profile Management",
@@ -87,7 +87,7 @@
       [
         {
           "title": "Architecture",
-          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.design\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
+          "description": "The application on frontend follows the \"Feature-Sliced Design\" methodology. For more information on Feature-Sliced Design, visit <a href=\"https://feature-sliced.github.io/documentation/docs/get-started/overview\" class=\"font-bold\" target=\"_blank\">feature-sliced.design</a>."
         },
         {
           "title": "Responsive Design",
