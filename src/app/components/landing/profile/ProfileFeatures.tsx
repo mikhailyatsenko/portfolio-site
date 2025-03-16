@@ -80,15 +80,18 @@ export const ProfileFeatures: React.FC<ProfileFeaturesProps> = ({ t }) => {
         <div
           className={`${cls.stackIcons} flex w-fit flex-wrap justify-center rounded-3xl px-5 py-10`}
         >
-          {Object.entries(techStackIconsData).map(([key, tech]) => (
-            <div
-              key={key}
-              className={`${cls.stackIcon} flex w-1/4 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 h-sm:w-1/3 sm:w-1/6`}
-            >
-              <tech.icon className="h-[40px] w-[40px] fill-foreground" />
-              <h4>{tech.name}</h4>
-            </div>
-          ))}
+          {Object.entries(techStackIconsData).map(([key, tech]) => {
+            if (key === 'postgresql') return null;
+            return (
+              <div
+                key={key}
+                className={`${cls.stackIcon} flex w-1/4 shrink-0 flex-col flex-wrap items-center justify-center gap-1 py-3 transition duration-200 hover:scale-110 h-sm:w-1/3 sm:w-1/6`}
+              >
+                <tech.icon className="h-[40px] w-[40px] fill-foreground" />
+                <h4>{tech.name}</h4>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

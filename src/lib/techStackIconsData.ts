@@ -10,7 +10,7 @@ import ViteIcon from '@/assets/icons/stackIcons/vite.svg';
 import WebpackIcon from '@/assets/icons/stackIcons/webpack.svg';
 import MongoDbIcon from '@/assets/icons/stackIcons/mongodb.svg';
 import ZustandIcon from '@/assets/icons/stackIcons/zustand.svg';
-
+import PostgresqlIcon from '@/assets/icons/stackIcons/postgresql.svg';
 export type TechStackIconKey = keyof typeof techStackIconsData;
 
 export const techStackIconsData = {
@@ -62,5 +62,9 @@ export const techStackIconsData = {
   webpack: {
     name: 'Webpack',
     icon: WebpackIcon,
+  },
+  postgresql: {
+    name: 'PostgreSQL',
+    icon: PostgresqlIcon,
   },
 };

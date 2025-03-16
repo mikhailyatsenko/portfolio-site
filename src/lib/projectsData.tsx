@@ -31,7 +31,7 @@ export const projectsData: ProjectsData = {
   encryptnotes: {
     id: 'encryptnotes',
     mainImg: encryptMainImg,
-    techStack: ['react', 'typescript', 'vite', 'node'],
+    techStack: ['react', 'typescript', 'vite', 'node', 'postgresql'],
     featuresImgs: [
       [responsiveImg, fullstackAppImg],
       [speedImg, architectureImg],
