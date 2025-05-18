@@ -1,9 +1,11 @@
 export enum BadgeTypes {
   Fullstack = 'green',
   Responsive = 'yellow',
-  Frontend = 'blue',
   SPA = 'red',
   'FSD Architecture' = 'purple',
+  'GraphQL' = 'pink',
+  'REST API' = 'indigo',
+  'Drag and Drop' = 'blue',
 }
 
 export interface BadgeProps {
@@ -17,7 +19,7 @@ const Badge: React.FC<BadgeProps> = ({ type }) => {
     yellow: 'bg-yellow-100 text-yellow-800',
     blue: 'bg-blue-100 text-blue-800',
     red: 'bg-red-100 text-red-800',
-    indigo: 'dark:bg-indigo-900 dark:text-indigo-300',
+    indigo: 'bg-indigo-100 text-indigo-800',
     gray: 'bg-gray-100 text-gray-800',
     purple: 'bg-purple-100 text-purple-800',
     pink: 'bg-pink-100 text-pink-800',

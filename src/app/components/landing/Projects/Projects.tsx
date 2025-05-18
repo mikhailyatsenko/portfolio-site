@@ -19,40 +19,37 @@ export const Projects = ({ t }: ProfileProps) => {
       key={t('projects.welle.title')}
       slide={slide3Welle}
       title={t('projects.welle.title')}
-      badges={['Fullstack', 'Responsive', 'FSD Architecture']}
+      badges={['Fullstack', 'Responsive', 'FSD Architecture', 'GraphQL']}
       description={t('projects.welle.description')}
       link="https://3welle.com"
       linkText="3welle.com"
       detailsLink="welle"
     />,
-
-    <ProjectCard
-      key={t('projects.bvg.title')}
-      slide={slideBvg}
-      title={t('projects.bvg.title')}
-      badges={['SPA', 'Responsive', 'FSD Architecture']}
-      description={t('projects.bvg.description')}
-      link="https://mikhailyatsenko.github.io/bvg-app-ts"
-      linkText="mikhailyatsenko.github.io/bvg-app-ts"
-      detailsLink="bvg"
-    />,
-
     <ProjectCard
       key={t('projects.eisenhower.title')}
       slide={slideEisenhower}
       title={t('projects.eisenhower.title')}
-      badges={['FSD Architecture', 'Responsive', 'SPA']}
+      badges={['SPA', 'Responsive', 'FSD Architecture', 'Drag and Drop']}
       description={t('projects.eisenhower.description')}
       link="https://eisenhower-psi.vercel.app"
       linkText="eisenhower-psi.vercel.app"
       detailsLink="eisenhower"
     />,
-
+    <ProjectCard
+      key={t('projects.bvg.title')}
+      slide={slideBvg}
+      title={t('projects.bvg.title')}
+      badges={['SPA', 'Responsive', 'FSD Architecture', 'REST API']}
+      description={t('projects.bvg.description')}
+      link="https://mikhailyatsenko.github.io/bvg-app-ts"
+      linkText="mikhailyatsenko.github.io/bvg-app-ts"
+      detailsLink="bvg"
+    />,
     <ProjectCard
       key={t('projects.encryptnotes.title')}
       slide={slideEncrypt}
       title={t('projects.encryptnotes.title')}
-      badges={['Fullstack', 'Responsive', 'SPA']}
+      badges={['SPA', 'Fullstack', 'Responsive', 'REST API']}
       description={t('projects.encryptnotes.description')}
       link="https://mikhailyatsenko.github.io/encryptnotes"
       linkText="mikhailyatsenko.github.io/encryptnotes"
