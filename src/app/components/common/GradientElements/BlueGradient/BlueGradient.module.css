@@ -1,0 +1,35 @@
+.blueGradient {
+  position: fixed;
+  background: radial-gradient(
+    62.84% 62.84%,
+    rgb(166, 240, 254) 10.42%,
+    rgb(86, 148, 248) 39.58%,
+    rgba(29, 54, 179, 0.33) 73.44%,
+    rgba(11, 24, 86, 0) 100%
+  );
+  top: 0vh;
+  left: 0vw;
+  rotate: 0deg;
+  width: 80vw;
+  height: 80vw;
+  filter: blur(140px);
+  transform: translate(0%, 0%);
+  transition: 4s;
+  /* animation: FadeUp 2s ease-out; */
+}
+
+.blueGradient.profile {
+  transform: translate(10vw, 20vh);
+  width: 80vw;
+  height: 36vw;
+  opacity: 0.9;
+}
+
+/* @keyframes FadeUp {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+} */

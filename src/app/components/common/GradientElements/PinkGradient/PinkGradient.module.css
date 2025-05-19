@@ -1,0 +1,40 @@
+.pinkGradient {
+  position: fixed;
+  background: radial-gradient(
+    63.2% 62.99%,
+    rgb(247, 255, 165) 13.02%,
+    rgb(255, 65, 147) 39.58%,
+    rgba(60, 92, 255, 0.33) 73.44%,
+    rgba(7, 22, 94, 0) 100%
+  );
+  top: -50vh;
+  left: 60vw;
+  rotate: 0deg;
+  width: 56vw;
+  height: 56vw;
+  filter: blur(140px);
+  transform: translate(0%, 0%);
+  transition: 4s;
+  /* animation: FadeUp 2s ease-out forwards; */
+}
+
+/* .pinkGradient.hero {
+  transform: translate(0%, 0%);
+} */
+
+.pinkGradient.profile {
+  transform: translate(20vw, 10vh);
+  rotate: 140deg;
+  width: 100vw;
+  height: 38vw;
+  opacity: 0.7;
+}
+
+/* @keyframes FadeUp {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+} */

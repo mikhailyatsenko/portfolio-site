@@ -177,7 +177,7 @@ const CanvasAnimation: React.FC<CanvasAnimationProps> = ({ theme }) => {
   }, [animate, getDistance, theme]);
 
   return (
-    <canvas ref={canvasRef} className="absolute left-0 top-0 h-full w-full" />
+    <canvas ref={canvasRef} className="fixed left-0 top-0 z-10 h-full w-full" />
   );
 };
 

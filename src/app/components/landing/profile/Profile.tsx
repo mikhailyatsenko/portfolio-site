@@ -13,17 +13,6 @@ interface ProfileProps {
 export const Profile = async ({ t }: ProfileProps) => {
   return (
     <ScrollTrackBlock id="profile">
-      <div className="overlay left">
-        <h2 className="mt-5 text-center text-3xl font-[150] h-sm:text-5xl md:text-6xl">
-          {t('profile.title')}
-        </h2>
-      </div>
-
-      <div className="overlay right">
-        <h2 className="mt-5 text-center text-3xl font-[150] h-sm:text-5xl md:text-6xl">
-          {t('profile.title')}
-        </h2>
-      </div>
       <StickySection>
         <section
           id="profile"
