@@ -12,20 +12,32 @@
   rotate: 0deg;
   width: 80vw;
   height: 80vw;
-  filter: blur(140px);
-  transform: translate(0%, 0%);
+  filter: blur(100px);
   transition: 4s;
+  /* will-change: transform; */
   /* animation: FadeUp 2s ease-out; */
 }
 
 .blueGradient.profile {
-  transform: translate(10vw, 20vh);
-  width: 80vw;
-  height: 36vw;
+  /* transform: translate(10vw, 20vh); */
   opacity: 0.9;
+  /* filter: blur(140px) hue-rotate(90deg); */
 }
 
-/* @keyframes FadeUp {
+.blueGradient.projectsBottom {
+  top: 10px;
+  left: 0;
+  width: 60vw;
+  height: 120px;
+  transition: 1s;
+}
+
+.blueGradient.projects {
+  /* filter: blur(100px) hue-rotate(30deg); */
+}
+
+/* 
+@keyframes FadeUp {
   from {
     opacity: 0.3;
   }

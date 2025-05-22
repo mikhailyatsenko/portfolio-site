@@ -4,12 +4,15 @@ import './globals.css';
 import { Header } from '@/app/components/common/Header';
 
 import { ThemeProvider } from '@/context/ThemeContext';
+import { GradientProvider } from '@/context/GradientContext';
 import { cookies } from 'next/headers';
 import { ContactsWithFooter } from '@/app/components/landing/contacts/ContactsWithFooter';
 import TranslationsProvider from './clientComponents/TranslationsProvider';
 import initTranslations from './i18n';
 import { getLocale } from '@/lib/getLocale';
 import Script from 'next/script';
+import { GradientWrapper } from './clientComponents/GradientWrapper';
+import { ScrollTracker } from './clientComponents/ScrollTracker';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -65,14 +68,18 @@ export default async function RootLayout({
           resources={resources}
         >
           <ThemeProvider serverThemeCookie={serverThemeCookie}>
-            <Header />
-            <main className="relative z-[2] bg-background shadow-sm h-sm:mb-[30rem] sm576:h-sm:mb-96">
-              {children}
-              {modal}
-            </main>
-            <div className="relative bottom-0 z-[1] h-fit w-full h-sm:fixed h-sm:h-[30rem] sm576:h-sm:h-96">
-              <ContactsWithFooter locale={locale} />
-            </div>
+            <GradientProvider>
+              <Header />
+              <main className="relative z-[2] overflow-hidden bg-background shadow-sm h-sm:mb-[30rem] sm576:h-sm:mb-96">
+                <GradientWrapper />
+                {children}
+                {modal}
+                <ScrollTracker />
+              </main>
+              <div className="relative bottom-0 z-[1] h-fit w-full overflow-hidden h-sm:fixed h-sm:h-[30rem] sm576:h-sm:h-96">
+                <ContactsWithFooter locale={locale} />
+              </div>
+            </GradientProvider>
           </ThemeProvider>
         </TranslationsProvider>
       </body>

@@ -10,23 +10,35 @@
   top: -50vh;
   left: 60vw;
   rotate: 0deg;
-  width: 56vw;
-  height: 56vw;
+  width: 60vw;
+  height: 60vw;
   filter: blur(140px);
-  transform: translate(0%, 0%);
+  transform: translate3d(0, 0, 0);
+  /* transform: translate(calc(var(--scroll-progress-profile) * 100%), 0%); */
+  /* will-change: transform; */
   transition: 4s;
   /* animation: FadeUp 2s ease-out forwards; */
 }
 
+.pinkGradient.projectsBottom {
+  top: 10px;
+  right: 0;
+  width: 60vw;
+  height: 60px;
+  transition: 1s;
+}
 /* .pinkGradient.hero {
   transform: translate(0%, 0%);
 } */
 
 .pinkGradient.profile {
   transform: translate(20vw, 10vh);
-  rotate: 140deg;
-  width: 100vw;
-  height: 38vw;
+  opacity: 0.7;
+}
+
+.pinkGradient.projects {
+  width: 60vw;
+  height: 120px;
   opacity: 0.7;
 }
 

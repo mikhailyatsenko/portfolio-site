@@ -4,7 +4,6 @@ import initTranslations from '@/app/i18n';
 import { getLocale } from '@/lib/getLocale';
 import { LandingTranslationKeys } from '@/types/i18nTypes';
 import { Hero } from './components/landing/hero/Hero';
-import { AnimatedBgWrapper } from './components/common/AnimatedBgWrapper';
 
 export default async function Home() {
   const locale = await getLocale();
@@ -14,10 +13,10 @@ export default async function Home() {
   };
 
   return (
-    <AnimatedBgWrapper>
+    <>
       <Hero t={t} />
       <Profile t={t} />
       <Projects t={t} />
-    </AnimatedBgWrapper>
+    </>
   );
 }
